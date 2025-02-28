@@ -7,7 +7,7 @@ treatments = {exp: list(experiments[exp].keys()) for exp in experiments}
 # Define final outputs for the plotting rule
 rule all:
     input:
-        ["Result_master_dir/{exp}/done_plotting.txt".format(exp=exp) for exp in experiments.keys()]
+        expand("Result_master_dir/{experiment}/main_{experiment}.pdf", experiment=config["experiments"].keys())
 
 ### I simulate Lotka-Volterra dynamics in a spatially explicit system.
 # 'Outputs are a bunch of .csv's which are saved into my parent/subdirectory folder 'in-script'. 
@@ -87,3 +87,16 @@ rule plot_fig:
         Rscript simulation_code/plotFig.R {params.workdir_param} {wildcards.exp} 
         touch {output}
         """
+
+### Now I will load my generated figures into a simple LaTeX document, which in a more extensive
+# version could contain a whole range of analyses compiled into a single .pdf, which the user could
+# inspect after running the code
+rule latex:
+    input:
+        "main.tex", 
+        lambda wildcards: f"Result_master_dir/{wildcards.experiment}/Fig2_B.svg", 
+        lambda wildcards: f"Result_master_dir/{wildcards.experiment}/Fig2_C.svg"
+    output:
+        "Result_master_dir/{experiment}/main_{experiment}.pdf"
+    shell:
+        "pdflatex -jobname=Result_master_dir/{wildcards.experiment}/main_{wildcards.experiment} main.tex"
