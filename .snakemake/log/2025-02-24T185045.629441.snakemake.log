@@ -1,0 +1,68 @@
+host: beepboop
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 3
+Rules claiming more threads will be scaled down.
+Job stats:
+job                          count
+-------------------------  -------
+all                              1
+processing_community_data        2
+simulate_community_data          2
+total                            5
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Mon Feb 24 18:50:45 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/c1/done_simulation.txt
+    jobid: 4
+    reason: Missing output files: Result_master_dir/Fig2/c1/done_simulation.txt
+    wildcards: exp=Fig2, treatment=c1
+    resources: tmpdir=/tmp
+
+
+[Mon Feb 24 18:50:45 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/s1/done_simulation.txt
+    jobid: 2
+    reason: Missing output files: Result_master_dir/Fig2/s1/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s1
+    resources: tmpdir=/tmp
+
+[Mon Feb 24 18:51:01 2025]
+Finished job 2.
+1 of 5 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Feb 24 18:51:01 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig2/s1/done_simulation.txt
+    output: Result_master_dir/Fig2/s1/done_processing.txt
+    jobid: 1
+    reason: Missing output files: Result_master_dir/Fig2/s1/done_processing.txt; Input files updated by another job: Result_master_dir/Fig2/s1/done_simulation.txt; Set of input files has changed since last execution
+    wildcards: exp=Fig2, treatment=s1
+    resources: tmpdir=/tmp
+
+[Mon Feb 24 18:51:03 2025]
+Error in rule processing_community_data:
+    jobid: 1
+    input: Result_master_dir/Fig2/s1/done_simulation.txt
+    output: Result_master_dir/Fig2/s1/done_processing.txt
+    shell:
+        
+        Rscript simulation_code/master_slurm_analysis.R /home/swani/Documents/computational_research_tools/homework4/SAMSARA Fig2 s1 --n_num=25 --nrep=2 --noise=0.1
+        touch Result_master_dir/Fig2/s1/done_processing.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Feb 24 18:51:04 2025]
+Finished job 4.
+2 of 5 steps (40%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-02-24T185045.629441.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

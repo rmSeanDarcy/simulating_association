@@ -1,0 +1,9 @@
+host: beepboop
+Building DAG of jobs...
+InputFunctionException in rule all in file /home/swani/Documents/computational_research_tools/homework4/SAMSARA/Snakefile, line 8:
+Error:
+  AttributeError: 'Wildcards' object has no attribute 'exp'
+Wildcards:
+
+Traceback:
+  File "/home/swani/Documents/computational_research_tools/homework4/SAMSARA/Snakefile", line 11, in <lambda> (rule all, line 10, /home/swani/Documents/computational_research_tools/homework4/SAMSARA/Snakefile)

@@ -1,0 +1,6 @@
+host: beepboop
+Building DAG of jobs...
+MissingInputException in rule all in file /home/swani/Documents/computational_research_tools/homework4/SAMSARA/Snakefile, line 8:
+Missing input files for rule all:
+    affected files:
+        Result_master_dir/Fig2/done_collecting.txt

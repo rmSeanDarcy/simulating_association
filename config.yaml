@@ -1,0 +1,73 @@
+workdir: "/home/swani/Documents/computational_research_tools/homework4/SAMSARA"
+
+experiments:
+  Fig2:
+    s1:
+      param_string: "basic"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+    c1:
+      param_string: "null_int"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+    c2:
+      param_string: "null_rsc"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+    s2:
+      param_string: "basic"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+        --ratio_cf: 0.5
+    s3:
+      param_string: "basic"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+        --rsc_cube_gen_rule: ['specific_dist']
+        --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
+    s4:
+      param_string: "basic"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+        --noise: 0.1
+    s5:
+      param_string: "basic"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+        --sp_ini_perc: 0.8
+  Fig3:
+    rc1:
+      param_string: "basic"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+        --rsc_cube_gen_rule: ['fix_same']
+        --rsc_cube_gen_vals: "0"
+    rs1:
+      param_string: "basic"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+        --rsc_cube_gen_rule: ['fix_same']
+        --rsc_cube_gen_vals: "5"
+    rs2:
+      param_string: "basic"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+        --rsc_cube_gen_rule: ['fix_same']
+        --rsc_cube_gen_vals: "10"
+    rs3:
+      param_string: "basic"
+      extra_params:
+        --n_num: 25
+        --nrep: 2
+        --rsc_cube_gen_rule: ['specific_dist']
+        --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
