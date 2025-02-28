@@ -1,9 +1,0 @@
-host: beepboop
-Building DAG of jobs...
-InputFunctionException in rule collecting_treatment_data in file /home/swani/Documents/computational_research_tools/homework4/SAMSARA/Snakefile, line 62:
-Error:
-  KeyError: 'Fig2/s1'
-Wildcards:
-  exp=Fig2/s1
-Traceback:
-  File "/home/swani/Documents/computational_research_tools/homework4/SAMSARA/Snakefile", line 66, in <lambda> (rule collecting_treatment_data, line 106, /home/swani/Documents/computational_research_tools/homework4/SAMSARA/Snakefile)
