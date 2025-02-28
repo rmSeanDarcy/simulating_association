@@ -4,13 +4,7 @@ configfile: "config.yaml"
 experiments = config["experiments"]
 treatments = {exp: list(experiments[exp].keys()) for exp in experiments}
 
-# Define final outputs for all combinations of experiments and treatments
-#rule all:
-#    input:
-#        # Manually create a list of paths for each combination of exp and treatment
-#        *["Result_master_dir/{exp}/done_collecting.txt".format(exp=exp, treatment=treatment)
-#          for exp in experiments.keys()
-#          for treatment in treatments[exp]]
+# Define final outputs for the plotting rule
 rule all:
     input:
         ["Result_master_dir/{exp}/done_plotting.txt".format(exp=exp) for exp in experiments.keys()]
@@ -55,7 +49,7 @@ rule processing_community_data:
         touch {output}
         """
 
-### Here I take all results from my different treatments and plot the results of an entire 'experiment'
+### Here I collect all results from my different treatments of an entire 'experiment'
 # Quite simple: Just takes all the results files of treatments in an experiment and creates one final .csv
 # in the experiment folder that contains all results in one.
 # It also adds some minor things like labels etc. for plotting.
@@ -75,10 +69,10 @@ rule collecting_treatment_data:
         touch {output}
         """
 
-### Here I take all results from my different treatments and plot the results of an entire 'experiment'
-# Quite simple: Just takes all the results files of treatments in an experiment and creates one final .csv
-# in the experiment folder that contains all results in one.
-# It also adds some minor things like labels etc. for plotting.
+### Here I take all the collected results and plot the results of an entire 'experiment'
+# This is currently just a barplot with each treatment as a bar. A total bar represents all co-occurrences,
+# Different parts of the bar are coloured by how many co-occurrences corresponded to interactions and/or
+# environmental preference similarity
 rule plot_fig:
     input:
         lambda wildcards: [
