@@ -11,6 +11,9 @@ cd SAMSARA
 conda env create -f homework4.yaml
 conda activate homework4
 
+### 3. !VERY IMPORTANT! Change the workdir in 'config.yaml' to your working directory!!!
+workdir: "/your/path/workdir/here"
+
 # 3. Run the snakemake file
 snakemake -c 6 		# Or whatever number of cores you want ('--cores all' also works)
 

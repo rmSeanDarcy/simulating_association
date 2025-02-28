@@ -15,6 +15,7 @@ The goal of this project was to evaluate the inference potential species 'co-occ
 
 My previous workflow:
 I have been working without git. I have simulated data and done preliminary analysis on the cluster. For this I generated slurm scripts in a python script and had to execute them by hand. One issue here is that due to stringing a bunch of different scripts behind one another some required heavy resources and some could be parallelised, while others required few resources but needed to be in series. In retrospect, these should be separate scripts, which could be perfectly run with individually specified resources in a workflow manager. For everything post simulation and preliminary analysis (null model testing etc) I did a lot of explorative data analysis for which the workflow manager is less optimal. This means that I had to adapt my final plotting function to work with any run experiments. This part I would not normally add to my snakemake workflow as users of this model would have their own intentions for analysing the data. At least for this automated snakemake workflow makes less sense.
+One thing, which I messed up here also is that I often refer to working directories by paths. So for simulating and processing the data my first input is always the working directory, which seems quite unnecessary as I could always refer to the relative paths from my main working directory. This is why it is important to change the working directory in the 'config.yaml' file for the workflow to work...
 
 
 My workflow in snakemake:

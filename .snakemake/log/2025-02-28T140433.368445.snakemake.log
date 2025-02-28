@@ -1,0 +1,142 @@
+host: ter
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                          count
+-------------------------  -------
+all                              1
+collecting_treatment_data        2
+plot_fig                         2
+processing_community_data       11
+simulate_community_data         11
+total                           27
+
+Select jobs to execute...
+Execute 6 jobs...
+
+[Fri Feb 28 14:04:33 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/s2/done_simulation.txt
+    jobid: 10
+    reason: Missing output files: Result_master_dir/Fig2/s2/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s2
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 14:04:33 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig3/rc1/done_simulation.txt
+    jobid: 20
+    reason: Missing output files: Result_master_dir/Fig3/rc1/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rc1
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 14:04:33 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/s3/done_simulation.txt
+    jobid: 12
+    reason: Missing output files: Result_master_dir/Fig2/s3/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s3
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 14:04:33 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig3/rs1/done_simulation.txt
+    jobid: 22
+    reason: Missing output files: Result_master_dir/Fig3/rs1/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rs1
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 14:04:33 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/s1/done_simulation.txt
+    jobid: 4
+    reason: Missing output files: Result_master_dir/Fig2/s1/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s1
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 14:04:33 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/c2/done_simulation.txt
+    jobid: 8
+    reason: Missing output files: Result_master_dir/Fig2/c2/done_simulation.txt
+    wildcards: exp=Fig2, treatment=c2
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 14:04:34 2025]
+[Fri Feb 28 14:04:34 2025]
+Error in rule simulate_community_data:
+    jobid: 12
+    output: Result_master_dir/Fig2/s3/done_simulation.txt
+    shell:
+        
+        python3 simulation_code/master_slurm_simulation.py /home/swani/Documents/computational_research_tools/homework4/SAMSARA Fig2 s3 basic --n_num=25 --nrep=2 --rsc_cube_gen_rule=['specific_dist'] --rsc_cube_gen_vals=['pwl_spcXsqrX10', 'gradXsqrXtd', 'gradXnmlXlr']
+        touch Result_master_dir/Fig2/s3/done_simulation.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule simulate_community_data:
+    jobid: 20
+    output: Result_master_dir/Fig3/rc1/done_simulation.txt
+    shell:
+        
+        python3 simulation_code/master_slurm_simulation.py /home/swani/Documents/computational_research_tools/homework4/SAMSARA Fig3 rc1 basic --n_num=25 --nrep=2 --rsc_cube_gen_rule=['fix_same'] --rsc_cube_gen_vals=0
+        touch Result_master_dir/Fig3/rc1/done_simulation.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Feb 28 14:04:34 2025]
+Error in rule simulate_community_data:
+    jobid: 4
+    output: Result_master_dir/Fig2/s1/done_simulation.txt
+    shell:
+        
+        python3 simulation_code/master_slurm_simulation.py /home/swani/Documents/computational_research_tools/homework4/SAMSARA Fig2 s1 basic --n_num=25 --nrep=2
+        touch Result_master_dir/Fig2/s1/done_simulation.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Feb 28 14:04:34 2025]
+Error in rule simulate_community_data:
+    jobid: 10
+    output: Result_master_dir/Fig2/s2/done_simulation.txt
+    shell:
+        
+        python3 simulation_code/master_slurm_simulation.py /home/swani/Documents/computational_research_tools/homework4/SAMSARA Fig2 s2 basic --n_num=25 --nrep=2 --ratio_cf=0.5
+        touch Result_master_dir/Fig2/s2/done_simulation.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Feb 28 14:04:34 2025]
+Error in rule simulate_community_data:
+    jobid: 8
+    output: Result_master_dir/Fig2/c2/done_simulation.txt
+    shell:
+        
+        python3 simulation_code/master_slurm_simulation.py /home/swani/Documents/computational_research_tools/homework4/SAMSARA Fig2 c2 null_rsc --n_num=25 --nrep=2
+        touch Result_master_dir/Fig2/c2/done_simulation.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Feb 28 14:04:34 2025]
+Error in rule simulate_community_data:
+    jobid: 22
+    output: Result_master_dir/Fig3/rs1/done_simulation.txt
+    shell:
+        
+        python3 simulation_code/master_slurm_simulation.py /home/swani/Documents/computational_research_tools/homework4/SAMSARA Fig3 rs1 basic --n_num=25 --nrep=2 --rsc_cube_gen_rule=['fix_same'] --rsc_cube_gen_vals=5
+        touch Result_master_dir/Fig3/rs1/done_simulation.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-02-28T140433.368445.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

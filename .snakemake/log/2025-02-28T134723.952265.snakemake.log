@@ -1,0 +1,9 @@
+host: ter
+Building DAG of jobs...
+InputFunctionException in rule latex in file /home/sean/Documents/testhmwfolder/SAMSARA/Snakefile, line 94:
+Error:
+  AttributeError: 'Wildcards' object has no attribute 'exp'
+Wildcards:
+  experiment=Fig2
+Traceback:
+  File "/home/sean/Documents/testhmwfolder/SAMSARA/Snakefile", line 96, in <lambda> (rule latex, line 176, /home/sean/Documents/testhmwfolder/SAMSARA/Snakefile)

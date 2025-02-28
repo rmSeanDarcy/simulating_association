@@ -1,0 +1,9 @@
+host: ter
+Building DAG of jobs...
+MissingInputException in rule latex in file /home/sean/Documents/testhmwfolder/SAMSARA/Snakefile, line 95:
+Missing input files for rule latex:
+    output: Result_master_dir/Fig2/main_Fig2.pdf
+    wildcards: exp=Fig2
+    affected files:
+        Result_master_dir/Fig2/Fig2_B.png
+        Result_master_dir/Fig2/Fig2_C.png

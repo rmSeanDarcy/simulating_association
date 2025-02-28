@@ -1,0 +1,61 @@
+host: ter
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count
+---------  -------
+all              1
+rmarkdown        2
+total            3
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Fri Feb 28 15:19:15 2025]
+localrule rmarkdown:
+    input: Result_master_dir/Fig2/done_plotting.txt, Result_master_dir/Fig2/Fig2_B.png, Result_master_dir/Fig2/Fig2_C.png
+    output: Result_master_dir/Fig2/main_Fig2.pdf
+    jobid: 1
+    reason: Missing output files: Result_master_dir/Fig2/main_Fig2.pdf; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'report_template.Rmd' 
+    wildcards: exp=Fig2
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 15:19:15 2025]
+localrule rmarkdown:
+    input: Result_master_dir/Fig3/done_plotting.txt, Result_master_dir/Fig3/Fig2_B.png, Result_master_dir/Fig3/Fig2_C.png
+    output: Result_master_dir/Fig3/main_Fig3.pdf
+    jobid: 18
+    reason: Missing output files: Result_master_dir/Fig3/main_Fig3.pdf; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 'report_template.Rmd' 
+    wildcards: exp=Fig3
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 15:19:16 2025]
+Error in rule rmarkdown:
+    jobid: 18
+    input: Result_master_dir/Fig3/done_plotting.txt, Result_master_dir/Fig3/Fig2_B.png, Result_master_dir/Fig3/Fig2_C.png
+    output: Result_master_dir/Fig3/main_Fig3.pdf
+    shell:
+        
+        Rscript -e "rmarkdown::render('report_template.Rmd', output_file='Result_master_dir/Fig3/main_Fig3.pdf')"
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Feb 28 15:19:16 2025]
+Error in rule rmarkdown:
+    jobid: 1
+    input: Result_master_dir/Fig2/done_plotting.txt, Result_master_dir/Fig2/Fig2_B.png, Result_master_dir/Fig2/Fig2_C.png
+    output: Result_master_dir/Fig2/main_Fig2.pdf
+    shell:
+        
+        Rscript -e "rmarkdown::render('report_template.Rmd', output_file='Result_master_dir/Fig2/main_Fig2.pdf')"
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-02-28T151915.747652.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -63,9 +63,9 @@ plotdims = c(4,4)
 ###########################################################################################
 ##### Fig.2 B,C) Matching co-occurrences                                              #####
 p <- plot_match_allruns_eucintp(pd_hab,label_mode = 'none',titltxt = 'plot_match_allruns_eucintp',hnum, plotdims = c(4,4))
-sjPlot::save_plot(paste0(workdir,'/Result_master_dir/',parent_set_of_analyses,'/Fig2_B.svg'), fig = p)
+sjPlot::save_plot(paste0(workdir,'/Result_master_dir/',parent_set_of_analyses,'/Fig2_B.png'), fig = p)
 p <- plot_match_allruns_eucintn(pd_hab,label_mode = 'none',titltxt = 'plot_match_allruns_eucintn',hnum, plotdims = c(4,4))
-sjPlot::save_plot(paste0(workdir,'/Result_master_dir/',parent_set_of_analyses,'/Fig2_C.svg'), fig = p)
+sjPlot::save_plot(paste0(workdir,'/Result_master_dir/',parent_set_of_analyses,'/Fig2_C.png'), fig = p)
 
 
 

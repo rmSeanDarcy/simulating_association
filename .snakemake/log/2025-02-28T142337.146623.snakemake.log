@@ -1,0 +1,64 @@
+host: ter
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                          count
+-------------------------  -------
+all                              1
+collecting_treatment_data        2
+plot_fig                         2
+total                            5
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Fri Feb 28 14:23:37 2025]
+localrule collecting_treatment_data:
+    input: Result_master_dir/Fig3/rc1/done_processing.txt, Result_master_dir/Fig3/rs1/done_processing.txt, Result_master_dir/Fig3/rs2/done_processing.txt, Result_master_dir/Fig3/rs3/done_processing.txt
+    output: Result_master_dir/Fig3/done_collecting.txt
+    jobid: 18
+    reason: Missing output files: Result_master_dir/Fig3/done_collecting.txt
+    wildcards: exp=Fig3
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 14:23:37 2025]
+localrule collecting_treatment_data:
+    input: Result_master_dir/Fig2/s1/done_processing.txt, Result_master_dir/Fig2/c1/done_processing.txt, Result_master_dir/Fig2/c2/done_processing.txt, Result_master_dir/Fig2/s2/done_processing.txt, Result_master_dir/Fig2/s3/done_processing.txt, Result_master_dir/Fig2/s4/done_processing.txt, Result_master_dir/Fig2/s5/done_processing.txt
+    output: Result_master_dir/Fig2/done_collecting.txt
+    jobid: 2
+    reason: Missing output files: Result_master_dir/Fig2/done_collecting.txt
+    wildcards: exp=Fig2
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 14:23:37 2025]
+Error in rule collecting_treatment_data:
+    jobid: 2
+    input: Result_master_dir/Fig2/s1/done_processing.txt, Result_master_dir/Fig2/c1/done_processing.txt, Result_master_dir/Fig2/c2/done_processing.txt, Result_master_dir/Fig2/s2/done_processing.txt, Result_master_dir/Fig2/s3/done_processing.txt, Result_master_dir/Fig2/s4/done_processing.txt, Result_master_dir/Fig2/s5/done_processing.txt
+    output: Result_master_dir/Fig2/done_collecting.txt
+    shell:
+        
+        Rscript simulation_code/collect_treatments.R /home/sean/Documents/testhmwfolder/SAMSARA Fig2 
+        touch Result_master_dir/Fig2/done_collecting.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Feb 28 14:23:37 2025]
+Error in rule collecting_treatment_data:
+    jobid: 18
+    input: Result_master_dir/Fig3/rc1/done_processing.txt, Result_master_dir/Fig3/rs1/done_processing.txt, Result_master_dir/Fig3/rs2/done_processing.txt, Result_master_dir/Fig3/rs3/done_processing.txt
+    output: Result_master_dir/Fig3/done_collecting.txt
+    shell:
+        
+        Rscript simulation_code/collect_treatments.R /home/sean/Documents/testhmwfolder/SAMSARA Fig3 
+        touch Result_master_dir/Fig3/done_collecting.txt
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-02-28T142337.146623.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -7,7 +7,7 @@ treatments = {exp: list(experiments[exp].keys()) for exp in experiments}
 # Define final outputs for the plotting rule
 rule all:
     input:
-        expand("Result_master_dir/{experiment}/main_{experiment}.pdf", experiment=config["experiments"].keys())
+        expand("Result_master_dir/{experiment}/report_{experiment}.pdf", experiment=config["experiments"].keys())  # Add LaTeX output here
 
 ### I simulate Lotka-Volterra dynamics in a spatially explicit system.
 # 'Outputs are a bunch of .csv's which are saved into my parent/subdirectory folder 'in-script'. 
@@ -62,7 +62,7 @@ rule collecting_treatment_data:
     output:
         "Result_master_dir/{exp}/done_collecting.txt" # A dummy output file
     params:
-        workdir_param=config["workdir"],
+        workdir_param=config["workdir"]
     shell:
         """
         Rscript simulation_code/collect_treatments.R {params.workdir_param} {wildcards.exp} 
@@ -88,15 +88,19 @@ rule plot_fig:
         touch {output}
         """
 
-### Now I will load my generated figures into a simple LaTeX document, which in a more extensive
+### Now I will load my generated figures into a simple Rmarkdown document, which in a more extensive
 # version could contain a whole range of analyses compiled into a single .pdf, which the user could
 # inspect after running the code
-rule latex:
+rule rmarkdown:
     input:
-        "main.tex", 
-        lambda wildcards: f"Result_master_dir/{wildcards.experiment}/Fig2_B.svg", 
-        lambda wildcards: f"Result_master_dir/{wildcards.experiment}/Fig2_C.svg"
+        "Result_master_dir/{exp}/done_plotting.txt",  # Ensure the plotting is done
+        "Result_master_dir/{exp}/Fig2_B.png",  # The generated figure
+        "Result_master_dir/{exp}/Fig2_C.png",  # The generated figure
     output:
-        "Result_master_dir/{experiment}/main_{experiment}.pdf"
+        "Result_master_dir/{exp}/report_{exp}.pdf",  # The generated PDF report
+    params:
+        rmd_file="report_template.Rmd",  # Path to the R Markdown template
     shell:
-        "pdflatex -jobname=Result_master_dir/{wildcards.experiment}/main_{wildcards.experiment} main.tex"
+        """
+        Rscript -e "rmarkdown::render('report_template.Rmd', output_file='Result_master_dir/{wildcards.exp}/report_{wildcards.exp}.pdf', params = list(experiment = '{wildcards.exp}'))"
+        """

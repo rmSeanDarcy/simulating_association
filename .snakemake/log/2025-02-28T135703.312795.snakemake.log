@@ -1,0 +1,7 @@
+host: ter
+Building DAG of jobs...
+MissingInputException in rule all in file /home/sean/Documents/testhmwfolder/SAMSARA/Snakefile, line 8:
+Missing input files for rule all:
+    affected files:
+        Result_master_dir/Fig2/main_Fig2.pdf
+        Result_master_dir/Fig3/main_Fig3.pdf

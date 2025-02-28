@@ -1,8 +1,8 @@
 ###########################################################################################
 ### SAMSARA - Loading Set of analyses data and preparing for plotting                   ###
 ###########################################################################################
-workdir = '/home/swani/Documents/computational_research_tools/homework4/SAMSARA'
-setwd(workdir)
+#workdir = '/home/swani/Documents/computational_research_tools/homework4/SAMSARA'
+#setwd(workdir)
 #parent_set_of_analyses = 'Fig2'
 
 ###########################################################################################
