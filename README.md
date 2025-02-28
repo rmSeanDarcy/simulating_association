@@ -33,9 +33,11 @@ Rule 3. collects all of these data generated in 'treatments' into a single file 
 
 Rule 4. then plots all treatments in an experiment in a barplot. The bars show the mean number of co-occurrences with additional colouring for the number of co-occurrences that could be either matched with interactions or/and similarity in environmental preference.
 
+Rule 5. I added this last minute to fill up my 5 mandatory rules... Generates a very basic markdown file which can be seen as a report for the analysed experiments. The output is stored in the experiment folder.
+
 Rule all for the final output.
 
-(I only have four rules in this project right now because this is the way I set up my project. I know 5 was the required minimum... It would make most sense to split Rule 2. into two steps, one where I calculate the significant co-occurrences and another one in which I can do the analysis of matching inputs and co-occurrences. Sadly I lacked the time to do this because the code is very large and the way it is now it would have taken too long to separate it. But I will definately do this once I have more time!)
+(I only have five rules in this project right now because this is the way I set up my project. I know 5 was the required minimum... It would make most sense to split Rule 2. into two steps, one where I calculate the significant co-occurrences and another one in which I can do the analysis of matching inputs and co-occurrences. Sadly I lacked the time to do this because the code is very large and the way it is now it would have taken too long to separate it. But I will definately do this once I have more time!)
 
 
 My opinion on this homework:
