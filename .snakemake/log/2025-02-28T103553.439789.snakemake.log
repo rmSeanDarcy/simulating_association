@@ -1,0 +1,398 @@
+host: beepboop
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                          count
+-------------------------  -------
+all                              1
+collecting_treatment_data        2
+plot_fig                         2
+processing_community_data       11
+simulate_community_data         11
+total                           27
+
+Select jobs to execute...
+Execute 6 jobs...
+
+[Fri Feb 28 10:35:53 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/s2/done_simulation.txt
+    jobid: 10
+    reason: Missing output files: Result_master_dir/Fig2/s2/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s2
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 10:35:53 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig3/rc1/done_simulation.txt
+    jobid: 20
+    reason: Missing output files: Result_master_dir/Fig3/rc1/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rc1
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 10:35:53 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/s3/done_simulation.txt
+    jobid: 12
+    reason: Missing output files: Result_master_dir/Fig2/s3/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s3
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 10:35:53 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig3/rs1/done_simulation.txt
+    jobid: 22
+    reason: Missing output files: Result_master_dir/Fig3/rs1/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rs1
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 10:35:53 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/s1/done_simulation.txt
+    jobid: 4
+    reason: Missing output files: Result_master_dir/Fig2/s1/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s1
+    resources: tmpdir=/tmp
+
+
+[Fri Feb 28 10:35:53 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/c2/done_simulation.txt
+    jobid: 8
+    reason: Missing output files: Result_master_dir/Fig2/c2/done_simulation.txt
+    wildcards: exp=Fig2, treatment=c2
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:36:39 2025]
+Finished job 4.
+1 of 27 steps (4%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:36:39 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig3/rs3/done_simulation.txt
+    jobid: 26
+    reason: Missing output files: Result_master_dir/Fig3/rs3/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rs3
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:36:42 2025]
+Finished job 12.
+2 of 27 steps (7%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:36:42 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/s5/done_simulation.txt
+    jobid: 16
+    reason: Missing output files: Result_master_dir/Fig2/s5/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s5
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:36:43 2025]
+Finished job 10.
+3 of 27 steps (11%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:36:43 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/c1/done_simulation.txt
+    jobid: 6
+    reason: Missing output files: Result_master_dir/Fig2/c1/done_simulation.txt
+    wildcards: exp=Fig2, treatment=c1
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:36:55 2025]
+Finished job 22.
+4 of 27 steps (15%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:36:55 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig2/s2/done_simulation.txt
+    output: Result_master_dir/Fig2/s2/done_processing.txt
+    jobid: 9
+    reason: Missing output files: Result_master_dir/Fig2/s2/done_processing.txt; Input files updated by another job: Result_master_dir/Fig2/s2/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s2
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:37:11 2025]
+Finished job 9.
+5 of 27 steps (19%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:37:11 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig3/rs2/done_simulation.txt
+    jobid: 24
+    reason: Missing output files: Result_master_dir/Fig3/rs2/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rs2
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:37:27 2025]
+Finished job 8.
+6 of 27 steps (22%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:37:27 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig2/c2/done_simulation.txt
+    output: Result_master_dir/Fig2/c2/done_processing.txt
+    jobid: 7
+    reason: Missing output files: Result_master_dir/Fig2/c2/done_processing.txt; Input files updated by another job: Result_master_dir/Fig2/c2/done_simulation.txt
+    wildcards: exp=Fig2, treatment=c2
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:37:40 2025]
+Finished job 26.
+7 of 27 steps (26%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:37:41 2025]
+localrule simulate_community_data:
+    output: Result_master_dir/Fig2/s4/done_simulation.txt
+    jobid: 14
+    reason: Missing output files: Result_master_dir/Fig2/s4/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s4
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:37:45 2025]
+Finished job 16.
+8 of 27 steps (30%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:37:45 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig2/s5/done_simulation.txt
+    output: Result_master_dir/Fig2/s5/done_processing.txt
+    jobid: 15
+    reason: Missing output files: Result_master_dir/Fig2/s5/done_processing.txt; Input files updated by another job: Result_master_dir/Fig2/s5/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s5
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:37:46 2025]
+Finished job 7.
+9 of 27 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:37:46 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig3/rs3/done_simulation.txt
+    output: Result_master_dir/Fig3/rs3/done_processing.txt
+    jobid: 25
+    reason: Missing output files: Result_master_dir/Fig3/rs3/done_processing.txt; Input files updated by another job: Result_master_dir/Fig3/rs3/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rs3
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:37:46 2025]
+Finished job 20.
+10 of 27 steps (37%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:37:46 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig2/s3/done_simulation.txt
+    output: Result_master_dir/Fig2/s3/done_processing.txt
+    jobid: 11
+    reason: Missing output files: Result_master_dir/Fig2/s3/done_processing.txt; Input files updated by another job: Result_master_dir/Fig2/s3/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s3
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:37:50 2025]
+Finished job 6.
+11 of 27 steps (41%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:37:51 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig2/c1/done_simulation.txt
+    output: Result_master_dir/Fig2/c1/done_processing.txt
+    jobid: 5
+    reason: Missing output files: Result_master_dir/Fig2/c1/done_processing.txt; Input files updated by another job: Result_master_dir/Fig2/c1/done_simulation.txt
+    wildcards: exp=Fig2, treatment=c1
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:03 2025]
+Finished job 25.
+12 of 27 steps (44%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:03 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig2/s1/done_simulation.txt
+    output: Result_master_dir/Fig2/s1/done_processing.txt
+    jobid: 3
+    reason: Missing output files: Result_master_dir/Fig2/s1/done_processing.txt; Input files updated by another job: Result_master_dir/Fig2/s1/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s1
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:03 2025]
+Finished job 15.
+13 of 27 steps (48%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:03 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig3/rs1/done_simulation.txt
+    output: Result_master_dir/Fig3/rs1/done_processing.txt
+    jobid: 21
+    reason: Missing output files: Result_master_dir/Fig3/rs1/done_processing.txt; Input files updated by another job: Result_master_dir/Fig3/rs1/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rs1
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:04 2025]
+Finished job 11.
+14 of 27 steps (52%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:04 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig3/rc1/done_simulation.txt
+    output: Result_master_dir/Fig3/rc1/done_processing.txt
+    jobid: 19
+    reason: Missing output files: Result_master_dir/Fig3/rc1/done_processing.txt; Input files updated by another job: Result_master_dir/Fig3/rc1/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rc1
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:08 2025]
+Finished job 5.
+15 of 27 steps (56%) done
+[Fri Feb 28 10:38:21 2025]
+Finished job 21.
+16 of 27 steps (59%) done
+[Fri Feb 28 10:38:21 2025]
+Finished job 19.
+17 of 27 steps (63%) done
+[Fri Feb 28 10:38:22 2025]
+Finished job 3.
+18 of 27 steps (67%) done
+[Fri Feb 28 10:38:27 2025]
+Finished job 24.
+19 of 27 steps (70%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:27 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig3/rs2/done_simulation.txt
+    output: Result_master_dir/Fig3/rs2/done_processing.txt
+    jobid: 23
+    reason: Missing output files: Result_master_dir/Fig3/rs2/done_processing.txt; Input files updated by another job: Result_master_dir/Fig3/rs2/done_simulation.txt
+    wildcards: exp=Fig3, treatment=rs2
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:34 2025]
+Finished job 14.
+20 of 27 steps (74%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:34 2025]
+localrule processing_community_data:
+    input: Result_master_dir/Fig2/s4/done_simulation.txt
+    output: Result_master_dir/Fig2/s4/done_processing.txt
+    jobid: 13
+    reason: Missing output files: Result_master_dir/Fig2/s4/done_processing.txt; Input files updated by another job: Result_master_dir/Fig2/s4/done_simulation.txt
+    wildcards: exp=Fig2, treatment=s4
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:36 2025]
+Finished job 23.
+21 of 27 steps (78%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:36 2025]
+localrule collecting_treatment_data:
+    input: Result_master_dir/Fig3/rc1/done_processing.txt, Result_master_dir/Fig3/rs1/done_processing.txt, Result_master_dir/Fig3/rs2/done_processing.txt, Result_master_dir/Fig3/rs3/done_processing.txt
+    output: Result_master_dir/Fig3/done_collecting.txt
+    jobid: 18
+    reason: Missing output files: Result_master_dir/Fig3/done_collecting.txt; Input files updated by another job: Result_master_dir/Fig3/rs1/done_processing.txt, Result_master_dir/Fig3/rc1/done_processing.txt, Result_master_dir/Fig3/rs3/done_processing.txt, Result_master_dir/Fig3/rs2/done_processing.txt
+    wildcards: exp=Fig3
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:36 2025]
+Finished job 18.
+22 of 27 steps (81%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:36 2025]
+localrule plot_fig:
+    input: Result_master_dir/Fig3/done_collecting.txt
+    output: Result_master_dir/Fig3/done_plotting.txt
+    jobid: 17
+    reason: Missing output files: Result_master_dir/Fig3/done_plotting.txt; Input files updated by another job: Result_master_dir/Fig3/done_collecting.txt
+    wildcards: exp=Fig3
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:39 2025]
+Finished job 17.
+23 of 27 steps (85%) done
+[Fri Feb 28 10:38:42 2025]
+Finished job 13.
+24 of 27 steps (89%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:42 2025]
+localrule collecting_treatment_data:
+    input: Result_master_dir/Fig2/s1/done_processing.txt, Result_master_dir/Fig2/c1/done_processing.txt, Result_master_dir/Fig2/c2/done_processing.txt, Result_master_dir/Fig2/s2/done_processing.txt, Result_master_dir/Fig2/s3/done_processing.txt, Result_master_dir/Fig2/s4/done_processing.txt, Result_master_dir/Fig2/s5/done_processing.txt
+    output: Result_master_dir/Fig2/done_collecting.txt
+    jobid: 2
+    reason: Missing output files: Result_master_dir/Fig2/done_collecting.txt; Input files updated by another job: Result_master_dir/Fig2/s3/done_processing.txt, Result_master_dir/Fig2/s4/done_processing.txt, Result_master_dir/Fig2/c2/done_processing.txt, Result_master_dir/Fig2/s5/done_processing.txt, Result_master_dir/Fig2/c1/done_processing.txt, Result_master_dir/Fig2/s1/done_processing.txt, Result_master_dir/Fig2/s2/done_processing.txt
+    wildcards: exp=Fig2
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:42 2025]
+Finished job 2.
+25 of 27 steps (93%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:42 2025]
+localrule plot_fig:
+    input: Result_master_dir/Fig2/done_collecting.txt
+    output: Result_master_dir/Fig2/done_plotting.txt
+    jobid: 1
+    reason: Missing output files: Result_master_dir/Fig2/done_plotting.txt; Input files updated by another job: Result_master_dir/Fig2/done_collecting.txt
+    wildcards: exp=Fig2
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:44 2025]
+Finished job 1.
+26 of 27 steps (96%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Feb 28 10:38:44 2025]
+localrule all:
+    input: Result_master_dir/Fig2/done_plotting.txt, Result_master_dir/Fig3/done_plotting.txt
+    jobid: 0
+    reason: Input files updated by another job: Result_master_dir/Fig3/done_plotting.txt, Result_master_dir/Fig2/done_plotting.txt
+    resources: tmpdir=/tmp
+
+[Fri Feb 28 10:38:44 2025]
+Finished job 0.
+27 of 27 steps (100%) done
+Complete log: .snakemake/log/2025-02-28T103553.439789.snakemake.log
