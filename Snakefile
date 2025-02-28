@@ -79,7 +79,7 @@ rule collecting_treatment_data:
 # Quite simple: Just takes all the results files of treatments in an experiment and creates one final .csv
 # in the experiment folder that contains all results in one.
 # It also adds some minor things like labels etc. for plotting.
-rule plot_fig2:
+rule plot_fig:
     input:
         lambda wildcards: [
             f"Result_master_dir/{wildcards.exp}/done_collecting.txt"  # Ensure processing is complete
