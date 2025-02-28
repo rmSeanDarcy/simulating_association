@@ -1,3 +1,0 @@
-,nrep,errors,n_num,rsc_num,radius,rsc_cube_gen_rule,rsc_cube_gen_vals,sp_num,perc_comp,perc_facil,int_minmax,sp_ini_perc,D_set,var_sp_int,mean_sp_int,shape
-0,0,0,25,3,0,fix_same,0,10,0.4,0.09999999999999998,0.5,1,0.0,0.03822415392540782,0.09618984214438873,100
-0,1,0,25,3,0,fix_same,0,10,0.4,0.09999999999999998,0.5,1,0.0,0.039708402372095136,0.06788898542725937,100

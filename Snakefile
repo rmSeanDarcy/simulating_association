@@ -94,8 +94,8 @@ rule plot_fig:
 rule rmarkdown:
     input:
         "Result_master_dir/{exp}/done_plotting.txt",  # Ensure the plotting is done
-        "Result_master_dir/{exp}/Fig2_B.png",  # The generated figure
-        "Result_master_dir/{exp}/Fig2_C.png",  # The generated figure
+        #"Result_master_dir/{exp}/Fig2_B.png",  # The generated figure
+        #"Result_master_dir/{exp}/Fig2_C.png",  # The generated figure
     output:
         "Result_master_dir/{exp}/report_{exp}.pdf",  # The generated PDF report
     params:

@@ -13,6 +13,8 @@ conda activate homework4
 
 ### 3. !VERY IMPORTANT! Change the workdir in 'config.yaml' to your working directory!!!
 workdir: "/your/path/workdir/here"
+# This is an oversight on my part and I should make all of this independent of setting working dirs
+# I would have had to change a lot of my code, but relative paths is the way to go!!!
 
 # 3. Run the snakemake file
 snakemake -c 6 		# Or whatever number of cores you want ('--cores all' also works)
