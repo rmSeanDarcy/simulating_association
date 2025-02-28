@@ -11,8 +11,8 @@ cd SAMSARA
 conda env create -f homework4.yaml
 conda activate homework4
 
-### 3. !VERY IMPORTANT! Change the workdir in 'config.yaml' to your working directory!!!
-workdir: "/your/path/workdir/here"
+### 3. !!!VERY IMPORTANT!!! Change the workdir in 'config.yaml' to your working directory
+# -> workdir: "/your/path/workdir/here"
 # This is an oversight on my part and I should make all of this independent of setting working dirs
 # I would have had to change a lot of my code, but relative paths is the way to go!!!
 
