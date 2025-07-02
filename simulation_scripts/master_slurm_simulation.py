@@ -18,55 +18,41 @@ import os
 import getopt
 import sys
 
-
 ##############################################################################################################################
-##### 1. Set working directory, define initial set of conditions and create output directories
+##### 1. Load function scripts
 ##############################################################################################################################
-## Unhash if inputs given in .bash script
-workdir = sys.argv[1]
-parentdirnm = sys.argv[2]
-subdirnm = sys.argv[3]
-std_init_cond = sys.argv[4]
-
-##############################################################################################################################
-## Inputs for manual runs:
-# Give here your path to the main directory in which you aim to simulate data -> '.../SAMSARA_repository'
-# This main directory should contain the folder structure we note in the main README.md file
-# Whenever we refer to files in scripts the initial './' acts as a stand in for this main directory path (= workdir)
-#workdir = '/run/user/1000/gvfs/sftp:host=share19.univie.ac.at,user=seand93/TER/PROJECTS/SomSOM/Step_III/SAMSARA/Code/SAMSARA_repository'
-# Every run generated will be generated with a parent- and a subdirectory: These are defined here
-#parentdirnm = 'Test_parent'
-#subdirnm = 'Test_subdirectory'
-# We provide a set of standard inputs based -> See file './Load_simulation_functions/set_standard_initial_conditions.py'
-#std_init_cond = 'basic'
-#-> the 'basic' standard initial conditions contains the settings that are used in most simulations and mentioned in the paper
-# as default conditions (i.e. 10 species, 300 habitats, ...). If you open this file and check the function 'set_initial_conditions_basic'
-# you can see what all of these settings are and find a documentation for what these individual parameters mean.
-print("workdir:", workdir)
-
-## If the parent directory does not exist yet it is generated here, otherwise just the subdirectory is generated here
-os.makedirs(os.path.join(workdir, 'Result_master_dir', parentdirnm), exist_ok=True)
-os.makedirs(os.path.join(workdir, 'Result_master_dir', parentdirnm, subdirnm), exist_ok=True)
-#os.mkdir(workdir+'/Result_master_dir/'+parentdirnm+'/'+subdirnm, exist_ok=True)
-os.chdir(os.path.join(workdir, 'Result_master_dir', parentdirnm, subdirnm))
-
-
-##############################################################################################################################
-##### 2. Load function scripts
-##############################################################################################################################
-os.sys.path.append(workdir+'/simulation_code/Load_simulation_functions')
+sys.path.append(os.path.abspath('./simulation_scripts/simulation_functions'))
+os.sys.path.append('./simulation_scripts/simulation_functions')
 from set_species import *
 from set_NW import *
 from set_dynamics import *
 from set_standard_initial_conditions import *
 
+##############################################################################################################################
+##### 2. Set working directory, define initial set of conditions and create output directories
+##############################################################################################################################
+## Unhash if inputs given in .bash script
+#experiment = sys.argv[1]
+#group = sys.argv[2]
+#simulation = sys.argv[3]
+#std_init_cond = sys.argv[4]
+
+experiment = 'fig1'
+treatment = 'r1'
+simulation = 'r1'
+std_init_cond = 'basic'
+
+## If the parent directory does not exist yet it is generated here, otherwise just the subdirectory is generated here
+os.makedirs(os.path.join('./simulation_data', experiment), exist_ok=True)
+os.makedirs(os.path.join('./simulation_data', experiment, treatment), exist_ok=True)
+os.makedirs(os.path.join('./simulation_data', experiment, treatment, simulation), exist_ok=True)
+os.chdir(os.path.join('./simulation_data', experiment, treatment, simulation))
 
 ##############################################################################################################################
 ##### 3. Initialise parameters from bash input
 ##############################################################################################################################
 ### All functions called in this section can be found in './Load_simulation_functions/set_standard_initial_conditions.py'
-
-## Here the standard initial conditions are called -> These are based on the parameter 'std_init_cond' defined above (here = 'basic')
+# Here the standard initial conditions are called -> These are based on the parameter 'std_init_cond' defined above (here = 'basic')
 n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod = set_initial_conditions(std_init_cond)
 ## This next function was added to overwrite what is defined in the standard initial conditions by adding additional arguments to the .bash command
 #n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod = set_cmd_conditions(n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod)
@@ -201,7 +187,10 @@ param_log.to_csv("param_log.csv")
 
 ## Settings and parameters: One values for all runs
 # This is used! But keep in mind that this only saves the parameter values at this final point, so none that vary between runs
-settings_log = pd.DataFrame([['std_init_cond',std_init_cond],
+settings_log = pd.DataFrame([['experiment',experiment],
+                            ['treatment',treatment],
+                            ['simulation',simulation],
+                            ['std_init_cond',std_init_cond],
                             ['n_num',n_num],
                             ['rsc_num',rsc_num],
                             ['rsc_cube_gen_rule',rsc_cube_gen_rule], 
