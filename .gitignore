@@ -1,0 +1,10 @@
+### Ignore data files
+*.csv
+*.tsv
+*.pdf
+*.svg
+*.png
+*.jpg
+simulation_data/
+figures/
+

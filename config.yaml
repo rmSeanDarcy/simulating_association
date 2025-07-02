@@ -1,73 +1,376 @@
-workdir: "/home/sean/Documents/new_test_folder/SAMSARA"
-
 experiments:
-  Fig2:
+
+  fig2:
     s1:
-      param_string: "basic"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
+      parameter_set: "basic"
+      simulations:
+        s1:
+  	  extra_params: {}
     c1:
-      param_string: "null_int"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
+      parameter_set: "null_int"
+      simulations:
+        c1:
+  	  extra_params: {}
     c2:
-      param_string: "null_rsc"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
+      parameter_set: "null_rsc"
+      simulations:
+        c2:
+  	  extra_params: {}
     s2:
-      param_string: "basic"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
-        --ratio_cf: 0.5
+      parameter_set: "basic"
+      simulations:
+        s2:
+      	  extra_params:
+            --ratio_cf: 0.5
     s3:
-      param_string: "basic"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
-        --rsc_cube_gen_rule: ['specific_dist']
-        --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
+      parameter_set: "basic"
+      simulations:
+        s3:
+      	  extra_params:
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
     s4:
-      param_string: "basic"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
-        --noise: 0.1
+      parameter_set: "basic"
+      simulations:
+        s4:
+	  extra_params:
+            --noise: 0.1
     s5:
-      param_string: "basic"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
-        --sp_ini_perc: 0.8
-  Fig3:
+      parameter_set: "basic"
+      simulations:
+        s5:
+	  extra_params:
+            --sp_ini_perc: 0.8
+        
+  fig3:
     rc1:
-      param_string: "basic"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
-        --rsc_cube_gen_rule: ['fix_same']
-        --rsc_cube_gen_vals: "0"
+      parameter_set: "metacom"
+      simulations:
+        radius_0:
+          extra_params:
+            --radius: 0
+            --rsc_cube_gen_vals: "0"
+        radius_0.05:
+          extra_params:
+            --radius: 0.05
+            --rsc_cube_gen_vals: "0"
+        radius_0.1:
+          extra_params:
+            --radius: 0.1
+            --rsc_cube_gen_vals: "0"
+        radius_0.15:
+          extra_params:
+            --radius: 0.15
+            --rsc_cube_gen_vals: "0"
+        radius_0.2:
+          extra_params:
+            --radius: 0.2
+            --rsc_cube_gen_vals: "0"
+        radius_0.25:
+          extra_params:
+            --radius: 0.25
+            --rsc_cube_gen_vals: "0"
+        radius_0.3:
+          extra_params:
+            --radius: 0.3
+            --rsc_cube_gen_vals: "0"
+        radius_0.35:
+          extra_params:
+            --radius: 0.35
+            --rsc_cube_gen_vals: "0"
+        radius_0.4:
+          extra_params:
+            --radius: 0.4
+            --rsc_cube_gen_vals: "0"
+        radius_0.45:
+          extra_params:
+            --radius: 0.45
+            --rsc_cube_gen_vals: "0"
+        radius_0.5:
+          extra_params:
+            --radius: 0.5
+            --rsc_cube_gen_vals: "0"            
     rs1:
-      param_string: "basic"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
-        --rsc_cube_gen_rule: ['fix_same']
-        --rsc_cube_gen_vals: "5"
+      parameter_set: "metacom"
+      simulations:
+        radius_0:
+          extra_params:
+            --radius: 0
+            --rsc_cube_gen_vals: "5"
+        radius_0.05:
+          extra_params:
+            --radius: 0.05
+            --rsc_cube_gen_vals: "5"
+        radius_0.1:
+          extra_params:
+            --radius: 0.1
+            --rsc_cube_gen_vals: "5"
+        radius_0.15:
+          extra_params:
+            --radius: 0.15
+            --rsc_cube_gen_vals: "5"
+        radius_0.2:
+          extra_params:
+            --radius: 0.2
+            --rsc_cube_gen_vals: "5"
+        radius_0.25:
+          extra_params:
+            --radius: 0.25
+            --rsc_cube_gen_vals: "5"
+        radius_0.3:
+          extra_params:
+            --radius: 0.3
+            --rsc_cube_gen_vals: "5"
+        radius_0.35:
+          extra_params:
+            --radius: 0.35
+            --rsc_cube_gen_vals: "5"
+        radius_0.4:
+          extra_params:
+            --radius: 0.4
+            --rsc_cube_gen_vals: "5"
+        radius_0.45:
+          extra_params:
+            --radius: 0.45
+            --rsc_cube_gen_vals: "5"
+        radius_0.5:
+          extra_params:
+            --radius: 0.5
+            --rsc_cube_gen_vals: "5"            
     rs2:
-      param_string: "basic"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
-        --rsc_cube_gen_rule: ['fix_same']
-        --rsc_cube_gen_vals: "10"
+      parameter_set: "metacom"
+      simulations:
+        radius_0:
+          extra_params:
+            --radius: 0
+            --rsc_cube_gen_vals: "10"
+        radius_0.05:
+          extra_params:
+            --radius: 0.05
+            --rsc_cube_gen_vals: "10"
+        radius_0.1:
+          extra_params:
+            --radius: 0.1
+            --rsc_cube_gen_vals: "10"
+        radius_0.15:
+          extra_params:
+            --radius: 0.15
+            --rsc_cube_gen_vals: "10"
+        radius_0.2:
+          extra_params:
+            --radius: 0.2
+            --rsc_cube_gen_vals: "10"
+        radius_0.25:
+          extra_params:
+            --radius: 0.25
+            --rsc_cube_gen_vals: "10"
+        radius_0.3:
+          extra_params:
+            --radius: 0.3
+            --rsc_cube_gen_vals: "10"
+        radius_0.35:
+          extra_params:
+            --radius: 0.35
+            --rsc_cube_gen_vals: "10"
+        radius_0.4:
+          extra_params:
+            --radius: 0.4
+            --rsc_cube_gen_vals: "10"
+        radius_0.45:
+          extra_params:
+            --radius: 0.45
+            --rsc_cube_gen_vals: "10"
+        radius_0.5:
+          extra_params:
+            --radius: 0.5
+            --rsc_cube_gen_vals: "10"            
     rs3:
-      param_string: "basic"
-      extra_params:
-        --n_num: 25
-        --nrep: 2
-        --rsc_cube_gen_rule: ['specific_dist']
-        --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+      parameter_set: "metacom"
+      simulations:
+        radius_0:
+          extra_params:
+            --radius: 0
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.05:
+          extra_params:
+            --radius: 0.05
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.1:
+          extra_params:
+            --radius: 0.1
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.15:
+          extra_params:
+            --radius: 0.15
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.2:
+          extra_params:
+            --radius: 0.2
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.25:
+          extra_params:
+            --radius: 0.25
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.3:
+          extra_params:
+            --radius: 0.3
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.35:
+          extra_params:
+            --radius: 0.35
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.4:
+          extra_params:
+            --radius: 0.4
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.45:
+          extra_params:
+            --radius: 0.45
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.5:
+          extra_params:
+            --radius: 0.5
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+    rs3_noise:
+      parameter_set: "metacom"
+      simulations:
+        radius_0:
+          extra_params:
+            --noise: 0.1
+            --radius: 0
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.1:
+          extra_params:
+            --noise: 0.1
+            --radius: 0.1
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.2:
+          extra_params:
+            --noise: 0.1
+            --radius: 0.2
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.3:
+          extra_params:
+            --noise: 0.1
+            --radius: 0.3
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.4:
+          extra_params:
+            --noise: 0.1
+            --radius: 0.4
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+        radius_0.5:
+          extra_params:
+            --noise: 0.1
+            --radius: 0.5
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+
+  fig4:
+    rc1:
+      parameter_set: "volume_sampling"
+      simulations:
+        rc1:
+  	  extra_params:
+  	    --rsc_cube_gen_vals: "0"
+    rs1:
+      parameter_set: "volume_sampling"
+      simulations:
+        rs1:
+  	  extra_params:
+  	    --rsc_cube_gen_vals: "5"
+    rs2:
+      parameter_set: "volume_sampling"
+      simulations:
+        rs2:
+  	  extra_params:
+  	    --rsc_cube_gen_vals: "10"
+    rs3:
+      parameter_set: "volume_sampling"
+      simulations:
+        rs3:
+      	  extra_params:
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
+    as1:
+      parameter_set: "volume_sampling"
+      simulations:
+        as1:
+      	  extra_params:
+            --noise: 0.1
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
+    as2:
+      parameter_set: "volume_sampling"
+      simulations:
+        as2:
+	  extra_params:
+            --radius: 0.1
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
+    as3:
+      parameter_set: "volume_sampling"
+      simulations:
+        as3:
+	  extra_params:
+            --sp_ini_perc: 0.8
+            --rsc_cube_gen_rule: ['specific_dist']
+            --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
+    rc1_noise:
+      parameter_set: "volume_sampling"
+      simulations:
+        noise_0.1:
+  	  extra_params:
+  	    --noise: 0.1
+  	    --rsc_cube_gen_vals: "0"
+        noise_0.25:
+  	  extra_params:
+  	    --noise: 0.25
+  	    --rsc_cube_gen_vals: "0"
+    rc2_noise:
+      parameter_set: "volume_sampling"
+      simulations:
+        noise_0.1:
+  	  extra_params:
+  	    --noise: 0.1
+  	    --rsc_cube_gen_vals: "5"
+        noise_0.25:
+  	  extra_params:
+  	    --noise: 0.25
+  	    --rsc_cube_gen_vals: "5"
+    rs3_noise:
+      parameter_set: "volume_sampling"
+      simulations:
+        noise_0.1:
+  	  extra_params:
+  	    --noise: 0.1
+  	    --rsc_cube_gen_vals: "10"
+        noise_0.25:
+  	  extra_params:
+  	    --noise: 0.25
+  	    --rsc_cube_gen_vals: "10"  	    
+
+  fig5:
+    nw:
+      parameter_set: "network_simulation"
+      simulations:
+        nw:
+  	  extra_params:
+  	    --sp_num: 25
+
