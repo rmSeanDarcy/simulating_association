@@ -32,15 +32,15 @@ from set_standard_initial_conditions import *
 ##### 2. Set working directory, define initial set of conditions and create output directories
 ##############################################################################################################################
 ## Unhash if inputs given in .bash script
-#experiment = sys.argv[1]
-#group = sys.argv[2]
-#simulation = sys.argv[3]
-#std_init_cond = sys.argv[4]
+experiment = sys.argv[1]
+group = sys.argv[2]
+simulation = sys.argv[3]
+std_init_cond = sys.argv[4]
 
-experiment = 'fig1'
-treatment = 'r1'
-simulation = 'r1'
-std_init_cond = 'basic'
+#experiment = 'fig1'
+#treatment = 'r1'
+#simulation = 'r1'
+#std_init_cond = 'basic'
 
 ## If the parent directory does not exist yet it is generated here, otherwise just the subdirectory is generated here
 os.makedirs(os.path.join('./simulation_data', experiment), exist_ok=True)
@@ -58,8 +58,8 @@ n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,ru
 #n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod = set_cmd_conditions(n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod)
 
 ## If you are interested in changing certain settings this is where you can do so manually:
-nrep = 2            # We here only simulate 2 runs (the standard number of replicates is 100)
-n_num = 25          # We only simulate 25 habitats (the standard number of habitats being 300)
+#nrep = 2            # We here only simulate 2 runs (the standard number of replicates is 100)
+#n_num = 25          # We only simulate 25 habitats (the standard number of habitats being 300)
 # See the function 'set_initial_conditions_basic' in './Load_simulation_functions/set_standard_initial_conditions.py'
 # to find a list of all parameters and what they mean
 
@@ -160,7 +160,7 @@ for q in range(nrep):
     hab_indiv_data_log = pd.concat([hab_indiv_data_log,pd.concat([pd.DataFrame(n_nbr_num), hab_xtra], axis = 1)])
     rsc_indiv_data_log = pd.concat([rsc_indiv_data_log,rsc_xtra])
     n_pop_log_log = pd.concat([n_pop_log_log,pd.concat([pd.DataFrame(n_pop_log[-1]), hab_xtra], axis = 1)])
-    ### In the first run both generated resource landscape data is saved, as well as species abundance over 100 timepoints is saved
+    ### In the first run both generated resource landscape data, as well as species abundance over 100 timepoints is saved
     if q == 0:
         savesteps = np.round(np.linspace(0, evt_dur, num = 101))
         n_pop_log_log_first = pd.DataFrame(n_pop_log[:,0,:])

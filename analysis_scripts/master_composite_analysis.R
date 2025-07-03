@@ -3,22 +3,22 @@
 ###########################################################################################
 library(dplyr)
 library(vegan)
-#library(utils)
 library(reshape2)
-library(igraph)
-library(caret)
+#library(utils)
+#library(igraph)
+#library(caret)
 
 ##############################################################################################################################
-##### 1. Set working directory, select run to be analysed and set sampling noise
+##### 1. Get passed arguments, load analysis functions and set working directory
 ##############################################################################################################################
 
 ###########################################################################################
 ### This script too was designed to run in a .bash script and takes the same first three inputs as master_slurm_simulation.py
 #args <- commandArgs(TRUE)
 args <- commandArgs(trailingOnly=TRUE)
-workdir <- args[1]
-parentdirnm <- args[2]
-subdirnm <- args[3]
+experiment <- args[1]
+treatment <- args[2]
+simulation <- args[3]
 # Extract the remaining arguments as a single string
 paramstr <- ifelse(length(args) > 3, args[4], "")
 ### Now we need to first check whether noise is in the additional arguments and if so we need to extract the value 
@@ -28,24 +28,22 @@ if (grepl('noise', paramstr)) {
 } else {
   noise_std <- 0
 }
-
 ###########################################################################################
 ### Inputs for manual runs 
-# workdir should always be the same for all simulations and analyses! -> 'SAMSARA_repository' in repository and on github
-#workdir = '/run/user/1000/gvfs/sftp:host=share19.univie.ac.at,user=seand93/TER/PROJECTS/SomSOM/Step_III/SAMSARA/Code/SAMSARA_repository'
-# The following are generated during the simulation of community data (in master_slurm_simulation.py) so select which run you want to analyse
-#parentdirnm = 'Test_parent'
-#subdirnm = 'Test_subdirectory'
-#noise_std <- 0.0
+experiment <- 'fig1'
+treatment <- 'r1'
+simulation <- 'r1'
+noise_std <- 0
 
 ###########################################################################################
 ### Here we load all of the data analysis functions that are contained in scripts within the folder './Load_analysis_functions'
-setwd(workdir)
-for (i in list.files(path= paste(workdir,c('/simulation_code/Load_analysis_functions'),sep=''), full.names=TRUE)) {
+for (i in list.files(path=('./analysis_scripts/analysis_functions'),full.names=TRUE)) {
   source(i)
 }
-### Finally, set the new working directory to the specific run you want to analyse
-setwd(paste(workdir,"/","Result_master_dir","/",parentdirnm,"/",subdirnm,sep=""))
+
+###########################################################################################
+### Set working directory to simulation
+setwd(paste0('./simulation_data/',experiment,'/',treatment,'/',simulation))
 
 
 ##############################################################################################################################
@@ -61,7 +59,6 @@ nxyz <- read.csv("./node_xyz_log.csv")[,-1]
 kabs <- read.csv("./n_kabs_log.csv")[,-1]
 eucdm <- read.csv("./euc_rsc_prf_sim_mat_log.csv")[,-1]
 intm <- read.csv("./sp_int_mat_log.csv")[,-1]
-
 ###########################################################################################
 ### Extract information / Set parameters
 cube_dim <- as.numeric(settings[settings$setting == 'shape',2])     # Dimensions of cube from 'shape' input
@@ -71,7 +68,7 @@ rsc_num <- as.numeric(settings[settings$setting == 'rsc_num',2])    # Number of 
 hab_nms <- unique(kabs$n_nms)           # Names of habitats
 sp_nms <- colnames(npop)[1:sp_num]      # Names of habitats
 rsc_nms <- colnames(kabs)[1:rsc_num]    # Names of habitats
-
+noise_std <- 0                          # as.numeric(settings[settings$setting == 'rsc_num',2])    # Number of resources
 ###########################################################################################
 ### Delete erroneous runs -> See why in description of gLV integration in './Load_simulation_functions/set_dynamics.py'
 err_runs <- npop[npop$err > 0,]
@@ -84,7 +81,6 @@ eucdm <- eucdm[!eucdm$repl %in% err_runs_idx,]
 intm <- intm[!intm$repl %in% err_runs_idx,]
 ### Get all run indices without errors in runs
 r_num <- unique(npop$repl) 
-
 ###########################################################################################
 # In some very rare cases species abundances are fixed at 0.001 for the entire simulation. This is the case when a species is in an
 # unfavourable habitat (meaning K_{i,h} < 0.1) and has no interaction partners. As all species are initialised with an abundance 
@@ -93,7 +89,6 @@ ini_abd <- 0.001
 npop_copy <- npop[,1:sp_num]
 npop_copy[npop_copy <= ini_abd] <- 0
 npop <- cbind(npop_copy, npop[,c(sp_num+1:4)])
-
 ###########################################################################################
 ### Adding noise to population data
 # There are two options, but only the abundance adjusted noise (noise_mode <- 'habitat_adj') is presented in the paper!
@@ -102,6 +97,7 @@ noise_mode <- 'habitat_adj'           # 'fixed_val_norm', 'habitat_adj'
 if (noise_std > 0) {
   npop <- add_noise_per_habitat(npop, noise_std, noise_mode)  
 }
+
 
 ##############################################################################################################################
 ##### 3. Set additional parameters for analysis
@@ -112,7 +108,6 @@ if (noise_std > 0) {
 sdim_vec <- c(0.333)                  # This value is not needed in this script! It becomes relevant in the 'master_slurm_analysis_cubes.R' script
 ncubes_vec <- c(25)                   # Number of habitats that are randomly sampled -> Needs to be equal to or lower than n_num. 
 # Here either a single number or a vector can be provided. Results will always have a column 'Hab_subsmplX' with X being the number of habitats sampled 
-
 ###########################################################################################
 ### Figuring out the upper and lower quantiles of the average distribution of environmental preferences similarity E_{ij} 
 # The 'get_Qs' function can be found in './Load_analysis_functions/miscelaneous_functions.R'
@@ -140,7 +135,7 @@ write.csv(settings,'settings_updated.csv')
 ##############################################################################################################################
 ##### 3. Set additional parameters for analysis
 ##############################################################################################################################
-print('hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
+
 ###########################################################################################
 ### Apply all analyses -> get_comp_res found in './Load_analysis_functions/main_functions.R' is the main function in which analysis scripts are called
 comp_res <- get_comp_res(sp_num, rsc_num, r_num, npop, kabs, nxyz, nperm2, p_val_thr2, eucdm, ncubes_vec, euc_thr_neg, euc_thr_pos, corcoeff_thr_neg, corcoeff_thr_pos)

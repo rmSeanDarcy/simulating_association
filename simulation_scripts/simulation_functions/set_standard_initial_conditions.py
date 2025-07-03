@@ -7,22 +7,19 @@ import numpy as np
 import random
 import os
 
-
 ###############################################################################################
 ### Defining which set of basic initial conditions a script will be working with            ###
 ###############################################################################################
 
 ###############################################################################################
-### Combining both interaction and resource effects
+### s1+ Combining both interaction and resource effects
 ## Call 'basic' in function 'set_initial_conditions(std_init_cond = basic)'
 def set_initial_conditions_basic():
-
     ### Basic environment settings:
-    n_num = 300                     		# Number of habitats
+    n_num = 25                     		    # Number of habitats
     rsc_num = 3             				# Number of resources
     radius = 0              		  		# Connectivity radius d_{e} for habitats to become connected
     shape = (100, 100, 100)             	# Dimension of resource landscapes -> Gives number of voxels that are generated 
-
     ### Settings for resource distribution scenarios
     ## 1. Simple input  
     # 'fix_same' -> All three (depending on rsc_num) resource landscapes have the same lambda input (prevalence of small scale spatial structures, see 'Fyeld_generator' documentation)
@@ -30,14 +27,12 @@ def set_initial_conditions_basic():
     # If rsc_cube_gen_rule = 'fix_same', then the 'rsc_cube_gen_vals' parameter can only take a single value as input
     rsc_cube_gen_vals = '0'                 # [5], [10] (or any other value)
     # If rsc_cube_gen_rule = 'fix_same', then this 'squared_rsc' parameter can be set to either take the basic outputs from 'Fyeld_generator' ('normal') or to subsequently square the values ('squared')
-    squared_rsc = 'squared'                 # 'squared', 'normal'
-
+    squared_rsc = 'squared'                 # 'squared', 'normal' -> Doesn't have a stron impact on results
     ## 2. Manual input
     # 'specific_dist' -> Tells the function that every resource landscape will be generated individually 
     #rsc_cube_gen_rule = 'specific_dist'         # 'fix_same', 'specific_dist'
     # If rsc_cube_gen_rule = 'specific_dist', then the rsc_cube_gen_vals contains a vector of strings for every number of resources (rsc_num).
     #rsc_cube_gen_vals = 'pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX9.99'   # 'pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr'
-    
     # The logic of these strings goes as follows:    
     # A. The first part, so before the first 'X' of the string, contains an identifyer what kind of resource landscape should be generated
     # pwl_spc 	-> landscape via Fyeld_generator
@@ -46,7 +41,6 @@ def set_initial_conditions_basic():
     # C. The last part, after the second 'X' depends on the first input
     # If the first input was 'pwl_spc' then this gives the lambda input
     # If the first input was 'grad' then here one can define from which side to which a gradient should be drawn (f.ex. 'td' = top -> down, or 'lr' = left -> right)
-    
     ### Species settings:
     sp_num = 10                             # Number of species
     per_sp_int = 2.25 	         			# Number of interactions per species 
@@ -54,33 +48,25 @@ def set_initial_conditions_basic():
     ratio_cf = 0.8 		               		# The ratio of competition to facilitation in the realised interactions
     int_minmax = 0.5    	      			# This gives the maximal interaction strength (not altered in the manuscript), minimum values is 0.1 
     int_mod = 'rdm_unif'                    # Mode for which interaction coefficients are generated (not altered in the manuscript) -> Random uniform value between 0.1 and 0.5 (or -0.1 and -0.5) 
-    
     kmod = 'keep'                           # Modifies K for the control scenario c1 (interactions only) 
-    # If 'rdm_uniform' or 'rdm_normal' -> Random K's are drawn (from uniform distribution or normal distribution); If 'equal' -> Keep generated K's 
-    
+    # If 'rdm_uniform' or 'rdm_normal' -> Random K's are drawn (from uniform distribution or normal distribution); If 'equal' -> Keep generated K's     
     kcoeff = 1 				             	# Value for modifying species K's (not altered in manuscript) -> Keep fixed at 1!	
     neg_frac_kcoeff = 0.1 	         		# Threshold for K beneath which, species growth rates are set to zero
-    # Multiplied with kcoeff in 'set_additional_conditions' function below, but as kcoeff fixed at 1 -> neg_frac_kcoeff = threshold
-    
+    # Multiplied with kcoeff in 'set_additional_conditions' function below, but as kcoeff fixed at 1 -> neg_frac_kcoeff = threshold    
     pref_type = 'sequential'                # 'sequential', 'independent'    
-    # Method of assigning species preference. Only 'sequential' is used in paper, 'independent' favours more generalist preferences
-    
+    # Method of assigning species preference. Only 'sequential' is used in paper, 'independent' favours more generalist preferences    
     ### Simulation parameters:
     evt_num = 1                             # Allows time periods of dispersal ('events') and periods without. Fixed at 1 in all analyses in paper! 
     evt_dur_var = 100,100                   # Related to setting above and gives duration and variability of events. Fixed at 100,100!
     run_time = 100                          # This is the total runtime of simulation
     sim_steps = 5000                        # These are the simulation step sizes input 
-    # See 'set_additional_conditions' function below for how this is further modified as an input for the integrator
-    
+    # See 'set_additional_conditions' function below for how this is further modified as an input for the integrator    
     sp_ini_perc = 1                         # This gives the fraction of species that are randomly selected to colonise a habitat
     # In scenario s5 sp_ini_perc = 0.8
     sp_ini_abd = 0.001                      # The abundance of species when starting simulations
-
     D_set = 0.0                             # The diffusion coefficient
     # This is further modified in the 'set_additional_conditions' function below as the strength of the diffusion also depends on time steps
-
-    nrep = 100                              # Number of simulations or replicates
-    
+    nrep = 100                              # Number of simulations or replicates   
     ### Deprecated and not being used in functions anymore, so set to any value
     neg_grw_thr = 1                         # Now re-calculated in 'set_additional_conditions', still requires input here, but will be overwritten
     return n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod 
@@ -90,7 +76,7 @@ def set_initial_conditions_basic():
 ## Call 'null_int' in function 'set_initial_conditions(std_init_cond = null_int)'
 def set_initial_conditions_null_int():
     ### Basic environment settings:
-    n_num = 300                     	
+    n_num = 25
     rsc_num = 3 			
     radius = 0  			
     shape = (100, 100, 100)             
@@ -120,13 +106,12 @@ def set_initial_conditions_null_int():
     nrep = 100
     return n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod 
 
-
 ###############################################################################################
 ### Control c2: Null conditions for resource based assembly -> No interactions are active
 ## Call 'null_rsc' in function 'set_initial_conditions(std_init_cond = null_rsc)'
 def set_initial_conditions_null_rsc():
     ### Habitat network settings:
-    n_num = 300                    
+    n_num = 25
     ### Resource distribution settings:
     rsc_num = 3
     radius = 0
@@ -157,11 +142,10 @@ def set_initial_conditions_null_rsc():
     nrep = 100
     return n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod 
 
-
 ###############################################################################################
 ### Adding metacommunity dynamics
 ###############################################################################################
-### Settings used for figure 3 
+### rc1,rs1+ Settings used for figure 3 
 # -> Sets default connectivity radius d_e{e} (radius = 0.2) and diffusion coefficient (D_set = 0.1)
 # We also setz the 'sim_steps' argument to 10000! This is because more integration steps improve the accurracy of solved differential equation (here via Runge Kutta method)
 ## Call 'metacom' in function 'set_initial_conditions(std_init_cond = metacom)'
@@ -198,6 +182,45 @@ def set_initial_conditions_metacom():
     nrep = 100
     return n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod 
 
+###############################################################################################
+### Simulating data for volume sampling
+###############################################################################################
+### rc1,rs1+ Settings used for figure 4 
+# -> Here we set
+## Call 'metacom' in function 'set_initial_conditions(std_init_cond = metacom)'
+def set_initial_conditions_volume_sampling():
+    ### Habitat network settings:
+    n_num = 3000
+    ### Resource distribution settings:
+    rsc_num = 3
+    radius = 0
+    shape = (100, 100, 100)            
+    squared_rsc = 'squared'                      
+    rsc_cube_gen_rule = 'fix_same'            
+    rsc_cube_gen_vals = '0'                    
+    ### Species settings:
+    sp_num = 10
+    per_sp_int = 2.25
+    ratio_cf = 0.8
+    int_minmax = 0.5
+    int_mod = 'rdm_unif'                  
+    kcoeff = 1
+    neg_frac_kcoeff = 0.1
+    kmod = 'keep'                           
+    neg_grw_thr = 1
+    pref_type = 'sequential'                
+    ### Simulation parameters:
+    evt_num = 1                     
+    evt_dur_var = 100,100           
+    run_time = 100
+    sim_steps = 10000
+    sp_ini_perc = 1   
+    sp_ini_abd = 0.001                
+    D_set = 0.1
+    ### Number of simulations
+    nrep = 100
+    return n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod 
+
 
 ###############################################################################################
 ### Calling standard initial conditions based on bash input                                 ###
@@ -206,12 +229,14 @@ def set_initial_conditions_metacom():
 def set_initial_conditions(std_init_cond):
     if std_init_cond == 'null_int':
         n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod = set_initial_conditions_null_int()
-    if std_init_cond == 'null_rsc':
+    elif std_init_cond == 'null_rsc':
         n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod = set_initial_conditions_null_rsc()        
     elif std_init_cond == 'basic':
         n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod = set_initial_conditions_basic()
     elif std_init_cond == 'metacom':
         n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod = set_initial_conditions_metacom()
+    elif std_init_cond == 'volume_sampling':
+        n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod = set_initial_conditions_volume_sampling()
     else:
         print('Error: Input for standard initial conditions incorrect')
     return n_num,rsc_num,shape,sp_num,per_sp_int,ratio_cf,int_minmax,evt_num,evt_dur_var,run_time,sim_steps,sp_ini_perc,sp_ini_abd,D_set,neg_grw_thr,radius,nrep,kcoeff,neg_frac_kcoeff,squared_rsc,pref_type,kmod,rsc_cube_gen_rule,rsc_cube_gen_vals,int_mod
@@ -322,7 +347,4 @@ def set_additional_conditions(sp_num,per_sp_int,ratio_cf,evt_num,evt_dur_var,sp_
     evt_dur = int(sim_steps)                                            # Creates integer for the number of simulation steps
     D = D_set*t_dg                                                      # The strength of diffusion per time step -> Needs to be modified by intergration timestep size!
     return tot_perc_int, perc_comp, perc_facil, evt_dur, sp_ini_num, seed_pop, neg_grw_thr, rsc_cube_gen_vals, t_dg, t_g, D
-
-            
-
 

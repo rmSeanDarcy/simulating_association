@@ -47,7 +47,6 @@ get_comp_res <- function(sp_num, rsc_num, r_num, npop, kabs, nxyz, nperm2, p_val
     ###########################################################################################
     ### Main analysis functions
     ###########################################################################################
-    
     ### The R scripts containing each function is added after the #
     # All functions can be found within './Load_analysis_functions'
     
@@ -88,6 +87,15 @@ get_comp_res <- function(sp_num, rsc_num, r_num, npop, kabs, nxyz, nperm2, p_val
   }
   
   ###########################################################################################
+  ## Next we calculate the means of basic diversity metrics
+  # Functions can be found in './Load_analysis_functions/means_for_all_runs_functions.R'
+  full_res_subdir_comp <- get_means_of_all_results(div_res_log,div_rsc_res_log)
+  ## First we quantify how well the co-occurrences match drivers accross all runs 
+  # Functions can be found in './Load_analysis_functions/matching_coocurrence_functions.R'
+  infm <- infmat_res_log
+  infm_cooc_comp <- get_cooc_imfmpreds(infm, euc_thr_pos, euc_thr_neg)
+  
+  ###########################################################################################
   ### Export results 
   comp_res <- list(npop_cubd_log = npop_cubd_log,
                    kabs_cubd_log = kabs_cubd_log,
@@ -96,7 +104,9 @@ get_comp_res <- function(sp_num, rsc_num, r_num, npop, kabs, nxyz, nperm2, p_val
                    sp_correl_log = sp_correl_log,
                    sign_ajd_res_log = sign_ajd_res_log,
                    sprsc_cor_res_log = sprsc_cor_res_log,
-                   infmat_res_log = infmat_res_log)
+                   infmat_res_log = infmat_res_log,
+                   full_res_subdir_comp = full_res_subdir_comp,
+                   infm_cooc_comp = infm_cooc_comp)
   return(comp_res)
 }
 
