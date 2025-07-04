@@ -9,8 +9,10 @@ setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,shar
 
 ###########################################################################################
 args <- commandArgs(trailingOnly=TRUE)
-experiment <- args[1]
-#experiment <- 'fig1'
+#experiment <- args[1]
+experiment <- 'fig2_test'
+dir.create(file.path(paste0('./analysis_data/',experiment)), showWarnings = FALSE)
+
 
 ###########################################################################################
 ### Here we load all of the data analysis functions that are contained in scripts within the folder './Load_analysis_functions'
@@ -26,4 +28,3 @@ full_res_compiled <- compile_data(experiment_name = experiment, "full_res.csv")
 ### Load data from individual run folders
 write.csv(infm_res_compiled, paste0('./analysis_data/', experiment, '/infm_res_compiled.csv'))
 write.csv(full_res_compiled, paste0('./analysis_data/', experiment, '/full_res_compiled.csv'))
-

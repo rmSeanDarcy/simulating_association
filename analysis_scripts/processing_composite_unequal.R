@@ -11,28 +11,30 @@ library(reshape2)
 ##############################################################################################################################
 ##### 1. Get passed arguments, load analysis functions and set working directory
 ##############################################################################################################################
+setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA')
+
+# ###########################################################################################
+# ### This script too was designed to run in a .bash script and takes the same first three inputs as master_slurm_simulation.py
+# #args <- commandArgs(TRUE)
+# args <- commandArgs(trailingOnly=TRUE)
+# experiment <- args[1]
+# treatment <- args[2]
+# simulation <- args[3]
+# # Extract the remaining arguments as a single string
+# paramstr <- ifelse(length(args) > 3, args[4], "")
+# ### Now we need to first check whether noise is in the additional arguments and if so we need to extract the value 
+# #paramstr <- '--n_num:25 --nrep:2 --noise:0.1'
+# if (grepl('noise', paramstr)) {
+#   noise_std <- as.numeric(strsplit(strsplit(paramstr,' --')[[1]][grep('noise:',(strsplit(paramstr,' --')[[1]]))],'noise:')[[1]][2])
+# } else {
+#   noise_std <- 0
+# }
 
 ###########################################################################################
-### This script too was designed to run in a .bash script and takes the same first three inputs as master_slurm_simulation.py
-#args <- commandArgs(TRUE)
-args <- commandArgs(trailingOnly=TRUE)
-experiment <- args[1]
-treatment <- args[2]
-simulation <- args[3]
-# Extract the remaining arguments as a single string
-paramstr <- ifelse(length(args) > 3, args[4], "")
-### Now we need to first check whether noise is in the additional arguments and if so we need to extract the value 
-#paramstr <- '--n_num:25 --nrep:2 --noise:0.1'
-if (grepl('noise', paramstr)) {
-  noise_std <- as.numeric(strsplit(strsplit(paramstr,' --')[[1]][grep('noise:',(strsplit(paramstr,' --')[[1]]))],'noise:')[[1]][2])
-} else {
-  noise_std <- 0
-}
-###########################################################################################
 ### Inputs for manual runs 
-experiment <- 'fig1'
+experiment <- 'fig_cub'
 treatment <- 'r1'
-simulation <- 'r1'
+simulation <- 'r1_unequal'
 noise_std <- 0
 
 ###########################################################################################
@@ -44,7 +46,6 @@ for (i in list.files(path=('./analysis_scripts/analysis_functions'),full.names=T
 ###########################################################################################
 ### Set working directory to simulation
 setwd(paste0('./simulation_data/',experiment,'/',treatment,'/',simulation))
-
 
 ##############################################################################################################################
 ##### 2. Load and manipulate data
@@ -80,7 +81,9 @@ kabs <- kabs[!kabs$repl %in% err_runs_idx,]
 eucdm <- eucdm[!eucdm$repl %in% err_runs_idx,]
 intm <- intm[!intm$repl %in% err_runs_idx,]
 ### Get all run indices without errors in runs
-r_num <- unique(npop$repl) 
+#r_num <- unique(npop$repl) 
+r_num <- seq(0,1,1)
+
 ###########################################################################################
 # In some very rare cases species abundances are fixed at 0.001 for the entire simulation. This is the case when a species is in an
 # unfavourable habitat (meaning K_{i,h} < 0.1) and has no interaction partners. As all species are initialised with an abundance 
@@ -105,7 +108,8 @@ if (noise_std > 0) {
 
 ###########################################################################################
 ### Settings for analysis functions
-sdim_vec <- c(0.333)                  # This value is not needed in this script! It becomes relevant in the 'master_slurm_analysis_cubes.R' script
+sdim_vec <- c(0.333,0.3)     # Vector of sampling cube sidelengths (levels of d, abrv. in paper as L³)
+#sdim_vec <- c(0.333,0.3,0.267,0.233,0.2,0.167,0.133,0.1)     # Vector of sampling cube sidelengths (levels of d, abrv. in paper as L³)
 ncubes_vec <- c(25)                   # Number of habitats that are randomly sampled -> Needs to be equal to or lower than n_num. 
 # Here either a single number or a vector can be provided. Results will always have a column 'Hab_subsmplX' with X being the number of habitats sampled 
 ###########################################################################################
@@ -131,6 +135,22 @@ colnames(settings2) <- colnames(settings)
 settings <- rbind(settings,settings2)
 write.csv(settings,'settings_updated.csv')
 
+###########################################################################################
+### Get composite communities from sampling at different scales
+scale_com <- get_scale_coms(sdim_vec, nxyz, npop, sp_nms, rsc_nms, rsc_num, r_num)  
+npop_comp <- scale_com[[1]]
+kabs_comp <- scale_com[[2]]
+coords_comp <- scale_com[[3]]
+write.csv(npop_cub, './npop_cub_all.csv')
+write.csv(kabs_cub, './kabs_cub_all.csv')
+write.csv(coord_cub, './coord_cub_all.csv')
+
+write.csv(npop_comp, "./npop_comp.csv")
+write.csv(kabs_comp, "./kabs_comp.csv")
+write.csv(coords_comp, "./coords_comp.csv")
+
+
+
 
 ##############################################################################################################################
 ##### 3. Set additional parameters for analysis
@@ -138,41 +158,19 @@ write.csv(settings,'settings_updated.csv')
 
 ###########################################################################################
 ### Apply all analyses -> get_comp_res found in './Load_analysis_functions/main_functions.R' is the main function in which analysis scripts are called
-comp_res <- get_comp_res(sp_num, rsc_num, r_num, npop, kabs, nxyz, nperm2, p_val_thr2, eucdm, ncubes_vec, euc_thr_neg, euc_thr_pos, corcoeff_thr_neg, corcoeff_thr_pos)
+comp_res <- process_composite(npop_comp, kabs_comp, coords_comp, sdim_vec, sp_num, rsc_num, r_num, rand.time, npop, kabs, nxyz, nperm2, p_val_thr2, eucdm, ncubes_vec, addit_hab_smpl_num, pred_shuf, euc_thr_neg, euc_thr_pos, corcoeff_thr_neg, corcoeff_thr_pos)
 npop_cubd_log <- comp_res$npop_cubd_log
 kabs_cubd_log <- comp_res$kabs_cubd_log
-div_res_comp <- comp_res$div_res_log
-div_rsc_res_comp <- comp_res$div_rsc_res_log
 sp_correl_log <- comp_res$sp_correl_log
 sign_ajd_res_log <- comp_res$sign_ajd_res_log
 sprsc_cor_res_log <- comp_res$sprsc_cor_res_log
-infmat_res_comp <- comp_res$infmat_res_log
-
 ###########################################################################################
 ### Save outputs (here still results per run)
 write.csv(npop_cubd_log, "./npop_cubd_log.csv")
 write.csv(kabs_cubd_log, "./kabs_cubd_log.csv")
-write.csv(div_res_comp, "./div_res_comp.csv")
-write.csv(div_rsc_res_comp, "./div_rsc_res_comp.csv")
 write.csv(sp_correl_log, "./sp_correl_log.csv")
 write.csv(sign_ajd_res_log, "./sign_ajd_res_log.csv")
 write.csv(sprsc_cor_res_log, "./sprsc_cor_res_log.csv")
-write.csv(infmat_res_comp, "./infmat_res_comp.csv")
-
 ##############################################################################################################################
-##### 4. Get means for results across runs                                                   
-##############################################################################################################################
-
-## Next we calculate the means of basic diversity metrics
-# Functions can be found in './Load_analysis_functions/means_for_all_runs_functions.R'
-full_res_subdir_comp <- get_means_of_all_results(div_res_comp,div_rsc_res_comp)
-write.csv(full_res_subdir_comp, './full_res.csv')
-
-## First we quantify how well the co-occurrences match drivers accross all runs 
-# Functions can be found in './Load_analysis_functions/matching_coocurrence_functions.R'
-infm <- infmat_res_comp
-infm_cooc_comp <- get_cooc_imfmpreds(infm, euc_thr_pos, euc_thr_neg)
-write.csv(infm_cooc_comp, './infm_res.csv')
-
 ### The End
 print("We done did it!!!")

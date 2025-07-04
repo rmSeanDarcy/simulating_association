@@ -4,9 +4,6 @@
 library(dplyr)
 library(vegan)
 library(reshape2)
-#library(utils)
-#library(igraph)
-#library(caret)
 
 ##############################################################################################################################
 ##### 1. Get passed arguments, load analysis functions and set working directory
@@ -31,14 +28,14 @@ if (grepl('noise', paramstr)) {
 }
 ###########################################################################################
 ### Inputs for manual runs 
-experiment <- 'fig2'
-treatment <- 's1'
-simulation <- 's1'
-noise_std <- 0
+experiment <- 'fig2_test'
+treatment <- 's4'
+simulation <- 's4'
+noise_std <- 0.25
 
 ###########################################################################################
 ### Here we load all of the data analysis functions that are contained in scripts within the folder './Load_analysis_functions'
-for (i in list.files(path=('./analysis_scripts/analysis_functions'),full.names=TRUE)) {
+for (i in list.files(path=('./analysis_scripts/processing_functions'),full.names=TRUE)) {
   source(i)
 }
 
@@ -141,35 +138,19 @@ write.csv(settings,'settings_updated.csv')
 
 ###########################################################################################
 ### Apply all analyses -> get_comp_res found in './Load_analysis_functions/main_functions.R' is the main function in which analysis scripts are called
-comp_res <- get_comp_res(sp_num, rsc_num, r_num, npop, kabs, nxyz, nperm2, p_val_thr2, eucdm, ncubes_vec, euc_thr_neg, euc_thr_pos, corcoeff_thr_neg, corcoeff_thr_pos)
+comp_res <- process_habitat(sp_num, rsc_num, r_num, npop, kabs, nxyz, nperm2, p_val_thr2, eucdm, ncubes_vec, euc_thr_neg, euc_thr_pos, corcoeff_thr_neg, corcoeff_thr_pos)
 npop_cubd_log <- comp_res$npop_cubd_log
 kabs_cubd_log <- comp_res$kabs_cubd_log
-div_res_comp <- comp_res$div_res_log
-div_rsc_res_comp <- comp_res$div_rsc_res_log
 sp_correl_log <- comp_res$sp_correl_log
 sign_ajd_res_log <- comp_res$sign_ajd_res_log
 sprsc_cor_res_log <- comp_res$sprsc_cor_res_log
-infmat_res_comp <- comp_res$infmat_res_log
-full_res_subdir_comp <- comp_res$full_res_subdir_comp
-infm_cooc_comp <- comp_res$infm_cooc_comp
-
 ###########################################################################################
 ### Save outputs (here still results per run)
 write.csv(npop_cubd_log, "./npop_cubd_log.csv")
 write.csv(kabs_cubd_log, "./kabs_cubd_log.csv")
-write.csv(div_res_comp, "./div_res_comp.csv")
-write.csv(div_rsc_res_comp, "./div_rsc_res_comp.csv")
 write.csv(sp_correl_log, "./sp_correl_log.csv")
 write.csv(sign_ajd_res_log, "./sign_ajd_res_log.csv")
 write.csv(sprsc_cor_res_log, "./sprsc_cor_res_log.csv")
-write.csv(infmat_res_comp, "./infmat_res_comp.csv")
-##############################################################################################################################
-##### Means for results across runs             
-write.csv(full_res_subdir_comp, './full_res.csv')
-write.csv(infm_cooc_comp, './infm_res.csv')
-
 ##############################################################################################################################
 ### The End
 print("We done did it!!!")
-
-

@@ -1,5 +1,5 @@
 ###########################################################################################
-### SAMSARA - Figure 2 and plots for related Supporting information                     ###
+### SAMSARA - All plot functions                                                        ###
 ###########################################################################################
 ### Read libraries
 library(ggplot2)
@@ -15,27 +15,20 @@ library(latex2exp)
 library(eulerr)
 library(stringr)
 library(rlang)
-#install.packages("rlang", dependencies = TRUE)
-
-### Initiate inputs
-args <- commandArgs(trailingOnly=TRUE)
-workdir <- args[1]
-parent_set_of_analyses <- args[2]
-### For testing
-#workdir <- '/home/swani/Documents/computational_research_tools/homework4/SAMSARA'
-#parent_set_of_analyses <- 'Fig2'
-
 
 ###########################################################################################
-### Here we load all of the data analysis functions that are contained in scripts within the folder './Load_collectfunctions'
-setwd(workdir)
-for (i in list.files(path= paste(workdir,c('/simulation_code/Load_plot_functions'),sep=''), full.names=TRUE)) {
+### Here we load all of the data analysis functions that are contained in scripts within the folder './Load_analysis_functions'
+for (i in list.files(path=('./analysis_scripts/plot_functions'),full.names=TRUE)) {
   source(i)
 }
 
 ###########################################################################################
+experiment <- 'fig2_test'
+
+###########################################################################################
 ##### Load output data
-pd_hab <- read.csv(paste0(workdir,'/Result_master_dir/',parent_set_of_analyses,'/exp_results.csv'))
+fd_hab <- read.csv(paste0('./analysis_data/', experiment,'/full_res_compiled.csv'))
+pd_hab <- read.csv(paste0('./analysis_data/', experiment,'/infm_res_compiled.csv'))
 
 ###########################################################################################
 ### Plotting settings:
@@ -57,7 +50,7 @@ hnum <- 25
 plotdims = c(4,4)
 
 ###########################################################################################
-##### Fig.2: Main manuscript                                                          #####
+##### Fig.2: Simple system                                                            #####
 ###########################################################################################
 
 ###########################################################################################
@@ -68,6 +61,18 @@ p <- plot_match_allruns_eucintn(pd_hab,label_mode = 'none',titltxt = 'plot_match
 sjPlot::save_plot(paste0(workdir,'/Result_master_dir/',parent_set_of_analyses,'/Fig2_C.png'), fig = p)
 
 
+###########################################################################################
+##### Fig.3: Meta-community dynamics                                                  #####
+###########################################################################################
 
+
+###########################################################################################
+##### Fig.4: Sampling volume                                                          #####
+###########################################################################################
+
+
+###########################################################################################
+##### Fig.5: Network plots                                                            #####
+###########################################################################################
 
 

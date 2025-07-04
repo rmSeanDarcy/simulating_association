@@ -26,7 +26,7 @@ compile_data <- function(experiment_name, results_filename = "results.csv") {
     # Extract treatment and simulation folder names
     simulation <- path_parts[n - 1]
     treatment  <- path_parts[n - 2]
-    df <- tryCatch(read.csv(file_path), error = function(e) return(NULL))
+    df <- tryCatch(read.csv(file_path)[,-1], error = function(e) return(NULL))
     if (!is.null(df)) {
       df$treatment <- treatment
       df$simulation <- simulation

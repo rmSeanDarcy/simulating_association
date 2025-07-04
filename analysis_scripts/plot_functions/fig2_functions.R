@@ -26,18 +26,19 @@ font_size_control <- theme(text=element_text(size=sml_font), #change font size o
 plot_match_allruns_eucintp <- function(pd_hab,label_mode,titltxt,hnum,plotdims) {
   
   pd_haby <- pd_hab[colnames(pd_hab) %in% c('eucp_corA', 'intp_corA', 'eucintp_corA', 'unxpA')]
+  pd_hab$run_nm <- pd_hab$simulation
   rownames(pd_haby) <- pd_hab$run_nm
   # intp_corA = Precision for co-occurrences matching mutualism (without intersection with preference similarity)
   # eucp_corA = Precision for co-occurrences matching preference similarity (without intersection with mutualsim)
   # eucintp_corA = Precision for co-occurrences matching intersection preference similarity and mutualsim
   # unxpA = Remaining 'precision' for co-occurrences that don't match either
   ### For individual driver runs the unexplained needs to be adjusted!
-  #pd_haby[rownames(pd_haby) == 'c2',]$unxpA <- 1-pd_hab[rownames(pd_haby) == 'c2',]$eucp
-  #pd_haby[rownames(pd_haby) == 'c2',]$eucp_corA <- pd_hab[rownames(pd_haby) == 'c2',]$eucp
-  #pd_haby[rownames(pd_haby) == 'c1',]$unxpA <- 1-pd_hab[rownames(pd_haby) == 'c1',]$intp
-  #pd_haby[rownames(pd_haby) == 'c1',]$intp_corA <- pd_hab[rownames(pd_haby) == 'c1',]$intp
-  #pd_haby[rownames(pd_haby) == 'c1',]$eucintp_corA <- 0 
-  #pd_haby[rownames(pd_haby) == 'c1',]$eucp_corA <- 0
+  pd_haby[rownames(pd_haby) == 'c2',]$unxpA <- 1-pd_hab[rownames(pd_haby) == 'c2',]$eucp
+  pd_haby[rownames(pd_haby) == 'c2',]$eucp_corA <- pd_hab[rownames(pd_haby) == 'c2',]$eucp
+  pd_haby[rownames(pd_haby) == 'c1',]$unxpA <- 1-pd_hab[rownames(pd_haby) == 'c1',]$intp
+  pd_haby[rownames(pd_haby) == 'c1',]$intp_corA <- pd_hab[rownames(pd_haby) == 'c1',]$intp
+  pd_haby[rownames(pd_haby) == 'c1',]$eucintp_corA <- 0
+  pd_haby[rownames(pd_haby) == 'c1',]$eucp_corA <- 0
   pdy <- as.data.frame(melt(t(pd_haby)))
   pd <- c()
   for (i in unique(pdy$Var2)) {
@@ -60,16 +61,16 @@ plot_match_allruns_eucintp <- function(pd_hab,label_mode,titltxt,hnum,plotdims) 
   levels(pd$lab)[levels(pd$lab)=="RP"] <- "Resource pref.\nsimilarity"
   levels(pd$lab)[levels(pd$lab)=="Int"] <- "Interactions"
   levels(pd$lab)[levels(pd$lab)=="RP & Int"] <- "Resource pref.\nsimilarity and\ninteractions"
-
-  #pd$rscdist <- factor(pd$rscdist, levels = c('s1', 'c1', 'c2', 's2', 's3', 's4', 's5')) #, 'cf'
-  #levels(pd$rscdist)[levels(pd$rscdist)=='c1'] <- 'Interactions only'  
-  #levels(pd$rscdist)[levels(pd$rscdist)=='c2'] <- 'Environment only'
-  #levels(pd$rscdist)[levels(pd$rscdist)=='s1'] <- 'Environment & Interactions'
-  #levels(pd$rscdist)[levels(pd$rscdist)=='s4'] <- 'Sampling noise'
-  #levels(pd$rscdist)[levels(pd$rscdist)=='s2'] <- 'Equal interactions'
-  #levels(pd$rscdist)[levels(pd$rscdist)=='s5'] <- 'Random extinctions (20%)'
-  #levels(pd$rscdist)[levels(pd$rscdist)=='s3'] <- 'Resources anti-correlated'  
-
+  
+  pd$rscdist <- factor(pd$rscdist, levels = c('s1', 'c1', 'c2', 's2', 's3', 's4', 's5')) #, 'cf'
+  levels(pd$rscdist)[levels(pd$rscdist)=='c1'] <- 'Interactions only'
+  levels(pd$rscdist)[levels(pd$rscdist)=='c2'] <- 'Environment only'
+  levels(pd$rscdist)[levels(pd$rscdist)=='s1'] <- 'Environment & Interactions'
+  levels(pd$rscdist)[levels(pd$rscdist)=='s4'] <- 'Sampling noise'
+  levels(pd$rscdist)[levels(pd$rscdist)=='s2'] <- 'Equal interactions'
+  levels(pd$rscdist)[levels(pd$rscdist)=='s5'] <- 'Random extinctions (20%)'
+  levels(pd$rscdist)[levels(pd$rscdist)=='s3'] <- 'Resources anti-correlated'
+  
   ggplot(pd, aes(y=perc_n, x=rscdist, fill = lab)) + #, col = lab
     geom_bar(position="stack", stat="identity", lwd = 0) +
     theme_bw() + xlab('Scenarios') + ylab('Positive\nassociations') +
@@ -90,6 +91,7 @@ plot_match_allruns_eucintp <- function(pd_hab,label_mode,titltxt,hnum,plotdims) 
 plot_match_allruns_eucintn <- function(pd_hab,label_mode,titltxt,hnum,plotdims) {
   
   pd_haby <- pd_hab[colnames(pd_hab) %in% c('eucn_corA', 'intn_corA', 'eucintn_corA', 'unxnA')]
+  pd_hab$run_nm <- pd_hab$simulation
   rownames(pd_haby) <- pd_hab$run_nm
   ### For individual driver runs the unexplained needs to be adjusted!
   # pd_haby[rownames(pd_haby) == 'c2',]$unxnA <- 1-pd_hab[rownames(pd_haby) == 'c2',]$eucn

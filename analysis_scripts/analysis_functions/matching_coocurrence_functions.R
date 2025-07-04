@@ -7,7 +7,7 @@ get_cooc_imfmpreds <- function(infm, euc_thr_pos, euc_thr_neg) {
   
   resl <- c()
   ## We cycle through each number of habitats sampled (d)
-  #j <- unique(infm$d)[1]
+  #j <- unique(infm$d)[3]
   for (j in unique(infm$d)) {
     infmj <- infm[infm$d == j,]
     ## Now we assess matches in each individual run 
@@ -108,9 +108,12 @@ get_cooc_imfmpreds <- function(infm, euc_thr_pos, euc_thr_neg) {
     resx['nzerop'] <- sum(res[,'totp'] == 0)
     resx['nzeron'] <- sum(res[,'totn'] == 0)
     # Average number of co-occurrences including zeros
-    resx['cor_totp'] <- sum(res[res[,'totp'] > 0,][,'totp'])/sum(res[,'totp'] > 0)
-    resx['cor_totn'] <- sum(res[res[,'totn'] > 0,][,'totn'])/sum(res[,'totn'] > 0)
+    res <- as.data.frame(res)
+    resx['cor_totp'] <- mean(res[res$totp > 0,]$totp)
+    resx['cor_totn'] <- mean(res[res$totn > 0,]$totn)
+
     resl <- rbind(resl, c(resx, d = j))
+    print(paste0('Finished matching co-occurrences:', j))
   }
   resl <- as.data.frame(resl)
   return(resl)

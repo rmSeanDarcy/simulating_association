@@ -5,6 +5,7 @@
 *.svg
 *.png
 *.jpg
+analysis_data/
 simulation_data/
 figures/
 
