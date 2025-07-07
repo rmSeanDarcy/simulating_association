@@ -10,7 +10,7 @@ setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,shar
 ###########################################################################################
 args <- commandArgs(trailingOnly=TRUE)
 #experiment <- args[1]
-experiment <- 'fig2_test'
+experiment <- 'fig4'
 dir.create(file.path(paste0('./analysis_data/',experiment)), showWarnings = FALSE)
 
 
