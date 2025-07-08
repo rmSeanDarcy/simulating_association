@@ -20,12 +20,10 @@ get_nw <- function(edgesx, nodes) {
   return(graph)
 }
 
-
+###########################################################################################
 #adj <- basic_adj 
 #sprsc <- basic_sprsc
-
 get_dataprep <- function(adj,sprsc,eucm,intm,dset,repl) {
-  ###########################################################################################
   sp_nms <- seq(1,25,1)
   ### Specify data
   adjd <- adj[adj$d == dset,]
@@ -78,18 +76,16 @@ get_dataprep <- function(adj,sprsc,eucm,intm,dset,repl) {
   return(list(adj = adjr, node = nodes))
 }
 
-
 ###########################################################################################
 plot_nw_pos_allthree <- function(basic_adj,basic_sprsc,nullint_adj,nullint_sprsc,nullrsc_adj,nullrsc_sprsc,eucm,intm,dset,repl) {
-  
   basic <- get_dataprep(basic_adj,basic_sprsc,eucm,intm,dset,repl)
   nullint <- get_dataprep(nullint_adj,nullint_sprsc,eucm,intm,dset,repl)
   nullrsc <- get_dataprep(nullrsc_adj,nullrsc_sprsc,eucm,intm,dset,repl)
   ###########################################################################################
+  ###
   basic_adjp <- basic$adj[basic$adj$value > 0,]
   nullint_adjp <- nullint$adj[nullint$adj$value > 0,]
   nullrsc_adjp <- nullrsc$adj[nullrsc$adj$value > 0,]
-  ###
   basic_nods <- basic$node
   nullint_nods <- nullint$node
   nullrsc_nods <- nullrsc$node
@@ -98,7 +94,6 @@ plot_nw_pos_allthree <- function(basic_adj,basic_sprsc,nullint_adj,nullint_sprsc
   basic_gp <- get_nw(basic_adjp, basic_nods)
   nullint_gp <- get_nw(nullint_adjp, nullint_nods)
   nullrsc_gp <- get_nw(nullrsc_adjp, nullrsc_nods)
-  
   ###########################################################################################
   ### Stop. Plottin time
   set_graph_style(plot_margin = margin(1,1,1,1))
@@ -116,9 +111,6 @@ plot_nw_pos_allthree <- function(basic_adj,basic_sprsc,nullint_adj,nullint_sprsc
     geom_node_text(aes(label = nodenames), size = 2.9)
   nullrsc_plt + basic_plt + nullint_plt  
 }
-
-
-
 
 ###########################################################################################
 plot_nw_posneg <- function(adj,sprsc,eucm,intm,dset,repld) {

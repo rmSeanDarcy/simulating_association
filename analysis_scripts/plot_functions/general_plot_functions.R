@@ -1,19 +1,32 @@
 ###########################################################################################
 ### SAMSARA - Loading Set of analyses data and preparing for plotting                   ###
 ###########################################################################################
+#options(bitmapType = "Xlib")
 
 ###########################################################################################
 ### ggplot2 plotting modifications
 # Control font sizes
 sml_font <- 8
 med_font <- 10
-big_font <- 11
+big_font <- 12
 font_size_control <- theme(text=element_text(size=sml_font), #change font size of all text
                            axis.text=element_text(size=sml_font), #change font size of axis text
                            axis.title=element_text(size=med_font), #change font size of axis titles
                            plot.title=element_text(size=big_font), #change font size of plot title
                            legend.text=element_text(size=med_font), #change font size of legend text
                            legend.title=element_text(size=med_font)) #change font size of legend title   
+
+###########################################################################################
+### Save as .svg wrapper:
+save_svg <- function(file, fig, width, height, pointsize = 10) {
+  # Convert cm to inches for svglite
+  width_in <- width / 2.54
+  height_in <- height / 2.54
+  Cairo::CairoSVG(filename = file, width = width_in, height = height_in, pointsize = pointsize)
+  print(fig)
+  dev.off()
+}
+
 
 # Remove axes and legend if necessary
 cxy <- theme(axis.text.y = element_blank(),axis.ticks.y = element_blank(),axis.title.y = element_blank(),
@@ -53,10 +66,7 @@ multipl_posint = 4
 multipl_negint = 16
 boxalpha = 0.8
 boxcolor = 'white'
-sml_font <- 8
-med_font <- 10
-big_font <- 11
-titltxt <- 'hi'
+titltxt <- 'blank'
 hnum <- 25
 
 

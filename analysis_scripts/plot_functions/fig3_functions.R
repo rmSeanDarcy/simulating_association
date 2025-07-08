@@ -50,9 +50,6 @@ cooc_radius_pos <- function(pdh,titltxt) {
   pd$perc <- as.numeric(pd$perc) 
   pd$perc_n <- pd$perc*as.numeric(pd$totp)
   sumsx <- c()
-  for (i in unique(pd$radius)) {
-    sumsx <- c(sumsx,sum(pd[pd$radius == i,]$perc_n))
-  }
   pd$treatment <- factor(pd$treatment)
   pd$matches <- factor(pd$matches, levels = c('unxpA','eucp_corA','eucintp_corA','intp_corA'))
   colabels <- c('Rest','Similar pref.','Similar pref. &\ninteractions','Interactions')
@@ -60,9 +57,9 @@ cooc_radius_pos <- function(pdh,titltxt) {
   pd[is.na(pd)] <- 0
   ggplot(pd, aes(y=perc_n, x=radius, fill = matches, goup = matches)) +  #col = matches, 
     geom_area(position="stack", stat="identity") +
-    theme_classic() + xlab(TeX('Connectivity radius $\\d_{e}$')) + ylab('Positive\nassociations') +
+    theme_classic() + xlab(TeX('Connectivity radius $\\d_{e}$')) + ylab('Positive\nco-occurrences') +
     scale_fill_manual(values = c(rest_col,euc_col,euc_col,int_col)
-                      , name = 'Association\nmatches:', labels = colabels) +
+                      , name = 'Co-occurrence\nmatches:', labels = colabels) +
     scale_pattern_manual('stack', values = c('none','none','stripe','none'), guide = "none") +
     geom_area_pattern(aes(pattern = matches),pattern_color = NA,
                       pattern_size = 1,pattern_density = .5,pattern_spacing = .075,pattern_fill = int_col,color = NA) +
@@ -80,10 +77,6 @@ cooc_radius_neg <- function(pdh,titltxt) {
   colnames(pd) <- c('radius','treatment','totp','perc','matches')
   pd$perc <- as.numeric(pd$perc) 
   pd$perc_n <- pd$perc*as.numeric(pd$totp)
-  sumsx <- c()
-  for (i in unique(pd$radius)) {
-    sumsx <- c(sumsx,sum(pd[pd$radius == i,]$perc_n))
-  }
   pd$treatment <- factor(pd$treatment)
   pd$matches <- factor(pd$matches, levels = c('unxnA','eucn_corA','eucintn_corA','intn_corA'))
   colabels <- c('Rest','Similar pref.','Similar pref. &\ninteractions','Interactions')
@@ -91,9 +84,9 @@ cooc_radius_neg <- function(pdh,titltxt) {
   pd[is.na(pd)] <- 0
   ggplot(pd, aes(y=perc_n, x=radius, fill = matches, goup = matches)) +  #col = matches, 
     geom_area(position="stack", stat="identity") +
-    theme_classic() + xlab(TeX('Connectivity radius $\\d_{e}$')) + ylab('Positive\nassociations') +
+    theme_classic() + xlab(TeX('Connectivity radius $\\d_{e}$')) + ylab('Positive\nco-occurrences') +
     scale_fill_manual(values = c(rest_col,euc_col,euc_col,int_col)
-                      , name = 'Association\nmatches:', labels = colabels) +
+                      , name = 'Co-occurrence\nmatches:', labels = colabels) +
     scale_pattern_manual('stack', values = c('none','none','stripe','none'), guide = "none") +
     geom_area_pattern(aes(pattern = matches),pattern_color = NA,
                       pattern_size = 1,pattern_density = .5,pattern_spacing = .075,pattern_fill = int_col,color = NA) +
@@ -112,29 +105,70 @@ cooc_radius_neg <- function(pdh,titltxt) {
 ###########################################################################################
 ##### SFig3_noise                                                                     #####
 ###########################################################################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Positive co-occurrences
+cooc_radius_noise_pos <- function(pdh) {
+  pdh$radius <- as.numeric(unlist(strsplit(unlist(strsplit(pdh$simulation, '__'))[(2*(1:length(pdh$simulation)))-1], '_'))[2*(1:length(pdh$simulation))])
+  pdh$noise <- as.numeric(unlist(strsplit(unlist(strsplit(pdh$simulation, '__'))[2*(1:length(pdh$simulation))], '_'))[2*(1:length(pdh$simulation))])
+  pd <- c()
+  for (i in 1:nrow(pdh)) {
+    pdx <- as.data.frame(rbind(cbind(pdh[i,]$radius,pdh[i,]$treatment,pdh[i,]$totp,pdh[i,]$noise,pdh[i,]$eucp_corA,'eucp_corA'),
+                               cbind(pdh[i,]$radius,pdh[i,]$treatment,pdh[i,]$totp,pdh[i,]$noise,pdh[i,]$intp_corA,'intp_corA'),
+                               cbind(pdh[i,]$radius,pdh[i,]$treatment,pdh[i,]$totp,pdh[i,]$noise,pdh[i,]$eucintp_corA,'eucintp_corA'),
+                               cbind(pdh[i,]$radius,pdh[i,]$treatment,pdh[i,]$totp,pdh[i,]$noise,pdh[i,]$unxpA,'unxpA')))
+    pd <- rbind(pd,pdx)
+  }
+  colnames(pd) <- c('radius','treatment','totp','noise','perc','matches')
+  pd$perc <- as.numeric(pd$perc) 
+  pd$perc_n <- pd$perc*as.numeric(pd$totp)
+  pd$treatment <- factor(pd$treatment)
+  pd$matches <- factor(pd$matches, levels = c('unxpA','eucp_corA','eucintp_corA','intp_corA'))
+  colabels <- c('Rest','Similar pref.','Similar pref. &\ninteractions','Interactions')
+  pd$radius <- as.numeric(pd$radius)
+  pd[is.na(pd)] <- 0
+  ggplot(pd, aes(y=perc_n, x=radius, fill = matches, goup = matches)) +  #col = matches, 
+    geom_area(position="stack", stat="identity") + facet_grid(~ noise) +
+    theme_classic() + xlab(TeX('Connectivity radius $\\d_{e}$')) + ylab('Positive\nco-occurrences') +
+    scale_fill_manual(values = c(rest_col,euc_col,euc_col,int_col)
+                      , name = 'Co-occurrence\nmatches:', labels = colabels) +
+    scale_pattern_manual('stack', values = c('none','none','stripe','none'), guide = "none") +
+    geom_area_pattern(aes(pattern = matches),pattern_color = NA,
+                      pattern_size = 1,pattern_density = .5,pattern_spacing = .075,pattern_fill = int_col,color = NA) +
+    guides(fill = guide_legend(override.aes = list(pattern = c("none", "none", "stripe", "none")))) + #guides(fill=guide_legend(override.aes=list(pattern="none"))) +
+    scale_x_continuous(breaks = round(seq(min(pd$radius), max(pd$radius), by = 0.25),2)) + geom_vline(xintercept = 0.22, linetype = "dashed") +
+    force_panelsizes(rows = unit(plotdims[1], "cm"),cols = unit(plotdims[2], "cm")) + font_size_control
+}
+### Negative co-occurrences
+cooc_radius_noise_neg <- function(pdht) {
+  pdh$radius <- as.numeric(unlist(strsplit(unlist(strsplit(pdh$simulation, '__'))[(2*(1:length(pdh$simulation)))-1], '_'))[2*(1:length(pdh$simulation))])
+  pdh$noise <- as.numeric(unlist(strsplit(unlist(strsplit(pdh$simulation, '__'))[2*(1:length(pdh$simulation))], '_'))[2*(1:length(pdh$simulation))])
+  pd <- c()
+  for (i in 1:nrow(pdh)) {
+    pdx <- as.data.frame(rbind(cbind(pdh[i,]$radius,pdh[i,]$treatment,pdh[i,]$totn,pdh[i,]$noise,pdh[i,]$eucn_corA,'eucn_corA'),
+                               cbind(pdh[i,]$radius,pdh[i,]$treatment,pdh[i,]$totn,pdh[i,]$noise,pdh[i,]$intn_corA,'intn_corA'),
+                               cbind(pdh[i,]$radius,pdh[i,]$treatment,pdh[i,]$totn,pdh[i,]$noise,pdh[i,]$eucintn_corA,'eucintn_corA'),
+                               cbind(pdh[i,]$radius,pdh[i,]$treatment,pdh[i,]$totn,pdh[i,]$noise,pdh[i,]$unxnA,'unxnA')))
+    pd <- rbind(pd,pdx)
+  }
+  colnames(pd) <- c('radius','treatment','totn','noise','perc','matches')
+  pd$perc <- as.numeric(pd$perc) 
+  pd$perc_n <- pd$perc*as.numeric(pd$totn)
+  pd$treatment <- factor(pd$treatment)
+  pd$noise <- factor(pd$noise)
+  pd$matches <- factor(pd$matches, levels = c('unxnA','eucn_corA','eucintn_corA','intn_corA'))
+  colabels <- c('Rest','Similar pref.','Similar pref. &\ninteractions','Interactions')
+  pd$radius <- as.numeric(pd$radius)
+  pd[is.na(pd)] <- 0
+  ggplot(pd, aes(y=perc_n, x=radius, fill = matches, goup = matches)) +  #col = matches, 
+    geom_area(position="stack", stat="identity") + facet_grid(~ noise) +
+    theme_classic() + xlab(TeX('Connectivity radius $\\d_{e}$')) + ylab('Negative\nco-occurrences') +
+    scale_fill_manual(values = c(rest_col,euc_col,euc_col,int_col)
+                      , name = 'Co-occurrence\nmatches:', labels = colabels) +
+    scale_pattern_manual('stack', values = c('none','none','stripe','none'), guide = "none") +
+    geom_area_pattern(aes(pattern = matches),pattern_color = NA,
+                      pattern_size = 1,pattern_density = .5,pattern_spacing = .075,pattern_fill = int_col,color = NA) +
+    guides(fill = guide_legend(override.aes = list(pattern = c("none", "none", "stripe", "none")))) + #guides(fill=guide_legend(override.aes=list(pattern="none"))) +
+    scale_x_continuous(breaks = round(seq(min(pd$radius), max(pd$radius), by = 0.25),2)) + geom_vline(xintercept = 0.22, linetype = "dashed") +
+    force_panelsizes(rows = unit(plotdims[1], "cm"),cols = unit(plotdims[2], "cm")) + font_size_control
+}
 
 

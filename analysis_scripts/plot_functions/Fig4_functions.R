@@ -5,7 +5,7 @@
 ###########################################################################################
 ##### Plot co-occurrence data
 ###########################################################################################
-coocurrence_plots <- function(sim_nms, colpal, symbolvals) {
+coocurrence_plots <- function(pd_cub, sim_nms, colpal, symbolvals) {
   pdc <- pd_cub[pd_cub$treatment %in% sim_nms,]
   p1 <- coocpos(pdc, colpal, symbolvals, titltxt = 'Positive co-occurrences')
   p2 <- coocneg(pdc, colpal, symbolvals, titltxt = 'Negative co-occurrences')
@@ -20,7 +20,8 @@ coocurrence_plots <- function(sim_nms, colpal, symbolvals) {
 coocpos <- function(pdc, colpal, symbolvals, titltxt) {
   pdc$dim <- as.numeric(unlist(strsplit(unlist(strsplit(pdc$d, '__'))[2*(1:length(pdc$d))], '_'))[2*(1:length(pdc$d))])
   ggplot(pdc, aes(x = dim, y = totp, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
-    geom_line() +
+    geom_line() + 
+    scale_y_continuous(labels = scales::number_format(accuracy = 1, big.mark = "")) + ylim(0,13) +
     geom_point(size = 1, stroke = 1) + theme_classic() + 
     xlab(TeX('Composite sample side length l')) + ylab('Positive\nco-occurrences') + #scale_x_log10() +
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +
@@ -34,7 +35,8 @@ coocpos <- function(pdc, colpal, symbolvals, titltxt) {
 coocneg <- function(pdc, colpal, symbolvals, titltxt) {
   pdc$dim <- as.numeric(unlist(strsplit(unlist(strsplit(pdc$d, '__'))[2*(1:length(pdc$d))], '_'))[2*(1:length(pdc$d))])
   ggplot(pdc, aes(x = dim, y = totn, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
-    geom_line() +
+    geom_line() + 
+    scale_y_continuous(labels = scales::number_format(accuracy = 1, big.mark = "")) +
     geom_point(size = 1, stroke = 1) + theme_classic() + 
     xlab(TeX('Composite sample side length l')) + ylab('Negative\nco-occurrences') +# scale_x_log10() +
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +
@@ -49,6 +51,7 @@ precision_eucp <- function(pdc, colpal, symbolvals, titltxt, neuc) {
   pdc$dim <- as.numeric(unlist(strsplit(unlist(strsplit(pdc$d, '__'))[2*(1:length(pdc$d))], '_'))[2*(1:length(pdc$d))])
   ggplot(pdc, aes(x = dim, y = eucp, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
     geom_line() + geom_hline(yintercept = neuc/45, linetype = "dashed") +
+    scale_y_continuous(labels = scales::number_format(accuracy = 0.1, big.mark = "")) +
     geom_point(size = 1, stroke = 1) + theme_classic() +
     xlab(TeX('Composite sample side length l')) + ylab('Precision') + #scale_x_log10() +
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +
@@ -63,6 +66,7 @@ precision_intp <- function(pdc, colpal, symbolvals, titltxt, nintp) {
   pdc$dim <- as.numeric(unlist(strsplit(unlist(strsplit(pdc$d, '__'))[2*(1:length(pdc$d))], '_'))[2*(1:length(pdc$d))])
   ggplot(pdc, aes(x = dim, y = intp, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
     geom_line() + geom_hline(yintercept = nintp/45, linetype = "dashed") +
+    scale_y_continuous(labels = scales::number_format(accuracy = 0.1, big.mark = "")) +
     geom_point(size = 1, stroke = 1) + theme_classic() +
     xlab(TeX('Composite sample side length l')) + ylab('Precision') +# scale_x_log10() +
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +
@@ -77,6 +81,7 @@ precision_eucn <- function(pdc, colpal, symbolvals, titltxt, neuc) {
   pdc$dim <- as.numeric(unlist(strsplit(unlist(strsplit(pdc$d, '__'))[2*(1:length(pdc$d))], '_'))[2*(1:length(pdc$d))])
   ggplot(pdc, aes(x = dim, y = eucn, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
     geom_line() + geom_hline(yintercept = neuc/45, linetype = "dashed") +
+    scale_y_continuous(labels = scales::number_format(accuracy = 0.1, big.mark = "")) +
     geom_point(size = 1, stroke = 1) + theme_classic() +
     xlab(TeX('Composite sample side length l')) + ylab('Precision') + #scale_x_log10() +
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +
@@ -87,12 +92,13 @@ precision_eucn <- function(pdc, colpal, symbolvals, titltxt, neuc) {
 }
 ###########################################################################################
 ### Precision for interactions with scale - negative co-occurrences
-precision_intn <- function(pd_cub, colpal, symbolvals, titltxt, nintn) {
+precision_intn <- function(pdc, colpal, symbolvals, titltxt, nintn) {
   pdc$dim <- as.numeric(unlist(strsplit(unlist(strsplit(pdc$d, '__'))[2*(1:length(pdc$d))], '_'))[2*(1:length(pdc$d))])
   ggplot(pdc, aes(x = dim, y = intn, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
     geom_line() + geom_hline(yintercept = nintn/45, linetype = "dashed") +
+    scale_y_continuous(labels = scales::number_format(accuracy = 0.1, big.mark = "")) +
     geom_point(size = 1, stroke = 1) + theme_classic() +
-    xlab(TeX('Number of habitats')) + ylab('Precision') + #scale_x_log10() +
+    xlab(TeX('Composite sample side length l')) + ylab('Precision') + #scale_x_log10() +
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +
     scale_color_manual(values = colpal, name = 'Resource\ndistribution\nscenarios') +
     scale_fill_manual(values = colpal, name = 'Resource\ndistribution\nscenarios') +
@@ -103,7 +109,7 @@ precision_intn <- function(pd_cub, colpal, symbolvals, titltxt, nintn) {
 ###########################################################################################
 ##### Community data plots                                                           ######
 ###########################################################################################
-community_plots <- function(sim_nms, colpal, symbolvals) {
+community_plots <- function(fd_cub, sim_nms, colpal, symbolvals) {
   pdc <- pd_cub[pd_cub$treatment %in% sim_nms,]
   fdc <- fd_cub[fd_cub$treatment %in% sim_nms,]
   p1 <- cub_rch(fdc, colpal, symbolvals, titltxt = 'Richness')
@@ -117,8 +123,9 @@ cub_rch <- function(fdc, colpal, symbolvals, titltxt) {
   fdc$dim <- as.numeric(unlist(strsplit(unlist(strsplit(fdc$d, '__'))[2*(1:length(fdc$d))], '_'))[2*(1:length(fdc$d))])
   ggplot(fdc, aes(x = dim, y = mn_rch, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
     geom_line() +
+    scale_y_continuous(labels = scales::number_format(accuracy = 1, big.mark = "")) +
     geom_point(size = 1, stroke = 1) + theme_classic() + 
-    xlab(TeX('Number of habitats')) + ylab('Mean species\nrichness') + # (±sd)
+    xlab(TeX('Composite sample side length l')) + ylab('Mean species\nrichness') + # (±sd)
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +
     scale_color_manual(values = colpal, name = 'Resource\ndistribution\nscenarios') +
     scale_fill_manual(values = colpal, name = 'Resource\ndistribution\nscenarios') +
@@ -131,8 +138,9 @@ cub_bc <- function(fdc, colpal, symbolvals, titltxt) {
   fdc$dim <- as.numeric(unlist(strsplit(unlist(strsplit(fdc$d, '__'))[2*(1:length(fdc$d))], '_'))[2*(1:length(fdc$d))])
   ggplot(fdc, aes(x = dim, y = mn_bc, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
     geom_line() +
+    scale_y_continuous(labels = scales::number_format(accuracy = 0.1, big.mark = "")) +
     geom_point(size = 1, stroke = 1) + theme_classic() +
-    xlab(TeX('Number of habitats')) + ylab('Mean Bray-Curtis\ndissimilarity') + #(±sd)
+    xlab(TeX('Composite sample side length l')) + ylab('Mean Bray-Curtis\ndissimilarity') + #(±sd)
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +
     scale_color_manual(values = colpal, name = 'Resource\ndistribution\nscenarios') +
     scale_fill_manual(values = colpal, name = 'Resource\ndistribution\nscenarios') +
@@ -146,7 +154,7 @@ cub_numzeroassocn <- function(pdc, colpal, symbolvals, titltxt) {
   ggplot(pdc, aes(x = dim, y = nzeron, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
     geom_line() +
     geom_point(size = 1, stroke = 1) + theme_classic() +
-    xlab(TeX('Number of habitats')) + ylab('% runs with zero\nnegative associations') +
+    xlab(TeX('Composite sample side length l')) + ylab('% runs with zero\nnegative associations') +
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +
     scale_color_manual(values = colpal, name = 'Resource\ndistribution\nscenarios') +
     scale_fill_manual(values = colpal, name = 'Resource\ndistribution\nscenarios') +
@@ -164,7 +172,7 @@ cub_numzeroassocn <- function(pdc, colpal, symbolvals, titltxt) {
 ###########################################################################################
 ##### Co-occurrence plots for noise                                                   #####
 ###########################################################################################
-coocurrence_plots_noise <- function(sim_nms, noise_lvl, colpal, symbolvals) {
+coocurrence_plots_noise <- function(pd_cub, sim_nms, noise_lvl, colpal, symbolvals) {
   pdc <- pd_cub[pd_cub$treatment %in% sim_nms & pd_cub$simulation %in% noise_lvl,]
   p1 <- coocpos(pdc, colpal, symbolvals, titltxt = 'Positive co-occurrences')
   p2 <- coocneg(pdc, colpal, symbolvals, titltxt = 'Negative co-occurrences')
@@ -357,6 +365,14 @@ prep_preferences_and_cooccurrence_data <- function(infmres) {
   return(list(pres = pres, nres = nres))  
 }
 ###########################################################################################
+prep_d <- function(data) {
+  dat <- as.data.frame(data)
+  dat$dim <- as.numeric(str_split_fixed(dat$d, pattern = '_', 5)[,5])
+  dat$rscdist <- str_split_fixed(dat$runm, pattern = '_', 5)[,4]
+  dat[,4:10] <- sapply(dat[,4:10],as.numeric)
+  return(dat)
+}
+###########################################################################################
 ### Collect data
 get_pairwise_preference_correlation_data <- function(pres, nres) {
   res_p_all <- c()
@@ -467,3 +483,4 @@ plt_corcoeffs_pos_rs3_samepref <- function(pdf) {
     force_panelsizes(rows = unit(plotdims[1], "cm"),cols = unit(plotdims[2], "cm")) +
     theme(strip.background=element_rect(colour="black",fill="red"), strip.text = element_text(colour = 'white', face = 'bold')) + font_size_control
 }
+
