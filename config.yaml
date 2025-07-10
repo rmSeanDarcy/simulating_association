@@ -2,289 +2,720 @@ experiments:
 
   fig2:
     s1:
-      parameter_set: "basic"
       simulations:
         s1:
-  	  extra_params: {}
+          simulation_parameter_string: "basic"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
     c1:
-      parameter_set: "null_int"
       simulations:
         c1:
-  	  extra_params: {}
+          simulation_parameter_string: "null_int"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
     c2:
-      parameter_set: "null_rsc"
       simulations:
         c2:
-  	  extra_params: {}
+          simulation_parameter_string: "null_rsc"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
     s2:
-      parameter_set: "basic"
       simulations:
         s2:
-      	  extra_params:
-            --ratio_cf: 0.5
+          simulation_parameter_string: "basic --ratio_cf=0.5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
     s3:
-      parameter_set: "basic"
       simulations:
         s3:
-      	  extra_params:
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
+          simulation_parameter_string: "basic --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='gradXsqrXtd,gradXsqrXdt,pwl_spcXsqrX0'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
     s5:
-      parameter_set: "basic"
       simulations:
         s5:
-	  extra_params:
-            --sp_ini_perc: 0.8
-        
+          simulation_parameter_string: "basic --sp_ini_perc=0.8"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+
   fig3:
     rc1:
-      parameter_set: "metacom"
       simulations:
         radius_0:
-          extra_params:
-            --radius: 0
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.05:
-          extra_params:
-            --radius: 0.05
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.1:
-          extra_params:
-            --radius: 0.1
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0.1 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.15:
-          extra_params:
-            --radius: 0.15
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0.15 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.2:
-          extra_params:
-            --radius: 0.2
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0.2 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.25:
-          extra_params:
-            --radius: 0.25
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0.25 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.3:
-          extra_params:
-            --radius: 0.3
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0.3 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.35:
-          extra_params:
-            --radius: 0.35
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0.35 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.4:
-          extra_params:
-            --radius: 0.4
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0.4 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.45:
-          extra_params:
-            --radius: 0.45
-            --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "metacom --radius=0.45 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.5:
-          extra_params:
-            --radius: 0.5
-            --rsc_cube_gen_vals: "0"            
+          simulation_parameter_string: "metacom --radius=0.5 --rsc_cube_gen_vals=0"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
     rs1:
-      parameter_set: "metacom"
       simulations:
         radius_0:
-          extra_params:
-            --radius: 0
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.05:
-          extra_params:
-            --radius: 0.05
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.1:
-          extra_params:
-            --radius: 0.1
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0.1 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.15:
-          extra_params:
-            --radius: 0.15
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0.15 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.2:
-          extra_params:
-            --radius: 0.2
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0.2 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.25:
-          extra_params:
-            --radius: 0.25
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0.25 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.3:
-          extra_params:
-            --radius: 0.3
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0.3 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.35:
-          extra_params:
-            --radius: 0.35
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0.35 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.4:
-          extra_params:
-            --radius: 0.4
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0.4 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.45:
-          extra_params:
-            --radius: 0.45
-            --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "metacom --radius=0.45 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.5:
-          extra_params:
-            --radius: 0.5
-            --rsc_cube_gen_vals: "5"            
+          simulation_parameter_string: "metacom --radius=0.5 --rsc_cube_gen_vals=5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
     rs2:
-      parameter_set: "metacom"
       simulations:
         radius_0:
-          extra_params:
-            --radius: 0
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.05:
-          extra_params:
-            --radius: 0.05
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.1:
-          extra_params:
-            --radius: 0.1
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0.1 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.15:
-          extra_params:
-            --radius: 0.15
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0.15 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.2:
-          extra_params:
-            --radius: 0.2
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0.2 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.25:
-          extra_params:
-            --radius: 0.25
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0.25 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.3:
-          extra_params:
-            --radius: 0.3
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0.3 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.35:
-          extra_params:
-            --radius: 0.35
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0.35 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.4:
-          extra_params:
-            --radius: 0.4
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0.4 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.45:
-          extra_params:
-            --radius: 0.45
-            --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "metacom --radius=0.45 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.5:
-          extra_params:
-            --radius: 0.5
-            --rsc_cube_gen_vals: "10"            
+          simulation_parameter_string: "metacom --radius=0.5 --rsc_cube_gen_vals=10"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
     rs3:
-      parameter_set: "metacom"
       simulations:
         radius_0:
-          extra_params:
-            --radius: 0
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.05:
-          extra_params:
-            --radius: 0.05
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.1:
-          extra_params:
-            --radius: 0.1
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.1 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.15:
-          extra_params:
-            --radius: 0.15
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.15 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.2:
-          extra_params:
-            --radius: 0.2
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.2 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.25:
-          extra_params:
-            --radius: 0.25
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.25 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.3:
-          extra_params:
-            --radius: 0.3
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.3 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.35:
-          extra_params:
-            --radius: 0.35
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.35 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.4:
-          extra_params:
-            --radius: 0.4
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.4 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.45:
-          extra_params:
-            --radius: 0.45
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.45 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
         radius_0.5:
-          extra_params:
-            --radius: 0.5
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX0','pwl_spcXsqrX5','pwl_spcXsqrX10']
+          simulation_parameter_string: "metacom --radius=0.5 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
 
   fig4:
     rc1:
-      parameter_set: "volume_sampling"
       simulations:
         rc1:
-  	  extra_params:
-  	    --rsc_cube_gen_vals: "0"
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_fixed.R"
     rs1:
-      parameter_set: "volume_sampling"
       simulations:
         rs1:
-  	  extra_params:
-  	    --rsc_cube_gen_vals: "5"
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=5"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_fixed.R"
     rs2:
-      parameter_set: "volume_sampling"
       simulations:
         rs2:
-  	  extra_params:
-  	    --rsc_cube_gen_vals: "10"
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=10"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_fixed.R"
     rs3:
-      parameter_set: "volume_sampling"
       simulations:
         rs3:
-      	  extra_params:
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
+          simulation_parameter_string: "volume_sampling  --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_fixed.R"
     as2:
-      parameter_set: "volume_sampling"
       simulations:
         as2:
-	  extra_params:
-            --radius: 0.1
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
+          simulation_parameter_string: "volume_sampling --radius=0.1 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_fixed.R"
     as3:
-      parameter_set: "volume_sampling"
       simulations:
         as3:
-	  extra_params:
-            --sp_ini_perc: 0.8
-            --rsc_cube_gen_rule: ['specific_dist']
-            --rsc_cube_gen_vals: ['pwl_spcXsqrX10','gradXsqrXtd','gradXnmlXlr']
-
+          simulation_parameter_string: "volume_sampling --sp_ini_perc=0.8 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_fixed.R"
+                  
   fig5:
-    nw:
-      parameter_set: "network_simulation"
+    nw_s1:
       simulations:
-        nw:
-  	  extra_params:
-  	    --sp_num: 25
+        nw_s1:
+          simulation_script: "multi_simulation.py"
+          simulation_parameter_string: "basic"
+          analysis_script: "process_habitat.R"
+          analysis_parameter_string: "--noise=0"
+    nw_c1:
+      simulations:
+        nw_c1:
+          simulation_script: "multi_simulation.py"
+          simulation_parameter_string: "basic"
+          analysis_script: "process_habitat.R"
+          analysis_parameter_string: "--noise=0"
+    nw_s2:
+      simulations:
+        nw_s2:
+          simulation_script: "multi_simulation.py"
+          simulation_parameter_string: "basic"
+          analysis_script: "process_habitat.R"
+          analysis_parameter_string: "--noise=0"
 
+
+clones:
+
+  fig2:
+    s4:
+      simulations:
+        s4:
+          source_treatment: s1
+          source_simulation: s1
+          simulation_parameter_string: "basic"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+
+  fig3:
+    rs3_noise:
+      simulations:
+        radius_0__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0
+          simulation_parameter_string: "metacom --radius=0 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.05__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.05
+          simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.1__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.1
+          simulation_parameter_string: "metacom --radius=0.1 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.15__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.15
+          simulation_parameter_string: "metacom --radius=0.15 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.2__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.2
+          simulation_parameter_string: "metacom --radius=0.2 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.25__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.25
+          simulation_parameter_string: "metacom --radius=0.25 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.3__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.3
+          simulation_parameter_string: "metacom --radius=0.3 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.35__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.35
+          simulation_parameter_string: "metacom --radius=0.35 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.4__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.4
+          simulation_parameter_string: "metacom --radius=0.4 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.45__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.45
+          simulation_parameter_string: "metacom --radius=0.45 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0.5__noise0.1:
+          source_treatment: rs3
+          source_simulation: radius_0.5
+          simulation_parameter_string: "metacom --radius=0.5 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+        radius_0__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0
+          simulation_parameter_string: "metacom --radius=0 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.05__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.05
+          simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.1__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.1
+          simulation_parameter_string: "metacom --radius=0.1 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.15__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.15
+          simulation_parameter_string: "metacom --radius=0.15 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.2__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.2
+          simulation_parameter_string: "metacom --radius=0.2 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.25__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.25
+          simulation_parameter_string: "metacom --radius=0.25 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.3__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.3
+          simulation_parameter_string: "metacom --radius=0.3 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.35__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.35
+          simulation_parameter_string: "metacom --radius=0.35 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.4__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.4
+          simulation_parameter_string: "metacom --radius=0.4 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.45__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.45
+          simulation_parameter_string: "metacom --radius=0.45 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0.5__noise0.25:
+          source_treatment: rs3
+          source_simulation: radius_0.5
+          simulation_parameter_string: "metacom --radius=0.5 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+        radius_0__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0
+          simulation_parameter_string: "metacom --radius=0 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.05__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.05
+          simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.1__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.1
+          simulation_parameter_string: "metacom --radius=0.1 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.15__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.15
+          simulation_parameter_string: "metacom --radius=0.15 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.2__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.2
+          simulation_parameter_string: "metacom --radius=0.2 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.25__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.25
+          simulation_parameter_string: "metacom --radius=0.25 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.3__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.3
+          simulation_parameter_string: "metacom --radius=0.3 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.35__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.35
+          simulation_parameter_string: "metacom --radius=0.35 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.4__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.4
+          simulation_parameter_string: "metacom --radius=0.4 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.45__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.45
+          simulation_parameter_string: "metacom --radius=0.45 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+        radius_0.5__noise0.5:
+          source_treatment: rs3
+          source_simulation: radius_0.5
+          simulation_parameter_string: "metacom --radius=0.5 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.5"
+          analysis_script: "process_habitat.R"
+
+  fig4:
+    rc1_noise:
+      simulations:
+        noise_0.05:
+          source_treatment: rc1
+          source_simulation: rc1
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.05"
+          analysis_script: "process_composite_fixed.R"
+        noise_0.1:
+          source_treatment: rc1
+          source_simulation: rc1
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_composite_fixed.R"
+        noise_0.25:
+          source_treatment: rc1
+          source_simulation: rc1
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_composite_fixed.R"
+    rs1_noise:
+      simulations:
+        noise_0.05:
+          source_treatment: rs1
+          source_simulation: rs1
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.05"
+          analysis_script: "process_composite_fixed.R"
+        noise_0.1:
+          source_treatment: rs1
+          source_simulation: rs1
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_composite_fixed.R"
+        noise_0.25:
+          source_treatment: rs1
+          source_simulation: rs1
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_composite_fixed.R"
+    rs2_noise:
+      simulations:
+        noise_0.05:
+          source_treatment: rs2
+          source_simulation: rs2
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.05"
+          analysis_script: "process_composite_fixed.R"
+        noise_0.1:
+          source_treatment: rs2
+          source_simulation: rs2
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_composite_fixed.R"
+        noise_0.25:
+          source_treatment: rs2
+          source_simulation: rs2
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_composite_fixed.R"
+    rs3_noise:
+      simulations:
+        noise_0.05:
+          source_treatment: rs3
+          source_simulation: rs3
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.05"
+          analysis_script: "process_composite_fixed.R"
+        noise_0.1:
+          source_treatment: rs3
+          source_simulation: rs3
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_composite_fixed.R"
+        noise_0.25:
+          source_treatment: rs3
+          source_simulation: rs3
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_composite_fixed.R"
+    rc1_unequal:
+      simulations:
+        rc1_unequal:
+          source_treatment: rc1
+          source_simulation: rc1
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_unequal.R"
+    rs1_unequal:
+      simulations:
+        rs1_unequal:
+          source_treatment: rs1
+          source_simulation: rs1
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_unequal.R"
+    rs2_unequal:
+      simulations:
+        rs2_unequal:
+          source_treatment: rs2
+          source_simulation: rs2
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_unequal.R"
+    rs3_unequal:
+      simulations:
+        rs3_unequal:
+          source_treatment: rs3
+          source_simulation: rs3
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
+        simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_unequal.R"
