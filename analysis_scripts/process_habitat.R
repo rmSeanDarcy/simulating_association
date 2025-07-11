@@ -2,13 +2,12 @@
 ### SAMSARA - Result output analysis                                                    ###
 ###########################################################################################
 library(dplyr)
-library(vegan)
 library(reshape2)
 
 ##############################################################################################################################
 ##### 1. Get passed arguments, load analysis functions and set working directory
 ##############################################################################################################################
-setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA')
+#setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA')
 
 ###########################################################################################
 ### This script too was designed to run in a .bash script and takes the same first three inputs as master_slurm_simulation.py
@@ -28,10 +27,10 @@ if (grepl('noise', paramstr)) {
 }
 ###########################################################################################
 ### Inputs for manual runs 
-experiment <- 'fig2_test'
-treatment <- 's4'
-simulation <- 's4'
-noise_std <- 0.25
+#experiment <- 'fig2_test'
+#treatment <- 's4'
+#simulation <- 's4'
+#noise_std <- 0.25
 
 ###########################################################################################
 ### Here we load all of the data analysis functions that are contained in scripts within the folder './Load_analysis_functions'

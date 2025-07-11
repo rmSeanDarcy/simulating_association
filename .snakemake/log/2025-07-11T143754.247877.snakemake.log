@@ -1,0 +1,15 @@
+Migrating .snakemake folder to new format...
+Migration complete
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules simulate_community_data and clone_simulation_data are ambiguous for the file simulation_data/xfig2/s1/s1/n_pop_log_log.csv.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	simulate_community_data: experiment=xfig2,simulation=s1,treatment=s1
+	clone_simulation_data: experiment=xfig2,simulation=s1,treatment=s1
+Expected input files:
+	simulate_community_data: 
+	clone_simulation_data: 
+Expected output files:
+	simulate_community_data: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+	clone_simulation_data: simulation_data/xfig2/s1/s1/n_pop_log_log.csv

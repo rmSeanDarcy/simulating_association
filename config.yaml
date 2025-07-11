@@ -279,14 +279,14 @@ experiments:
       simulations:
         rc1:
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_fixed.R"
     rs1:
       simulations:
         rs1:
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=5"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_fixed.R"
     rs2:
@@ -300,7 +300,7 @@ experiments:
       simulations:
         rs3:
           simulation_parameter_string: "volume_sampling  --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_fixed.R"
     as2:
@@ -314,7 +314,7 @@ experiments:
       simulations:
         as3:
           simulation_parameter_string: "volume_sampling --sp_ini_perc=0.8 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10'"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_fixed.R"
                   
@@ -597,21 +597,21 @@ clones:
           source_treatment: rc1
           source_simulation: rc1
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.05"
           analysis_script: "process_composite_fixed.R"
         noise_0.1:
           source_treatment: rc1
           source_simulation: rc1
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.1"
           analysis_script: "process_composite_fixed.R"
         noise_0.25:
           source_treatment: rc1
           source_simulation: rc1
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.25"
           analysis_script: "process_composite_fixed.R"
     rs1_noise:
@@ -620,21 +620,21 @@ clones:
           source_treatment: rs1
           source_simulation: rs1
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.05"
           analysis_script: "process_composite_fixed.R"
         noise_0.1:
           source_treatment: rs1
           source_simulation: rs1
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.1"
           analysis_script: "process_composite_fixed.R"
         noise_0.25:
           source_treatment: rs1
           source_simulation: rs1
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.25"
           analysis_script: "process_composite_fixed.R"
     rs2_noise:
@@ -643,21 +643,21 @@ clones:
           source_treatment: rs2
           source_simulation: rs2
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.05"
           analysis_script: "process_composite_fixed.R"
         noise_0.1:
           source_treatment: rs2
           source_simulation: rs2
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.1"
           analysis_script: "process_composite_fixed.R"
         noise_0.25:
           source_treatment: rs2
           source_simulation: rs2
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.25"
           analysis_script: "process_composite_fixed.R"
     rs3_noise:
@@ -666,21 +666,21 @@ clones:
           source_treatment: rs3
           source_simulation: rs3
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.05"
           analysis_script: "process_composite_fixed.R"
         noise_0.1:
           source_treatment: rs3
           source_simulation: rs3
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.1"
           analysis_script: "process_composite_fixed.R"
         noise_0.25:
           source_treatment: rs3
           source_simulation: rs3
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0.25"
           analysis_script: "process_composite_fixed.R"
     rc1_unequal:
@@ -689,7 +689,7 @@ clones:
           source_treatment: rc1
           source_simulation: rc1
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_unequal.R"
     rs1_unequal:
@@ -698,7 +698,7 @@ clones:
           source_treatment: rs1
           source_simulation: rs1
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_unequal.R"
     rs2_unequal:
@@ -707,7 +707,7 @@ clones:
           source_treatment: rs2
           source_simulation: rs2
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_unequal.R"
     rs3_unequal:
@@ -716,6 +716,6 @@ clones:
           source_treatment: rs3
           source_simulation: rs3
           simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0"
-        simulation_script: "main_simulation.py"
+          simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_unequal.R"

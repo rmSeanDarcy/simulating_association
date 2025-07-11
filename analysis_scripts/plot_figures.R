@@ -114,11 +114,6 @@ sjPlot::save_plot('./figures/supporting_information/sup_dispersal_noise/plots/ma
 ###########################################################################################
 pd_cub <- read.csv(paste0('./analysis_data/fig4/infm_res_compiled.csv'))
 fd_cub <- read.csv(paste0('./analysis_data/fig4/full_res_compiled.csv'))
-
-#getOption("bitmapType")
-#capabilities("cairo")
-#grDevices::dev.cur()
-
 ###########################################################################################
 ### Main: Resource distributions (Plots A, B, C, D)
 plotdims <- c(4.,3)
@@ -126,7 +121,7 @@ colpal <- c('#000000FF', '#999999FF', '#CCCCCCFF', '#666666FF')
 sim_nms <- c('rc1', 'rs1', 'rs2', 'rs3')
 symbolvals <- c(0,2,6,5)
 p <- coocurrence_plots(pd_cub, sim_nms, colpal, symbolvals)
-save_svg('./figures/main_manuscript/fig4/plots/cooccurrence_rscdist.svg', fig = p, width = 30, height = 20, base_font_size = 10)
+save_svg('./figures/main_manuscript/fig4/plots/cooccurrence_rscdist.svg', fig = p, width = 30, height = 20)
 p <- community_plots(fd_cub, sim_nms, colpal, symbolvals)
 save_svg('./figures/main_manuscript/fig4/plots/community_rscdist.svg', fig = p, width = 30, height = 20)
 ###########################################################################################
@@ -138,10 +133,6 @@ p <- coocurrence_plots(pd_cub, sim_nms, colpal, symbolvals)
 save_svg('./figures/main_manuscript/fig4/plots/cooccurrence_alternative.svg', fig = p, width = 30, height = 20)
 p <- community_plots(fd_cub, sim_nms, colpal, symbolvals)
 save_svg('./figures/main_manuscript/fig4/plots/community_alternative.svg', fig = p, width = 30, height = 20)
-
-
-
-
 
 ###########################################################################################
 ### Test with data variation

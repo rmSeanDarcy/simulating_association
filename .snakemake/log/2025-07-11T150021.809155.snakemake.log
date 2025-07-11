@@ -1,0 +1,2 @@
+SyntaxError in file /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 38:
+Colon expected after keyword script. (Snakefile.smk, line 38)

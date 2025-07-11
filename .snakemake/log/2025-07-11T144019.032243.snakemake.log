@@ -1,0 +1,10 @@
+Building DAG of jobs...
+InputFunctionException in rule simulate_community_data in file /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 34:
+Error:
+  KeyError: 's4'
+Wildcards:
+  experiment=xfig2
+  treatment=s4
+  simulation=s4
+Traceback:
+  File "/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 38, in <lambda>

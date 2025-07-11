@@ -36,7 +36,7 @@ coocneg <- function(pdc, colpal, symbolvals, titltxt) {
   pdc$dim <- as.numeric(unlist(strsplit(unlist(strsplit(pdc$d, '__'))[2*(1:length(pdc$d))], '_'))[2*(1:length(pdc$d))])
   ggplot(pdc, aes(x = dim, y = totn, col = treatment, group = treatment, fill = treatment, shape = treatment)) +
     geom_line() + 
-    scale_y_continuous(labels = scales::number_format(accuracy = 1, big.mark = "")) +
+    scale_y_continuous(labels = scales::number_format(accuracy = 1, big.mark = "")) + ylim(0,13) +
     geom_point(size = 1, stroke = 1) + theme_classic() + 
     xlab(TeX('Composite sample side length l')) + ylab('Negative\nco-occurrences') +# scale_x_log10() +
     scale_shape_manual(values = symbolvals, name = 'Resource\ndistribution\nscenarios') +

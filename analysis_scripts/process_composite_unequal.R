@@ -13,29 +13,28 @@ library(reshape2)
 ##############################################################################################################################
 setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA')
 
-# ###########################################################################################
-# ### This script too was designed to run in a .bash script and takes the same first three inputs as master_slurm_simulation.py
-# #args <- commandArgs(TRUE)
-# args <- commandArgs(trailingOnly=TRUE)
-# experiment <- args[1]
-# treatment <- args[2]
-# simulation <- args[3]
-# # Extract the remaining arguments as a single string
-# paramstr <- ifelse(length(args) > 3, args[4], "")
-# ### Now we need to first check whether noise is in the additional arguments and if so we need to extract the value 
-# #paramstr <- '--n_num:25 --nrep:2 --noise:0.1'
-# if (grepl('noise', paramstr)) {
-#   noise_std <- as.numeric(strsplit(strsplit(paramstr,' --')[[1]][grep('noise:',(strsplit(paramstr,' --')[[1]]))],'noise:')[[1]][2])
-# } else {
-#   noise_std <- 0
-# }
-
+###########################################################################################
+### This script too was designed to run in a .bash script and takes the same first three inputs as master_slurm_simulation.py
+#args <- commandArgs(TRUE)
+args <- commandArgs(trailingOnly=TRUE)
+experiment <- args[1]
+treatment <- args[2]
+simulation <- args[3]
+# Extract the remaining arguments as a single string
+paramstr <- ifelse(length(args) > 3, args[4], "")
+### Now we need to first check whether noise is in the additional arguments and if so we need to extract the value 
+#paramstr <- '--n_num:25 --nrep:2 --noise:0.1'
+if (grepl('noise', paramstr)) {
+  noise_std <- as.numeric(strsplit(strsplit(paramstr,' --')[[1]][grep('noise:',(strsplit(paramstr,' --')[[1]]))],'noise:')[[1]][2])
+} else {
+  noise_std <- 0
+}
 ###########################################################################################
 ### Inputs for manual runs 
-experiment <- 'fig_cub'
-treatment <- 'r1'
-simulation <- 'r1_unequal'
-noise_std <- 0
+#experiment <- 'fig2_test'
+#treatment <- 's4'
+#simulation <- 's4'
+#noise_std <- 0.25
 
 ###########################################################################################
 ### Here we load all of the data analysis functions that are contained in scripts within the folder './Load_analysis_functions'
@@ -81,8 +80,8 @@ kabs <- kabs[!kabs$repl %in% err_runs_idx,]
 eucdm <- eucdm[!eucdm$repl %in% err_runs_idx,]
 intm <- intm[!intm$repl %in% err_runs_idx,]
 ### Get all run indices without errors in runs
-#r_num <- unique(npop$repl) 
-r_num <- seq(0,1,1)
+r_num <- unique(npop$repl) 
+#r_num <- seq(0,1,1)
 
 ###########################################################################################
 # In some very rare cases species abundances are fixed at 0.001 for the entire simulation. This is the case when a species is in an

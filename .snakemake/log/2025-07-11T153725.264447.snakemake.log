@@ -1,0 +1,66 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+process_community_data        10
+simulate_community_data        8
+simulate_fig5_multi            1
+total                         20
+
+Select jobs to execute...
+
+[Fri Jul 11 15:37:26 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig5/nw_s2/nw_s2/n_pop_log_log.csv
+    jobid: 11
+    reason: Missing output files: simulation_data/xfig5/nw_s2/nw_s2/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=nw_s2, simulation=nw_s2
+    resources: tmpdir=/tmp
+
+[Fri Jul 11 15:37:26 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    jobid: 2
+    reason: Missing output files: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+[Fri Jul 11 15:37:26 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    jobid: 13
+    reason: Missing output files: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s4, simulation=s4
+    resources: tmpdir=/tmp
+
+[Fri Jul 11 15:37:26 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+[Fri Jul 11 15:37:26 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 15
+    reason: Missing output files: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rs3_noise, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Fri Jul 11 15:37:26 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    jobid: 6
+    reason: Missing output files: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1, simulation=rc1
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-11T153725.264447.snakemake.log

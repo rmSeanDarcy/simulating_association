@@ -1,0 +1,110 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+process_community_data        10
+simulate_community_data       10
+total                         21
+
+Select jobs to execute...
+
+[Fri Jul 11 14:44:59 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    jobid: 20
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_unequal, simulation=rc1_unequal
+    resources: tmpdir=/tmp
+
+Failed to set marker file for job started ([Errno 95] Operation not supported: '/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake/incomplete/tmpzoiz5vkd.c2ltdWxh'). Snakemake will work, but cannot ensure that output files are complete in case of a kill signal or power loss. Please ensure write permissions for the directory /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake
+
+[Fri Jul 11 14:44:59 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+Failed to set marker file for job started ([Errno 95] Operation not supported: '/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake/incomplete/tmpplslu_y9.c2ltdWxh'). Snakemake will work, but cannot ensure that output files are complete in case of a kill signal or power loss. Please ensure write permissions for the directory /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake
+[Fri Jul 11 14:44:59 2025]
+Error in rule simulate_community_data:
+    jobid: 20
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    shell:
+        
+    if [ "None" = "multi_simulation.py" ]; then
+        echo "Skipping simulation for multi_simulation.py — handled separately."
+        exit 0
+    fi
+    python3 simulation_scripts/None       xfig4       rc1_unequal       rc1_unequal       None
+    
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+
+[Fri Jul 11 14:44:59 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    jobid: 6
+    reason: Missing output files: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1, simulation=rc1
+    resources: tmpdir=/tmp
+
+Failed to set marker file for job started ([Errno 95] Operation not supported: '/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake/incomplete/tmpp43mu0qz.c2ltdWxh'). Snakemake will work, but cannot ensure that output files are complete in case of a kill signal or power loss. Please ensure write permissions for the directory /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake
+
+[Fri Jul 11 14:44:59 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv
+    jobid: 8
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=nw_s1, simulation=nw_s1
+    resources: tmpdir=/tmp
+
+Failed to set marker file for job started ([Errno 95] Operation not supported: '/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake/incomplete/tmp74y_jie6.c2ltdWxh'). Snakemake will work, but cannot ensure that output files are complete in case of a kill signal or power loss. Please ensure write permissions for the directory /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake
+
+[Fri Jul 11 14:45:00 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv
+    jobid: 10
+    reason: Missing output files: simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=nw_c1, simulation=nw_c1
+    resources: tmpdir=/tmp
+
+Failed to set marker file for job started ([Errno 95] Operation not supported: '/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake/incomplete/tmpuafmiscp.c2ltdWxh'). Snakemake will work, but cannot ensure that output files are complete in case of a kill signal or power loss. Please ensure write permissions for the directory /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake
+
+[Fri Jul 11 14:45:00 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig5/nw_s2/nw_s2/n_pop_log_log.csv
+    jobid: 12
+    reason: Missing output files: simulation_data/xfig5/nw_s2/nw_s2/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=nw_s2, simulation=nw_s2
+    resources: tmpdir=/tmp
+
+Failed to set marker file for job started ([Errno 95] Operation not supported: '/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake/incomplete/tmpuossz06_.c2ltdWxh'). Snakemake will work, but cannot ensure that output files are complete in case of a kill signal or power loss. Please ensure write permissions for the directory /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule simulate_community_data in file /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 34:
+Job 8  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule simulate_community_data in file /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 34:
+Job 10  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule simulate_community_data in file /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 34:
+Job 12  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+simulation_data/xfig5/nw_s2/nw_s2/n_pop_log_log.csv
+WorkflowError:
+Error recording metadata for finished job ([Errno 95] Operation not supported: '/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake/metadata/tmpg1slnc_b.c2ltdWxh'). Please ensure write permissions for the directory /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake
+Removing output files of failed job simulate_community_data since they might be corrupted:
+simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+WorkflowError:
+Error recording metadata for finished job ([Errno 95] Operation not supported: '/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake/metadata/tmph3emq5p2.c2ltdWxh'). Please ensure write permissions for the directory /run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA/.snakemake
+Removing output files of failed job simulate_community_data since they might be corrupted:
+simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-11T144458.940336.snakemake.log

@@ -1,0 +1,97 @@
+experiments:
+
+  xfig2:
+    s1:
+      simulations:
+        s1:
+          simulation_parameter_string: "basic --nrep=2"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+
+  xfig3:
+    rc1:
+      simulations:
+        radius_0.05:
+          simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_vals=0 --nrep=2 --n_num=50"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+
+  xfig4:
+    rc1:
+      simulations:
+        rc1:
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0 --nrep=2 --n_num=300"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_fixed.R"
+                  
+  xfig5:
+    nw_s1:
+      simulations:
+        nw_s1:
+          simulation_parameter_string: "basic --nrep=2"
+          simulation_script: "multi_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+    nw_c1:
+      simulations:
+        nw_c1:
+          simulation_parameter_string: "basic --nrep=2"
+          simulation_script: "multi_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+    nw_s2:
+      simulations:
+        nw_s2:
+          simulation_parameter_string: "basic --nrep=2"
+          simulation_script: "multi_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+
+
+clones:
+
+  xfig2:
+    s4:
+      simulations:
+        s4:
+          source_treatment: "s1"
+          source_simulation: "s1"
+          simulation_parameter_string: "basic --nrep=2"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+
+  xfig3:
+    rs3_noise:
+      simulations:
+        radius_0.05__noise0.1:
+          source_treatment: "rs3"
+          source_simulation: "radius_0.05"
+          simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10' --nrep=2"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.1"
+          analysis_script: "process_habitat.R"
+
+  xfig4:
+    rc1_noise:
+      simulations:
+        noise_0.25:
+          source_treatment: "rc1"
+          source_simulation: "rc1"
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0 --nrep=2"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_composite_fixed.R"
+    rc1_unequal:
+      simulations:
+        rc1_unequal:
+          source_treatment: "rc1"
+          source_simulation: "rc1"
+          simulation_parameter_string: "volume_sampling --rsc_cube_gen_vals=0 --nrep=2"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_composite_unequal.R"
+
