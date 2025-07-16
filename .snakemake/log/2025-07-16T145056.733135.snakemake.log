@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule compile_data in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 187:
+Missing input files for rule compile_data:
+    output: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv
+    wildcards: experiment=xfig2
+    affected files:
+        simulation_data/xfig2/s1/s1/full_res.csv

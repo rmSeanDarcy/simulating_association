@@ -11,7 +11,7 @@ library(reshape2)
 ##############################################################################################################################
 ##### 1. Get passed arguments, load analysis functions and set working directory
 ##############################################################################################################################
-setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA')
+#setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA')
 
 ###########################################################################################
 ### This script too was designed to run in a .bash script and takes the same first three inputs as master_slurm_simulation.py
@@ -25,7 +25,7 @@ paramstr <- ifelse(length(args) > 3, args[4], "")
 ### Now we need to first check whether noise is in the additional arguments and if so we need to extract the value 
 #paramstr <- '--n_num:25 --nrep:2 --noise:0.1'
 if (grepl('noise', paramstr)) {
-  noise_std <- as.numeric(strsplit(strsplit(paramstr,' --')[[1]][grep('noise:',(strsplit(paramstr,' --')[[1]]))],'noise:')[[1]][2])
+  noise_std <- as.numeric(strsplit(strsplit(paramstr,' --')[[1]][grep('noise=',(strsplit(paramstr,' --')[[1]]))],'noise=')[[1]][2])
 } else {
   noise_std <- 0
 }
@@ -68,7 +68,7 @@ rsc_num <- as.numeric(settings[settings$setting == 'rsc_num',2])    # Number of 
 hab_nms <- unique(kabs$n_nms)           # Names of habitats
 sp_nms <- colnames(npop)[1:sp_num]      # Names of habitats
 rsc_nms <- colnames(kabs)[1:rsc_num]    # Names of habitats
-noise_std <- 0                          # as.numeric(settings[settings$setting == 'rsc_num',2])    # Number of resources
+
 ###########################################################################################
 ### Delete erroneous runs -> See why in description of gLV integration in './Load_simulation_functions/set_dynamics.py'
 err_runs <- npop[npop$err > 0,]
@@ -96,9 +96,9 @@ npop <- cbind(npop_copy, npop[,c(sp_num+1:4)])
 # There are two options, but only the abundance adjusted noise (noise_mode <- 'habitat_adj') is presented in the paper!
 noise_mode <- 'habitat_adj'           # 'fixed_val_norm', 'habitat_adj'
 # The value for noise_std is given above in 1. -> The function that adds noise can be found in './Load_analysis_functions/miscelaneous_functions.py'
-if (noise_std > 0) {
-  npop <- add_noise_per_habitat(npop, noise_std, noise_mode)  
-}
+#if (noise_std > 0) {
+#  npop <- add_noise_per_habitat(npop, noise_std, noise_mode)  
+#}
 
 
 ##############################################################################################################################

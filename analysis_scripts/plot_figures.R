@@ -41,9 +41,11 @@ sjPlot::save_plot('./figures/main_manuscript/fig2/plots/A_all_cors.svg', fig = p
 ###########################################################################################
 ##### Main: Fig.2 B,C) Matching co-occurrences                                              #####
 ### Matching (precision)
+options(bitmapType = "cairo")
+
 plotdims = c(4,4)
 p <- plot_match_allruns_eucintp(pd_hab,label_mode = 'none',titltxt = 'plot_match_allruns_eucintp',hnum, plotdims = c(4,4))
-sjPlot::save_plot('./figures/main_manuscript/fig2/plots/B_match_positive.svg', fig = p, width = 30, height = 20)
+sjPlot::save_plot('./figures/main_manuscript/fig2/plots/xB_match_positive.svg', fig = p, width = 30, height = 20)
 p <- plot_match_allruns_eucintn(pd_hab,label_mode = 'none',titltxt = 'plot_match_allruns_eucintn',hnum, plotdims = c(4,4))
 sjPlot::save_plot('./figures/main_manuscript/fig2/plots/C_match_negative.svg', fig = p, width = 30, height = 20)
 ### Main: Recovery

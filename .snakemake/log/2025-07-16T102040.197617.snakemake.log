@@ -1,0 +1,2 @@
+SyntaxError in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 57:
+Multiple run/shell/script/notebook/wrapper/template_engine/cwl keywords in rule simulate_community_data. (Snakefile.smk, line 57)

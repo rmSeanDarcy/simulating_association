@@ -1,8 +1,6 @@
-### SAMSARA
+# SAMSARA
 Simulate spatially explicit community data with multiple drivers of community assembly
 
-Homework4 - Project documentation:
-See the 'INSTALL.md' for a simple instruction and shell commands for how to reproduce this workflow.
 
 
 Motivation:

@@ -1,0 +1,49 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+process_community_data         4
+simulate_community_data        4
+total                          9
+
+Select jobs to execute...
+
+[Wed Jul 16 12:01:04 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    jobid: 16
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_noise, simulation=noise_0.25
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 12:01:04 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    jobid: 18
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_unequal, simulation=rc1_unequal
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 12:01:04 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 14
+    reason: Missing output files: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rs3_noise, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 12:01:04 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    jobid: 12
+    reason: Missing output files: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s4, simulation=s4
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-16T120103.277254.snakemake.log

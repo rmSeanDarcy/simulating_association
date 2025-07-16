@@ -1,0 +1,75 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+process_community_data        10
+simulate_community_data        5
+simulate_fig5_multi            1
+total                         17
+
+Select jobs to execute...
+
+[Wed Jul 16 09:56:56 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig5/nw_s2/nw_s2/n_pop_log_log.csv
+    jobid: 11
+    reason: Missing output files: simulation_data/xfig5/nw_s2/nw_s2/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=nw_s2, simulation=nw_s2
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 09:56:56 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    jobid: 13
+    reason: Missing output files: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s4, simulation=s4
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 09:56:56 2025]
+rule process_community_data:
+    input: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    output: analysis_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    jobid: 3
+    reason: Missing output files: analysis_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 09:56:56 2025]
+rule simulate_fig5_multi:
+    output: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv, simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv, simulation_data/xfig5/nw_c2/nw_c2/n_pop_log_log.csv
+    jobid: 8
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv, simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 09:56:56 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 15
+    reason: Missing output files: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rs3_noise, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 09:56:56 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    jobid: 17
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_noise, simulation=noise_0.25
+    resources: tmpdir=/tmp
+
+Waiting at most 30 seconds for missing files.
+MissingOutputException in rule process_community_data in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 108:
+Job 3  completed successfully, but some output files are missing. Missing files after 30 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+analysis_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+[Wed Jul 16 09:57:51 2025]
+Finished job 8.
+1 of 17 steps (6%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-16T095655.592052.snakemake.log

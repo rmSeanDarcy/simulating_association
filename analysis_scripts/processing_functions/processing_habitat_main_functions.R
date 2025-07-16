@@ -34,6 +34,10 @@ process_habitat <- function(sp_num, rsc_num, r_num, npop, kabs, nxyz, nperm2, p_
       nxyzr <- nxyz[nxyz$repl == r,]
       nxyzd <- as.data.frame(rbind(nxyzd, nxyzr[smpl_idx,]))
     }
+    ### Add sampling noise here
+    if (noise_std > 0) {
+      npopd <- add_noise_per_habitat(npopd, noise_std, noise_mode)  
+    }
     ###########################################################################################
     ### Main analysis functions
     ###########################################################################################

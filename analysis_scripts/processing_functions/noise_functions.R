@@ -6,7 +6,9 @@
 ### We add noise to our simulated abundances to remove sligh resource preference based correlations 
 add_noise_per_habitat <- function(npop, noise_std, noise_mode) {
   if (noise_mode == 'habitat_adj') {
+    #i <- 1
     for (i in r_num) {
+      #j <- 1
       for (j in npop[npop$repl == i,]$Ridx) {
         valvec <- as.numeric(npop[npop$repl == i & npop$Ridx == j,c(1:sp_num)])
         mn <- mean(valvec)

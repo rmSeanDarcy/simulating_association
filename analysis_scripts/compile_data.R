@@ -5,12 +5,12 @@
 ##############################################################################################################################
 ##### 1. Get passed arguments, load analysis functions and set working directory
 ##############################################################################################################################
-setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA')
+#setwd('/run/user/1000/gvfs/smb-share:domain=share,server=share.univie.ac.at,share=ter,user=seand93/PROJECTS/SomSOM/Step_III/SAMSARA')
 
 ###########################################################################################
 args <- commandArgs(trailingOnly=TRUE)
-#experiment <- args[1]
-experiment <- 'fig4'
+experiment <- args[1]
+#experiment <- 'fig4'
 dir.create(file.path(paste0('./analysis_data/',experiment)), showWarnings = FALSE)
 
 

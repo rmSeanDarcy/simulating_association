@@ -42,9 +42,9 @@ experiments:
           simulation_script: "multi_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_habitat.R"
-    nw_s2:
+    nw_c2:
       simulations:
-        nw_s2:
+        nw_c2:
           simulation_parameter_string: "basic --nrep=2"
           simulation_script: "multi_simulation.py"
           analysis_parameter_string: "--noise=0"
@@ -65,10 +65,10 @@ clones:
           analysis_script: "process_habitat.R"
 
   xfig3:
-    rs3_noise:
+    rc1_noise:
       simulations:
         radius_0.05__noise0.1:
-          source_treatment: "rs3"
+          source_treatment: "rc1"
           source_simulation: "radius_0.05"
           simulation_parameter_string: "metacom --radius=0.05 --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='pwl_spcXsqrX0,pwl_spcXsqrX5,pwl_spcXsqrX10' --nrep=2"
           simulation_script: "main_simulation.py"

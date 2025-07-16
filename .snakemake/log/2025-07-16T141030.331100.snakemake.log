@@ -1,0 +1,157 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+analyse_simulations       10
+total                     11
+
+Select jobs to execute...
+
+[Wed Jul 16 14:10:31 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig5/nw_c2/nw_c2/sign_ajd_res_log.csv
+    output: simulation_data/xfig5/nw_c2/nw_c2/infm_res.csv
+    jobid: 15
+    reason: Missing output files: simulation_data/xfig5/nw_c2/nw_c2/infm_res.csv
+    wildcards: experiment=xfig5, treatment=nw_c2, simulation=nw_c2
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:10:31 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig4/rc1_noise/noise_0.25/sign_ajd_res_log.csv
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/infm_res.csv
+    jobid: 23
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/noise_0.25/infm_res.csv
+    wildcards: experiment=xfig4, treatment=rc1_noise, simulation=noise_0.25
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:10:31 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    output: simulation_data/xfig3/rc1/radius_0.05/infm_res.csv
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig3/rc1/radius_0.05/infm_res.csv
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:10:31 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig5/nw_c1/nw_c1/sign_ajd_res_log.csv
+    output: simulation_data/xfig5/nw_c1/nw_c1/infm_res.csv
+    jobid: 13
+    reason: Missing output files: simulation_data/xfig5/nw_c1/nw_c1/infm_res.csv
+    wildcards: experiment=xfig5, treatment=nw_c1, simulation=nw_c1
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:10:31 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig5/nw_s1/nw_s1/sign_ajd_res_log.csv
+    output: simulation_data/xfig5/nw_s1/nw_s1/infm_res.csv
+    jobid: 10
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/infm_res.csv
+    wildcards: experiment=xfig5, treatment=nw_s1, simulation=nw_s1
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:10:31 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/sign_ajd_res_log.csv
+    output: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/infm_res.csv
+    jobid: 20
+    reason: Missing output files: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/infm_res.csv
+    wildcards: experiment=xfig3, treatment=rc1_noise, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 14:10:33 2025]
+Finished job 10.
+1 of 11 steps (9%) done
+Select jobs to execute...
+
+[Wed Jul 16 14:10:33 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig2/s4/s4/sign_ajd_res_log.csv
+    output: simulation_data/xfig2/s4/s4/infm_res.csv
+    jobid: 17
+    reason: Missing output files: simulation_data/xfig2/s4/s4/infm_res.csv
+    wildcards: experiment=xfig2, treatment=s4, simulation=s4
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 14:10:33 2025]
+Finished job 13.
+2 of 11 steps (18%) done
+[Wed Jul 16 14:10:33 2025]
+Finished job 4.
+3 of 11 steps (27%) done
+[Wed Jul 16 14:10:33 2025]
+Finished job 15.
+4 of 11 steps (36%) done
+[Wed Jul 16 14:10:33 2025]
+Finished job 20.
+5 of 11 steps (45%) done
+[Wed Jul 16 14:10:33 2025]
+Finished job 23.
+6 of 11 steps (55%) done
+Select jobs to execute...
+
+[Wed Jul 16 14:10:33 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig4/rc1/rc1/sign_ajd_res_log.csv
+    output: simulation_data/xfig4/rc1/rc1/infm_res.csv
+    jobid: 7
+    reason: Missing output files: simulation_data/xfig4/rc1/rc1/infm_res.csv
+    wildcards: experiment=xfig4, treatment=rc1, simulation=rc1
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:10:33 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv
+    output: simulation_data/xfig2/s1/s1/infm_res.csv
+    jobid: 1
+    reason: Missing output files: simulation_data/xfig2/s1/s1/infm_res.csv
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:10:33 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig4/rc1_unequal/rc1_unequal/sign_ajd_res_log.csv
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/infm_res.csv
+    jobid: 26
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/infm_res.csv
+    wildcards: experiment=xfig4, treatment=rc1_unequal, simulation=rc1_unequal
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 14:10:35 2025]
+Finished job 17.
+7 of 11 steps (64%) done
+[Wed Jul 16 14:10:35 2025]
+Finished job 1.
+8 of 11 steps (73%) done
+[Wed Jul 16 14:10:35 2025]
+Finished job 7.
+9 of 11 steps (82%) done
+[Wed Jul 16 14:10:35 2025]
+Finished job 26.
+10 of 11 steps (91%) done
+Select jobs to execute...
+
+[Wed Jul 16 14:10:35 2025]
+localrule all:
+    input: simulation_data/xfig2/s1/s1/infm_res.csv, simulation_data/xfig3/rc1/radius_0.05/infm_res.csv, simulation_data/xfig4/rc1/rc1/infm_res.csv, simulation_data/xfig5/nw_s1/nw_s1/infm_res.csv, simulation_data/xfig5/nw_c1/nw_c1/infm_res.csv, simulation_data/xfig5/nw_c2/nw_c2/infm_res.csv, simulation_data/xfig2/s4/s4/infm_res.csv, simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/infm_res.csv, simulation_data/xfig4/rc1_noise/noise_0.25/infm_res.csv, simulation_data/xfig4/rc1_unequal/rc1_unequal/infm_res.csv
+    jobid: 0
+    reason: Input files updated by another job: simulation_data/xfig5/nw_c1/nw_c1/infm_res.csv, simulation_data/xfig4/rc1/rc1/infm_res.csv, simulation_data/xfig4/rc1_unequal/rc1_unequal/infm_res.csv, simulation_data/xfig5/nw_s1/nw_s1/infm_res.csv, simulation_data/xfig2/s4/s4/infm_res.csv, simulation_data/xfig2/s1/s1/infm_res.csv, simulation_data/xfig3/rc1/radius_0.05/infm_res.csv, simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/infm_res.csv, simulation_data/xfig4/rc1_noise/noise_0.25/infm_res.csv, simulation_data/xfig5/nw_c2/nw_c2/infm_res.csv
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 14:10:35 2025]
+Finished job 0.
+11 of 11 steps (100%) done
+Complete log: .snakemake/log/2025-07-16T141030.331100.snakemake.log

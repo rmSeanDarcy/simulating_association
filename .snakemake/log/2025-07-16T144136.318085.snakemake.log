@@ -1,0 +1,73 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+compile_data        4
+total               5
+
+Select jobs to execute...
+
+[Wed Jul 16 14:41:36 2025]
+rule compile_data:
+    output: analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    jobid: 4
+    reason: Missing output files: analysis_data/xfig5/full_res_compiled.csv, analysis_data/xfig5/infm_res_compiled.csv
+    wildcards: experiment=xfig5
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:41:36 2025]
+rule compile_data:
+    output: analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv
+    jobid: 2
+    reason: Missing output files: analysis_data/xfig3/full_res_compiled.csv, analysis_data/xfig3/infm_res_compiled.csv
+    wildcards: experiment=xfig3
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:41:36 2025]
+rule compile_data:
+    output: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv
+    jobid: 1
+    reason: Missing output files: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv
+    wildcards: experiment=xfig2
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:41:36 2025]
+rule compile_data:
+    output: analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv
+    jobid: 3
+    reason: Missing output files: analysis_data/xfig4/full_res_compiled.csv, analysis_data/xfig4/infm_res_compiled.csv
+    wildcards: experiment=xfig4
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 14:41:37 2025]
+Finished job 1.
+1 of 5 steps (20%) done
+[Wed Jul 16 14:41:37 2025]
+Finished job 2.
+2 of 5 steps (40%) done
+[Wed Jul 16 14:41:37 2025]
+Finished job 3.
+3 of 5 steps (60%) done
+[Wed Jul 16 14:41:37 2025]
+Finished job 4.
+4 of 5 steps (80%) done
+Select jobs to execute...
+
+[Wed Jul 16 14:41:37 2025]
+localrule all:
+    input: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    jobid: 0
+    reason: Input files updated by another job: analysis_data/xfig2/full_res_compiled.csv, analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv, analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 14:41:37 2025]
+Finished job 0.
+5 of 5 steps (100%) done
+Complete log: .snakemake/log/2025-07-16T144136.318085.snakemake.log

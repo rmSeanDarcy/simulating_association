@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+process_community_data        1
+total                         1
+
+Select jobs to execute...
+
+[Wed Jul 16 13:25:23 2025]
+rule process_community_data:
+    input: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    output: simulation_data/xfig2/s4/s4/sign_ajd_res_log.csv
+    jobid: 0
+    reason: Missing output files: simulation_data/xfig2/s4/s4/sign_ajd_res_log.csv
+    wildcards: experiment=xfig2, treatment=s4, simulation=s4
+    resources: tmpdir=/tmp
+
+
+        mkdir -p analysis_data/xfig2/s4/s4
+        Rscript analysis_scripts/process_habitat.R xfig2 s4 s4 "--noise=0.25"
+        
+[Wed Jul 16 13:25:28 2025]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2025-07-16T132523.172667.snakemake.log

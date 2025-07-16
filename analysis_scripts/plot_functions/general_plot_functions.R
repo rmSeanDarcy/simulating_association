@@ -22,10 +22,18 @@ save_svg <- function(file, fig, width, height, pointsize = 10) {
   # Convert cm to inches for svglite
   width_in <- width / 2.54
   height_in <- height / 2.54
-  Cairo::CairoSVG(filename = file, width = width_in, height = height_in, pointsize = pointsize)
+  svglite::svglite(file, width = width_in, height = height_in, pointsize = pointsize)
   print(fig)
   dev.off()
 }
+# save_svg <- function(file, fig, width, height, pointsize = 10) {
+#   # Convert cm to inches for svglite
+#   width_in <- width / 2.54
+#   height_in <- height / 2.54
+#   Cairo::CairoSVG(filename = file, width = width_in, height = height_in, pointsize = pointsize)
+#   print(fig)
+#   dev.off()
+# }
 
 
 # Remove axes and legend if necessary

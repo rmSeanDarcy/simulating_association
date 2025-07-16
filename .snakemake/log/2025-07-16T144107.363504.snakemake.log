@@ -1,0 +1,91 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+compile_data        4
+total               5
+
+Select jobs to execute...
+
+[Wed Jul 16 14:41:07 2025]
+rule compile_data:
+    output: analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    jobid: 4
+    reason: Missing output files: analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    wildcards: experiment=xfig5
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:41:07 2025]
+rule compile_data:
+    output: analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv
+    jobid: 2
+    reason: Missing output files: analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv
+    wildcards: experiment=xfig3
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 14:41:07 2025]
+rule compile_data:
+    output: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv
+    jobid: 1
+    reason: Missing output files: analysis_data/xfig2/full_res_compiled.csv, analysis_data/xfig2/infm_res_compiled.csv
+    wildcards: experiment=xfig2
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 14:41:07 2025]
+Error in rule compile_data:
+    jobid: 4
+    output: analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    shell:
+        
+        Rscript analysis_scripts/compile_analysis.R xfig5
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Jul 16 14:41:07 2025]
+Error in rule compile_data:
+    jobid: 2
+    output: analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv
+    shell:
+        
+        Rscript analysis_scripts/compile_analysis.R xfig3
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+
+[Wed Jul 16 14:41:07 2025]
+rule compile_data:
+    output: analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv
+    jobid: 3
+    reason: Missing output files: analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv
+    wildcards: experiment=xfig4
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 14:41:07 2025]
+Error in rule compile_data:
+    jobid: 1
+    output: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv
+    shell:
+        
+        Rscript analysis_scripts/compile_analysis.R xfig2
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Wed Jul 16 14:41:07 2025]
+Error in rule compile_data:
+    jobid: 3
+    output: analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv
+    shell:
+        
+        Rscript analysis_scripts/compile_analysis.R xfig4
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-16T144107.363504.snakemake.log

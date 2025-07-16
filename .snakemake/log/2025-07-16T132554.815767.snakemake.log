@@ -1,0 +1,82 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+generate_simulation_data        6
+process_community_data          7
+total                          14
+
+Select jobs to execute...
+
+[Wed Jul 16 13:25:55 2025]
+rule process_community_data:
+    input: simulation_data/xfig5/nw_c2/nw_c2/n_pop_log_log.csv
+    output: simulation_data/xfig5/nw_c2/nw_c2/sign_ajd_res_log.csv
+    jobid: 10
+    reason: Code has changed since last execution
+    wildcards: experiment=xfig5, treatment=nw_c2, simulation=nw_c2
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 13:25:55 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    jobid: 2
+    reason: Code has changed since last execution; Params have changed since last execution
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 13:25:55 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    jobid: 18
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_unequal, simulation=rc1_unequal
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 13:25:55 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    jobid: 16
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_noise, simulation=noise_0.25
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 13:25:55 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 14
+    reason: Missing output files: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rs3_noise, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 13:25:55 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    jobid: 4
+    reason: Code has changed since last execution; Params have changed since last execution
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 13:26:00 2025]
+Finished job 10.
+1 of 14 steps (7%) done
+[Wed Jul 16 13:26:01 2025]
+Finished job 16.
+2 of 14 steps (14%) done
+[Wed Jul 16 13:26:01 2025]
+Finished job 18.
+3 of 14 steps (21%) done
+[Wed Jul 16 13:26:14 2025]
+Finished job 2.
+4 of 14 steps (29%) done
+[Wed Jul 16 13:27:03 2025]
+Finished job 4.
+5 of 14 steps (36%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-16T132554.815767.snakemake.log

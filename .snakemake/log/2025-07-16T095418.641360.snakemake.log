@@ -1,0 +1,80 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+process_community_data        10
+simulate_community_data        5
+simulate_fig5_multi            1
+total                         17
+
+Select jobs to execute...
+
+[Wed Jul 16 09:54:19 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig5/nw_s2/nw_s2/n_pop_log_log.csv
+    jobid: 11
+    reason: Missing output files: simulation_data/xfig5/nw_s2/nw_s2/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=nw_s2, simulation=nw_s2
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 09:54:19 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    jobid: 13
+    reason: Missing output files: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s4, simulation=s4
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 09:54:19 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 15
+    reason: Missing output files: simulation_data/xfig3/rs3_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rs3_noise, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 09:54:19 2025]
+rule process_community_data:
+    input: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    output: analysis_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    jobid: 3
+    reason: Missing output files: analysis_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 16 09:54:19 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    jobid: 17
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_noise, simulation=noise_0.25
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 09:54:19 2025]
+rule simulate_community_data:
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    jobid: 19
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_unequal, simulation=rc1_unequal
+    resources: tmpdir=/tmp
+
+[Wed Jul 16 09:54:20 2025]
+Error in rule process_community_data:
+    jobid: 3
+    input: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    output: analysis_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    shell:
+        
+    mkdir -p analysis_data/xfig3/rc1/radius_0.05
+    Rscript analysis_scripts/process_habitat.R       xfig3       rc1       radius_0.05       "--noise=0"
+    
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-16T095418.641360.snakemake.log
