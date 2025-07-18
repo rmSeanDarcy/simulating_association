@@ -1,5 +1,9 @@
-# SAMSARA
-Simulate spatially explicit community data with multiple drivers of community assembly
+############################################################################
+##### Readme: SAMSARA workflow                                         #####
+############################################################################
+
+############################################################################
+##### Simulating spatially explicit community data and analyising with multiple drivers of community assembly
 
 
 

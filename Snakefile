@@ -26,7 +26,7 @@ ruleorder: simulate > clone > process_sim > process_clone > analyse_simulations 
 ############################################################################
 ##### Define outputs for rule all
 # Due to some conflicts with downstream analysis we resort to defining all 
-# intermediate outputs as outputs for the total workflow.
+# intermediate outputs as outputs for the total workflow
 ### Output: rule simulate
 SIM_MARKERS = [
     f"simulation_data/{exp}/{tr}/{sim}/.simulated"
