@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule process in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 119:
+Missing input files for rule process:
+    output: simulation_data/xfig4/rc1/rc1/sign_ajd_res_log.csv
+    wildcards: exp=xfig4, tr=rc1, sim=rc1
+    affected files:
+        simulation_data/xfig4/rc1/rc1/{marker:(?:\.simulated|\.cloned)}

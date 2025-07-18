@@ -1,0 +1,11 @@
+Building DAG of jobs...
+InputFunctionException in rule process in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 119:
+Error:
+  WildcardError:
+    No values given for wildcard 'exp'.
+Wildcards:
+  exp=xfig2
+  tr=s1
+  sim=s1
+Traceback:
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 121, in <lambda>

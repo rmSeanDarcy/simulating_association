@@ -1,0 +1,72 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count
+-------------  -------
+all                  1
+clone                4
+process_clone        4
+process_sim          6
+simulate             6
+total               21
+
+Select jobs to execute...
+
+[Fri Jul 18 16:07:59 2025]
+rule simulate:
+    input: simulation_scripts/main_simulation.py
+    output: simulation_data/xfig4/rc1/rc1/.simulated
+    jobid: 3
+    reason: Missing output files: simulation_data/xfig4/rc1/rc1/.simulated
+    wildcards: exp=xfig4, tr=rc1, sim=rc1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 16:07:59 2025]
+rule simulate:
+    input: simulation_scripts/main_simulation.py
+    output: simulation_data/xfig2/s1/s1/.simulated
+    jobid: 1
+    reason: Missing output files: simulation_data/xfig2/s1/s1/.simulated
+    wildcards: exp=xfig2, tr=s1, sim=s1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 16:07:59 2025]
+rule simulate:
+    input: simulation_scripts/multi_simulation.py
+    output: simulation_data/xfig5/nw_c2/nw_c2/.simulated
+    jobid: 6
+    reason: Missing output files: simulation_data/xfig5/nw_c2/nw_c2/.simulated
+    wildcards: exp=xfig5, tr=nw_c2, sim=nw_c2
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 16:07:59 2025]
+rule simulate:
+    input: simulation_scripts/multi_simulation.py
+    output: simulation_data/xfig5/nw_c1/nw_c1/.simulated
+    jobid: 5
+    reason: Missing output files: simulation_data/xfig5/nw_c1/nw_c1/.simulated
+    wildcards: exp=xfig5, tr=nw_c1, sim=nw_c1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 16:07:59 2025]
+rule simulate:
+    input: simulation_scripts/multi_simulation.py
+    output: simulation_data/xfig5/nw_s1/nw_s1/.simulated
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/.simulated
+    wildcards: exp=xfig5, tr=nw_s1, sim=nw_s1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 16:07:59 2025]
+rule simulate:
+    input: simulation_scripts/main_simulation.py
+    output: simulation_data/xfig3/rc1/radius_0.05/.simulated
+    jobid: 2
+    reason: Missing output files: simulation_data/xfig3/rc1/radius_0.05/.simulated
+    wildcards: exp=xfig3, tr=rc1, sim=radius_0.05
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+Complete log: .snakemake/log/2025-07-18T160759.163386.snakemake.log

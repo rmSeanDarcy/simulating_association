@@ -1,0 +1,8 @@
+Building DAG of jobs...
+InputFunctionException in rule _simulate_data in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 34:
+Error:
+  AttributeError: 'Wildcards' object has no attribute 'experiment'
+Wildcards:
+  out_path=simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+Traceback:
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 38, in <lambda>

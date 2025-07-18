@@ -1,0 +1,94 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job        count
+-------  -------
+all            1
+clone          4
+process       10
+total         15
+
+Select jobs to execute...
+
+[Fri Jul 18 14:18:29 2025]
+rule clone:
+    input: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv, simulation_data/xfig4/rc1_unequal/rc1_unequal/.cloned
+    jobid: 10
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv, simulation_data/xfig4/rc1_unequal/rc1_unequal/.cloned
+    wildcards: exp=xfig4, tr=rc1_unequal, sim=rc1_unequal
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:18:29 2025]
+rule process:
+    input: simulation_data/xfig5/nw_c2/nw_c2/n_pop_log_log.csv
+    output: simulation_data/xfig5/nw_c2/nw_c2/sign_ajd_res_log.csv
+    jobid: 16
+    reason: Missing output files: simulation_data/xfig5/nw_c2/nw_c2/sign_ajd_res_log.csv
+    wildcards: exp=xfig5, tr=nw_c2, sim=nw_c2
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 18 14:18:29 2025]
+rule process:
+    input: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv
+    output: simulation_data/xfig5/nw_s1/nw_s1/sign_ajd_res_log.csv
+    jobid: 14
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/sign_ajd_res_log.csv
+    wildcards: exp=xfig5, tr=nw_s1, sim=nw_s1
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 18 14:18:29 2025]
+rule clone:
+    input: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    output: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/n_pop_log_log.csv, simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/.cloned
+    jobid: 8
+    reason: Missing output files: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/.cloned, simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: exp=xfig3, tr=rc1_noise, sim=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:18:29 2025]
+rule process:
+    input: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    output: simulation_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    jobid: 12
+    reason: Missing output files: simulation_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    wildcards: exp=xfig3, tr=rc1, sim=radius_0.05
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 18 14:18:29 2025]
+rule process:
+    input: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1/rc1/sign_ajd_res_log.csv
+    jobid: 13
+    reason: Missing output files: simulation_data/xfig4/rc1/rc1/sign_ajd_res_log.csv
+    wildcards: exp=xfig4, tr=rc1, sim=rc1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:18:34 2025]
+Finished job 16.
+1 of 15 steps (7%) done
+[Fri Jul 18 14:18:35 2025]
+Finished job 12.
+2 of 15 steps (13%) done
+[Fri Jul 18 14:18:35 2025]
+Finished job 14.
+3 of 15 steps (20%) done
+[Fri Jul 18 14:18:35 2025]
+Error in rule process:
+    jobid: 13
+    input: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1/rc1/sign_ajd_res_log.csv
+    shell:
+        
+        Rscript analysis_scripts/process_composite_fixed.R             xfig4 rc1 rc1 --noise=0
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-18T141828.495264.snakemake.log

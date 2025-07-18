@@ -1,0 +1,120 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+analyse_simulations             1
+compile_data                    4
+generate_simulation_data        1
+process_community_data          1
+total                           8
+
+Select jobs to execute...
+
+[Thu Jul 17 17:29:18 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 17:29:18 2025]
+rule compile_data:
+    input: simulation_data/xfig4/rc1/rc1/infm_res.csv, simulation_data/xfig4/rc1/rc1/full_res.csv
+    output: analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv
+    jobid: 9
+    reason: Missing output files: analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv
+    wildcards: experiment=xfig4
+    resources: tmpdir=/tmp
+
+
+[Thu Jul 17 17:29:18 2025]
+rule compile_data:
+    input: simulation_data/xfig3/rc1/radius_0.05/infm_res.csv, simulation_data/xfig3/rc1/radius_0.05/full_res.csv
+    output: analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv
+    jobid: 5
+    reason: Missing output files: analysis_data/xfig3/full_res_compiled.csv, analysis_data/xfig3/infm_res_compiled.csv
+    wildcards: experiment=xfig3
+    resources: tmpdir=/tmp
+
+
+[Thu Jul 17 17:29:18 2025]
+rule compile_data:
+    input: simulation_data/xfig5/nw_s1/nw_s1/infm_res.csv, simulation_data/xfig5/nw_s1/nw_s1/full_res.csv, simulation_data/xfig5/nw_c1/nw_c1/infm_res.csv, simulation_data/xfig5/nw_c1/nw_c1/full_res.csv, simulation_data/xfig5/nw_c2/nw_c2/infm_res.csv, simulation_data/xfig5/nw_c2/nw_c2/full_res.csv
+    output: analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    jobid: 13
+    reason: Missing output files: analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    wildcards: experiment=xfig5
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 17:29:19 2025]
+Finished job 5.
+1 of 8 steps (12%) done
+[Thu Jul 17 17:29:19 2025]
+Finished job 9.
+2 of 8 steps (25%) done
+[Thu Jul 17 17:29:19 2025]
+Finished job 13.
+3 of 8 steps (38%) done
+[Thu Jul 17 17:29:36 2025]
+Finished job 4.
+4 of 8 steps (50%) done
+Select jobs to execute...
+
+[Thu Jul 17 17:29:36 2025]
+rule process_community_data:
+    input: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    output: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv
+    jobid: 3
+    reason: Missing output files: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv; Input files updated by another job: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 17:29:41 2025]
+Finished job 3.
+5 of 8 steps (62%) done
+Select jobs to execute...
+
+[Thu Jul 17 17:29:41 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv
+    output: simulation_data/xfig2/s1/s1/infm_res.csv, simulation_data/xfig2/s1/s1/full_res.csv
+    jobid: 2
+    reason: Missing output files: simulation_data/xfig2/s1/s1/infm_res.csv, simulation_data/xfig2/s1/s1/full_res.csv; Input files updated by another job: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 17:29:42 2025]
+Finished job 2.
+6 of 8 steps (75%) done
+Select jobs to execute...
+
+[Thu Jul 17 17:29:42 2025]
+rule compile_data:
+    input: simulation_data/xfig2/s1/s1/infm_res.csv, simulation_data/xfig2/s1/s1/full_res.csv
+    output: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv
+    jobid: 1
+    reason: Missing output files: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv; Input files updated by another job: simulation_data/xfig2/s1/s1/infm_res.csv, simulation_data/xfig2/s1/s1/full_res.csv
+    wildcards: experiment=xfig2
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 17:29:43 2025]
+Finished job 1.
+7 of 8 steps (88%) done
+Select jobs to execute...
+
+[Thu Jul 17 17:29:43 2025]
+localrule all:
+    input: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    jobid: 0
+    reason: Input files updated by another job: analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv, analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 17:29:43 2025]
+Finished job 0.
+8 of 8 steps (100%) done
+Complete log: .snakemake/log/2025-07-17T172917.806985.snakemake.log

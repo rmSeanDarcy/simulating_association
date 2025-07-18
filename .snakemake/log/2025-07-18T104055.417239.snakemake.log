@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+prepare_simulations        1
+total                      2
+
+Select jobs to execute...
+
+[Fri Jul 18 10:40:55 2025]
+rule prepare_simulations:
+    output: simulation_data/.all_done
+    jobid: 1
+    reason: Missing output files: simulation_data/.all_done
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+Complete log: .snakemake/log/2025-07-18T104055.417239.snakemake.log

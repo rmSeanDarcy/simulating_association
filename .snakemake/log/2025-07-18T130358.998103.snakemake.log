@@ -1,0 +1,108 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+analyse_simulations             6
+clone_simulation_data           1
+compile_data                    3
+generate_simulation_data        1
+process_community_data          3
+total                          15
+
+Select jobs to execute...
+
+[Fri Jul 18 13:03:59 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    jobid: 10
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_noise, simulation=noise_0.25
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 13:03:59 2025]
+rule process_community_data:
+    input: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/sign_ajd_res_log.csv
+    jobid: 29
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/sign_ajd_res_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_unequal, simulation=rc1_unequal
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 18 13:04:00 2025]
+rule process_community_data:
+    input: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1/rc1/sign_ajd_res_log.csv
+    jobid: 25
+    reason: Missing output files: simulation_data/xfig4/rc1/rc1/sign_ajd_res_log.csv
+    wildcards: experiment=xfig4, treatment=rc1, simulation=rc1
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 18 13:04:00 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig5/nw_c1/nw_c1/sign_ajd_res_log.csv
+    output: simulation_data/xfig5/nw_c1/nw_c1/infm_res.csv, simulation_data/xfig5/nw_c1/nw_c1/full_res.csv
+    jobid: 33
+    reason: Missing output files: simulation_data/xfig5/nw_c1/nw_c1/infm_res.csv, simulation_data/xfig5/nw_c1/nw_c1/full_res.csv
+    wildcards: experiment=xfig5, treatment=nw_c1, simulation=nw_c1
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 18 13:04:00 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig5/nw_s1/nw_s1/sign_ajd_res_log.csv
+    output: simulation_data/xfig5/nw_s1/nw_s1/infm_res.csv, simulation_data/xfig5/nw_s1/nw_s1/full_res.csv
+    jobid: 31
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/full_res.csv, simulation_data/xfig5/nw_s1/nw_s1/infm_res.csv
+    wildcards: experiment=xfig5, treatment=nw_s1, simulation=nw_s1
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 18 13:04:00 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/sign_ajd_res_log.csv
+    output: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/infm_res.csv, simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/full_res.csv
+    jobid: 21
+    reason: Missing output files: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/infm_res.csv, simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/full_res.csv
+    wildcards: experiment=xfig3, treatment=rc1_noise, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 13:04:02 2025]
+Finished job 31.
+1 of 15 steps (7%) done
+[Fri Jul 18 13:04:02 2025]
+Finished job 33.
+2 of 15 steps (13%) done
+[Fri Jul 18 13:04:02 2025]
+Finished job 21.
+3 of 15 steps (20%) done
+[Fri Jul 18 13:04:05 2025]
+Error in rule process_community_data:
+    jobid: 29
+    input: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/sign_ajd_res_log.csv
+    shell:
+        
+        Rscript analysis_scripts/process_composite_unequal.R             xfig4 rc1_unequal rc1_unequal "--noise=0"
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Jul 18 13:04:05 2025]
+Error in rule process_community_data:
+    jobid: 25
+    input: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1/rc1/sign_ajd_res_log.csv
+    shell:
+        
+        Rscript analysis_scripts/process_composite_fixed.R             xfig4 rc1 rc1 "--noise=0"
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-18T130358.998103.snakemake.log

@@ -1,0 +1,66 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+analyse_simulations         317
+process_community_data      317
+simulate_data               317
+total                       952
+
+Select jobs to execute...
+
+[Thu Jul 17 13:17:55 2025]
+rule simulate_data:
+    output: simulation_data/xfig4/nw_c1/s4/n_pop_log_log.csv
+    jobid: 591
+    reason: Missing output files: simulation_data/xfig4/nw_c1/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=nw_c1, simulation=s4
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:17:55 2025]
+rule simulate_data:
+    output: simulation_data/xfig4/s4/s4/n_pop_log_log.csv
+    jobid: 651
+    reason: Missing output files: simulation_data/xfig4/s4/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=s4, simulation=s4
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:17:55 2025]
+rule simulate_data:
+    output: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    jobid: 171
+    reason: Missing output files: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s4, simulation=s4
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:17:55 2025]
+rule simulate_data:
+    output: simulation_data/xfig5/rc1/s4/n_pop_log_log.csv
+    jobid: 771
+    reason: Missing output files: simulation_data/xfig5/rc1/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=rc1, simulation=s4
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:17:55 2025]
+rule simulate_data:
+    output: simulation_data/xfig3/rc1_unequal/s4/n_pop_log_log.csv
+    jobid: 471
+    reason: Missing output files: simulation_data/xfig3/rc1_unequal/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rc1_unequal, simulation=s4
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:17:55 2025]
+rule simulate_data:
+    output: simulation_data/xfig4/s1/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 504
+    reason: Missing output files: simulation_data/xfig4/s1/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=s1, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-17T131751.370246.snakemake.log

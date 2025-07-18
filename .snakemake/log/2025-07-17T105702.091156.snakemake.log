@@ -1,0 +1,49 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+analyse_simulations             7
+clone_simulation_data           4
+compile_data                    3
+generate_simulation_data        3
+process_community_data          7
+total                          25
+
+Select jobs to execute...
+
+[Thu Jul 17 10:57:03 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    jobid: 11
+    reason: Code has changed since last execution; Params have changed since last execution
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+RuleException in rule generate_simulation_data in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 94:
+ValueError: Only '.' or '[' may follow ']' in format field specifier, when formatting the following:
+
+        if {params.is_clone}; then
+            echo "[generate_simulation_data] Skipping clone simulation {wildcards.experiment}/{wildcards.treatment}/{wildcards.simulation}";
+            exit 0
+        fi
+
+        script={params.sim_meta[simulation_script] if params.sim_meta else ""}
+        sim_args="{params.sim_meta.get('simulation_parameter_string', '') if params.sim_meta else ''}"
+
+        if [ "$script" = "multi_simulation.py" ]; then
+            echo "[generate_simulation_data] Skipping multi_simulation.py — handled separately."
+            exit 0
+        fi
+
+        if [ -z "$script" ]; then
+            echo "[generate_simulation_data] No script found for simulation {wildcards.experiment}/{wildcards.treatment}/{wildcards.simulation}"
+            exit 1
+        fi
+
+        echo "[generate_simulation_data] Running simulation for: {wildcards.experiment}/{wildcards.treatment}/{wildcards.simulation}"
+        python3 simulation_scripts/$script {wildcards.experiment} {wildcards.treatment} {wildcards.simulation} $sim_args
+        

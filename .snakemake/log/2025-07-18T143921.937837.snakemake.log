@@ -1,0 +1,13 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules simulate and clone are ambiguous for the file simulation_data/xfig2/s1/s1/n_pop_log_log.csv.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	simulate: exp=xfig2,sim=s1,tr=s1
+	clone: exp=xfig2,sim=s1,tr=s1
+Expected input files:
+	simulate: simulation_scripts/main_simulation.py
+	clone: 
+Expected output files:
+	simulate: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+	clone: simulation_data/xfig2/s1/s1/n_pop_log_log.csv simulation_data/xfig2/s1/s1/.cloned

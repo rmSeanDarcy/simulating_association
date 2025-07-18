@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+analyse_simulations             4
+generate_simulation_data        4
+process_community_data          4
+total                          13
+
+Select jobs to execute...
+
+[Thu Jul 17 11:34:24 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    jobid: 28
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_unequal, simulation=rc1_unequal
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:34:24 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    jobid: 19
+    reason: Missing output files: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s4, simulation=s4
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:34:24 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    jobid: 25
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_noise, simulation=noise_0.25
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:34:24 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 22
+    reason: Missing output files: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rc1_noise, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-17T113423.192210.snakemake.log

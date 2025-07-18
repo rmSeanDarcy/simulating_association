@@ -1,0 +1,61 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+analyse_simulations             6
+compile_data                    4
+generate_simulation_data        3
+process_community_data          6
+simulate_fig5_multi             1
+total                          21
+
+Select jobs to execute...
+
+[Thu Jul 17 14:27:26 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig2/s1/s1/n_pop_log_log.csv; Code has changed since last execution
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 14:27:26 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    jobid: 12
+    reason: Missing output files: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv; Code has changed since last execution
+    wildcards: experiment=xfig4, treatment=rc1, simulation=rc1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 14:27:27 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    jobid: 8
+    reason: Missing output files: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv; Code has changed since last execution
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 14:27:27 2025]
+rule simulate_fig5_multi:
+    output: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv, simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv, simulation_data/xfig5/nw_c2/nw_c2/n_pop_log_log.csv
+    jobid: 16
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv, simulation_data/xfig5/nw_c2/nw_c2/n_pop_log_log.csv, simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv
+    resources: tmpdir=/tmp
+
+Terminating processes on user request, this might take some time.
+[Thu Jul 17 14:27:28 2025]
+Error in rule simulate_fig5_multi:
+    jobid: 16
+    output: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv, simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv, simulation_data/xfig5/nw_c2/nw_c2/n_pop_log_log.csv
+    shell:
+        
+    echo "Running multi_simulation.py for fig5"
+    python simulation_scripts/multi_simulation.py
+    
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2025-07-17T142726.387006.snakemake.log

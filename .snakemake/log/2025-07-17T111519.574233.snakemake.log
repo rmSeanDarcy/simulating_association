@@ -1,0 +1,148 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+analyse_simulations             2
+compile_data                    3
+generate_simulation_data        2
+process_community_data          2
+total                          10
+
+Select jobs to execute...
+
+[Thu Jul 17 11:15:20 2025]
+rule compile_data:
+    input: simulation_data/xfig4/rc1/rc1/infm_res.csv, simulation_data/xfig4/rc1/rc1/full_res.csv
+    output: analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv
+    jobid: 9
+    reason: Missing output files: analysis_data/xfig4/full_res_compiled.csv, analysis_data/xfig4/infm_res_compiled.csv
+    wildcards: experiment=xfig4
+    resources: tmpdir=/tmp
+
+
+[Thu Jul 17 11:15:20 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    jobid: 8
+    reason: Missing output files: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv; Code has changed since last execution
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:15:20 2025]
+rule generate_simulation_data:
+    output: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig2/s1/s1/n_pop_log_log.csv; Code has changed since last execution
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:15:20 2025]
+Finished job 9.
+1 of 10 steps (10%) done
+[Thu Jul 17 11:15:39 2025]
+Finished job 4.
+2 of 10 steps (20%) done
+Select jobs to execute...
+
+[Thu Jul 17 11:15:39 2025]
+rule process_community_data:
+    input: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    output: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv
+    jobid: 3
+    reason: Input files updated by another job: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:15:44 2025]
+Finished job 3.
+3 of 10 steps (30%) done
+Select jobs to execute...
+
+[Thu Jul 17 11:15:44 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv
+    output: simulation_data/xfig2/s1/s1/infm_res.csv, simulation_data/xfig2/s1/s1/full_res.csv
+    jobid: 2
+    reason: Input files updated by another job: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv
+    wildcards: experiment=xfig2, treatment=s1, simulation=s1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:15:46 2025]
+Finished job 2.
+4 of 10 steps (40%) done
+Select jobs to execute...
+
+[Thu Jul 17 11:15:46 2025]
+rule compile_data:
+    input: simulation_data/xfig2/s1/s1/infm_res.csv, simulation_data/xfig2/s1/s1/full_res.csv
+    output: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv
+    jobid: 1
+    reason: Missing output files: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv; Input files updated by another job: simulation_data/xfig2/s1/s1/infm_res.csv, simulation_data/xfig2/s1/s1/full_res.csv
+    wildcards: experiment=xfig2
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:15:46 2025]
+Finished job 1.
+5 of 10 steps (50%) done
+[Thu Jul 17 11:16:28 2025]
+Finished job 8.
+6 of 10 steps (60%) done
+Select jobs to execute...
+
+[Thu Jul 17 11:16:28 2025]
+rule process_community_data:
+    input: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    output: simulation_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    jobid: 7
+    reason: Input files updated by another job: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:16:32 2025]
+Finished job 7.
+7 of 10 steps (70%) done
+Select jobs to execute...
+
+[Thu Jul 17 11:16:32 2025]
+rule analyse_simulations:
+    input: simulation_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    output: simulation_data/xfig3/rc1/radius_0.05/infm_res.csv, simulation_data/xfig3/rc1/radius_0.05/full_res.csv
+    jobid: 6
+    reason: Input files updated by another job: simulation_data/xfig3/rc1/radius_0.05/sign_ajd_res_log.csv
+    wildcards: experiment=xfig3, treatment=rc1, simulation=radius_0.05
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:16:34 2025]
+Finished job 6.
+8 of 10 steps (80%) done
+Select jobs to execute...
+
+[Thu Jul 17 11:16:34 2025]
+rule compile_data:
+    input: simulation_data/xfig3/rc1/radius_0.05/infm_res.csv, simulation_data/xfig3/rc1/radius_0.05/full_res.csv
+    output: analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv
+    jobid: 5
+    reason: Missing output files: analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv; Input files updated by another job: simulation_data/xfig3/rc1/radius_0.05/infm_res.csv, simulation_data/xfig3/rc1/radius_0.05/full_res.csv
+    wildcards: experiment=xfig3
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:16:34 2025]
+Finished job 5.
+9 of 10 steps (90%) done
+Select jobs to execute...
+
+[Thu Jul 17 11:16:34 2025]
+localrule all:
+    input: analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig4/infm_res_compiled.csv, analysis_data/xfig5/infm_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv, analysis_data/xfig4/full_res_compiled.csv, analysis_data/xfig5/full_res_compiled.csv
+    jobid: 0
+    reason: Input files updated by another job: analysis_data/xfig4/full_res_compiled.csv, analysis_data/xfig2/full_res_compiled.csv, analysis_data/xfig3/full_res_compiled.csv, analysis_data/xfig2/infm_res_compiled.csv, analysis_data/xfig3/infm_res_compiled.csv, analysis_data/xfig4/infm_res_compiled.csv
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 11:16:34 2025]
+Finished job 0.
+10 of 10 steps (100%) done
+Complete log: .snakemake/log/2025-07-17T111519.574233.snakemake.log

@@ -1,0 +1,10 @@
+Building DAG of jobs...
+InputFunctionException in rule generate_simulation_data in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 73:
+Error:
+  KeyError: 'rc1_noise'
+Wildcards:
+  experiment=xfig4
+  treatment=rc1_noise
+  simulation=noise_0.25
+Traceback:
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 79, in <lambda>

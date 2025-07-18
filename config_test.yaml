@@ -26,7 +26,7 @@ experiments:
           simulation_script: "main_simulation.py"
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_fixed.R"
-                  
+
   xfig5:
     nw_s1:
       simulations:

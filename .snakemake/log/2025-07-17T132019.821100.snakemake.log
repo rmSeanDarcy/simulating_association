@@ -1,0 +1,66 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+analyse_simulations         317
+process_community_data      317
+simulate_data               317
+total                       952
+
+Select jobs to execute...
+
+[Thu Jul 17 13:20:23 2025]
+rule simulate_data:
+    output: simulation_data/xfig5/rc1_unequal/noise_0.25/n_pop_log_log.csv
+    jobid: 955
+    reason: Missing output files: simulation_data/xfig5/rc1_unequal/noise_0.25/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=rc1_unequal, simulation=noise_0.25
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:20:23 2025]
+rule simulate_data:
+    output: simulation_data/xfig5/nw_s1/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 804
+    reason: Missing output files: simulation_data/xfig5/nw_s1/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=nw_s1, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:20:23 2025]
+rule simulate_data:
+    output: simulation_data/xfig5/rc1_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 922
+    reason: Missing output files: simulation_data/xfig5/rc1_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=rc1_noise, simulation=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:20:23 2025]
+rule simulate_data:
+    output: simulation_data/xfig3/rc1_noise/nw_c2/n_pop_log_log.csv
+    jobid: 438
+    reason: Missing output files: simulation_data/xfig3/rc1_noise/nw_c2/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=rc1_noise, simulation=nw_c2
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:20:23 2025]
+rule simulate_data:
+    output: simulation_data/xfig4/nw_c2/nw_c2/n_pop_log_log.csv
+    jobid: 618
+    reason: Missing output files: simulation_data/xfig4/nw_c2/nw_c2/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=nw_c2, simulation=nw_c2
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 13:20:23 2025]
+rule simulate_data:
+    output: simulation_data/xfig4/rc1_noise/nw_c2/n_pop_log_log.csv
+    jobid: 678
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/nw_c2/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_noise, simulation=nw_c2
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-17T132019.821100.snakemake.log

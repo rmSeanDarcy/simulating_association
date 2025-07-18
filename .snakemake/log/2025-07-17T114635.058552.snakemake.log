@@ -1,0 +1,13 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules _simulate_data and generate_or_clone_simulation_data are ambiguous for the file simulation_data/xfig2/s1/s1/n_pop_log_log.csv.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	_simulate_data: experiment=xfig2,simulation=s1,treatment=s1
+	generate_or_clone_simulation_data: experiment=xfig2,simulation=s1,treatment=s1
+Expected input files:
+	_simulate_data: 
+	generate_or_clone_simulation_data: 
+Expected output files:
+	_simulate_data: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+	generate_or_clone_simulation_data: simulation_data/xfig2/s1/s1/n_pop_log_log.csv

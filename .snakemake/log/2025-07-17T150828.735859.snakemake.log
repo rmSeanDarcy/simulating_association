@@ -1,0 +1,2 @@
+SyntaxError in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 123:
+Unexpected keyword target in rule definition (Snakefile.smk, line 123)

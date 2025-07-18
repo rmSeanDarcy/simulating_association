@@ -1,0 +1,74 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count
+-----  -------
+all          1
+clone        4
+total        5
+
+Select jobs to execute...
+
+[Fri Jul 18 11:41:27 2025]
+rule clone:
+    input: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/.cloned
+    jobid: 9
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/noise_0.25/.cloned
+    wildcards: exp=xfig4, tr=rc1_noise, sim=noise_0.25
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 11:41:27 2025]
+rule clone:
+    input: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    output: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/.cloned
+    jobid: 8
+    reason: Missing output files: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/.cloned
+    wildcards: exp=xfig3, tr=rc1_noise, sim=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 11:41:27 2025]
+rule clone:
+    input: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    output: simulation_data/xfig2/s4/s4/.cloned
+    jobid: 7
+    reason: Missing output files: simulation_data/xfig2/s4/s4/.cloned
+    wildcards: exp=xfig2, tr=s4, sim=s4
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 11:41:27 2025]
+rule clone:
+    input: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/.cloned
+    jobid: 10
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/.cloned
+    wildcards: exp=xfig4, tr=rc1_unequal, sim=rc1_unequal
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 11:41:28 2025]
+Finished job 9.
+1 of 5 steps (20%) done
+[Fri Jul 18 11:41:28 2025]
+Finished job 10.
+2 of 5 steps (40%) done
+[Fri Jul 18 11:41:28 2025]
+Finished job 7.
+3 of 5 steps (60%) done
+[Fri Jul 18 11:41:28 2025]
+Finished job 8.
+4 of 5 steps (80%) done
+Select jobs to execute...
+
+[Fri Jul 18 11:41:28 2025]
+localrule all:
+    input: simulation_data/xfig2/s1/s1/n_pop_log_log.csv, simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv, simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv, simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv, simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv, simulation_data/xfig5/nw_c2/nw_c2/n_pop_log_log.csv, simulation_data/xfig2/s4/s4/.cloned, simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/.cloned, simulation_data/xfig4/rc1_noise/noise_0.25/.cloned, simulation_data/xfig4/rc1_unequal/rc1_unequal/.cloned
+    jobid: 0
+    reason: Input files updated by another job: simulation_data/xfig2/s4/s4/.cloned, simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/.cloned, simulation_data/xfig4/rc1_noise/noise_0.25/.cloned, simulation_data/xfig4/rc1_unequal/rc1_unequal/.cloned
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 11:41:28 2025]
+Finished job 0.
+5 of 5 steps (100%) done
+Complete log: .snakemake/log/2025-07-18T114126.712791.snakemake.log

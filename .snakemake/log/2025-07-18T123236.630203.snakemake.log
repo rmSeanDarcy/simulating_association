@@ -1,0 +1,3 @@
+NameError in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 40:
+name 'SIM_CSVS' is not defined
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 40, in <module>

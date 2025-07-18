@@ -1,0 +1,10 @@
+Building DAG of jobs...
+InputFunctionException in rule clone in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 90:
+Error:
+  KeyError: 's1'
+Wildcards:
+  exp=xfig2
+  tr=s1
+  sim=s1
+Traceback:
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 95, in <lambda>

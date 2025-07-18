@@ -1,0 +1,3 @@
+Building DAG of jobs...
+WorkflowError in rule simulate in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 41:
+Function did not return str or list of str.

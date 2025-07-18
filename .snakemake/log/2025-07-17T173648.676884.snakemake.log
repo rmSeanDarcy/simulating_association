@@ -1,0 +1,10 @@
+Building DAG of jobs...
+InputFunctionException in rule simulate in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 42:
+Error:
+  KeyError: 'xfig2/s1'
+Wildcards:
+  exp=xfig2/s1
+  tr=s1
+  sim=n_pop_log_log.csv
+Traceback:
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 46, in <lambda>

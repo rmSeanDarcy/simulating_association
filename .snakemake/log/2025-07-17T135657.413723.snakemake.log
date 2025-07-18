@@ -1,0 +1,4 @@
+Building DAG of jobs...
+WildcardError in rule clone_data in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 124:
+Wildcards in input files cannot be determined from output files:
+'src_treatment'

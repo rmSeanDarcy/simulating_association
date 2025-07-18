@@ -1,0 +1,52 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count
+-----  -------
+all          1
+clone        4
+total        5
+
+Select jobs to execute...
+
+[Fri Jul 18 11:27:55 2025]
+rule clone:
+    input: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    output: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    jobid: 8
+    reason: Missing output files: simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/n_pop_log_log.csv
+    wildcards: exp=xfig3, tr=rc1_noise, sim=radius_0.05__noise0.1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 11:27:55 2025]
+rule clone:
+    input: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    jobid: 9
+    reason: Missing output files: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    wildcards: exp=xfig4, tr=rc1_noise, sim=noise_0.25
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 11:27:55 2025]
+rule clone:
+    input: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    output: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    jobid: 7
+    reason: Missing output files: simulation_data/xfig2/s4/s4/n_pop_log_log.csv
+    wildcards: exp=xfig2, tr=s4, sim=s4
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 11:27:55 2025]
+rule clone:
+    input: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    output: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    jobid: 10
+    reason: Missing output files: simulation_data/xfig4/rc1_unequal/rc1_unequal/n_pop_log_log.csv
+    wildcards: exp=xfig4, tr=rc1_unequal, sim=rc1_unequal
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-18T112754.170203.snakemake.log

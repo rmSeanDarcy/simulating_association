@@ -1,0 +1,11 @@
+Building DAG of jobs...
+InputFunctionException in rule simulate in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 65:
+Error:
+  KeyError: 'Not an experiment: xfig2 s4 s4'
+Wildcards:
+  exp=xfig2
+  tr=s4
+  sim=s4
+Traceback:
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 74, in <lambda>
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 74, in <genexpr>

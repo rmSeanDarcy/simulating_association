@@ -1,0 +1,13 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules process_clone and process_sim are ambiguous for the file simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	process_clone: exp=xfig2,sim=s1,tr=s1
+	process_sim: exp=xfig2,sim=s1,tr=s1
+Expected input files:
+	process_clone: simulation_data/xfig2/s1/s1/.cloned
+	process_sim: simulation_data/xfig2/s1/s1/.simulated
+Expected output files:
+	process_clone: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv
+	process_sim: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv

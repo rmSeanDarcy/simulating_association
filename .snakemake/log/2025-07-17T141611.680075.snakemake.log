@@ -1,0 +1,24 @@
+Building DAG of jobs...
+MissingInputException in rule all in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 76:
+Missing input files for rule all:
+    affected files:
+        simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/infm_res.csv
+        simulation_data/xfig4/rc1_unequal/rc1_unequal/infm_res.csv
+        simulation_data/xfig4/rc1_noise/noise_0.25/full_res.csv
+        simulation_data/xfig4/rc1/rc1/full_res.csv
+        simulation_data/xfig2/s4/s4/full_res.csv
+        simulation_data/xfig3/rc1/radius_0.05/infm_res.csv
+        simulation_data/xfig4/rc1_unequal/rc1_unequal/full_res.csv
+        simulation_data/xfig2/s1/s1/infm_res.csv
+        simulation_data/xfig5/nw_c2/nw_c2/infm_res.csv
+        simulation_data/xfig5/nw_c1/nw_c1/infm_res.csv
+        simulation_data/xfig2/s1/s1/full_res.csv
+        simulation_data/xfig4/rc1_noise/noise_0.25/infm_res.csv
+        simulation_data/xfig5/nw_c2/nw_c2/full_res.csv
+        simulation_data/xfig3/rc1_noise/radius_0.05__noise0.1/full_res.csv
+        simulation_data/xfig5/nw_s1/nw_s1/full_res.csv
+        simulation_data/xfig2/s4/s4/infm_res.csv
+        simulation_data/xfig4/rc1/rc1/infm_res.csv
+        simulation_data/xfig5/nw_c1/nw_c1/full_res.csv
+        simulation_data/xfig5/nw_s1/nw_s1/infm_res.csv
+        simulation_data/xfig3/rc1/radius_0.05/full_res.csv

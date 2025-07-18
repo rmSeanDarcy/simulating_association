@@ -1,0 +1,2 @@
+SyntaxError in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 81:
+Unexpected keyword wildcards in rule definition (Snakefile.smk, line 81)

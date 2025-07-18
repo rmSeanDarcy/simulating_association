@@ -1,0 +1,10 @@
+Building DAG of jobs...
+InputFunctionException in rule process_sim in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 148:
+Error:
+  KeyError: 's4'
+Wildcards:
+  exp=xfig2
+  tr=s4
+  sim=s4
+Traceback:
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 154, in <lambda>

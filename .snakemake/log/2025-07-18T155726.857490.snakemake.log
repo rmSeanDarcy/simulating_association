@@ -1,0 +1,173 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count
+-------------  -------
+all                  1
+clone                4
+process_clone        4
+process_sim          6
+simulate             6
+total               21
+
+Select jobs to execute...
+
+[Fri Jul 18 15:57:27 2025]
+rule simulate:
+    input: simulation_scripts/main_simulation.py
+    output: simulation_data/xfig4/rc1/rc1/.simulated
+    jobid: 3
+    reason: Missing output files: simulation_data/xfig4/rc1/rc1/.simulated
+    wildcards: exp=xfig4, tr=rc1, sim=rc1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:57:27 2025]
+rule simulate:
+    input: simulation_scripts/main_simulation.py
+    output: simulation_data/xfig2/s1/s1/.simulated
+    jobid: 1
+    reason: Missing output files: simulation_data/xfig2/s1/s1/.simulated
+    wildcards: exp=xfig2, tr=s1, sim=s1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:57:27 2025]
+rule simulate:
+    input: simulation_scripts/multi_simulation.py
+    output: simulation_data/xfig5/nw_c2/nw_c2/.simulated
+    jobid: 6
+    reason: Missing output files: simulation_data/xfig5/nw_c2/nw_c2/.simulated
+    wildcards: exp=xfig5, tr=nw_c2, sim=nw_c2
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:57:27 2025]
+rule simulate:
+    input: simulation_scripts/multi_simulation.py
+    output: simulation_data/xfig5/nw_c1/nw_c1/.simulated
+    jobid: 5
+    reason: Missing output files: simulation_data/xfig5/nw_c1/nw_c1/.simulated
+    wildcards: exp=xfig5, tr=nw_c1, sim=nw_c1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:57:27 2025]
+rule simulate:
+    input: simulation_scripts/multi_simulation.py
+    output: simulation_data/xfig5/nw_s1/nw_s1/.simulated
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/.simulated
+    wildcards: exp=xfig5, tr=nw_s1, sim=nw_s1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:57:27 2025]
+rule simulate:
+    input: simulation_scripts/main_simulation.py
+    output: simulation_data/xfig3/rc1/radius_0.05/.simulated
+    jobid: 2
+    reason: Missing output files: simulation_data/xfig3/rc1/radius_0.05/.simulated
+    wildcards: exp=xfig3, tr=rc1, sim=radius_0.05
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:57:51 2025]
+Finished job 1.
+1 of 21 steps (5%) done
+Select jobs to execute...
+
+[Fri Jul 18 15:57:51 2025]
+rule process_sim:
+    input: simulation_data/xfig2/s1/s1/.simulated
+    output: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv
+    jobid: 11
+    reason: Missing output files: simulation_data/xfig2/s1/s1/sign_ajd_res_log.csv; Input files updated by another job: simulation_data/xfig2/s1/s1/.simulated
+    wildcards: exp=xfig2, tr=s1, sim=s1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:57:57 2025]
+Finished job 11.
+2 of 21 steps (10%) done
+Select jobs to execute...
+
+[Fri Jul 18 15:57:57 2025]
+rule clone:
+    input: simulation_data/xfig2/s1/s1/.simulated
+    output: simulation_data/xfig2/s4/s4/.cloned
+    jobid: 7
+    reason: Missing output files: simulation_data/xfig2/s4/s4/.cloned; Input files updated by another job: simulation_data/xfig2/s1/s1/.simulated
+    wildcards: exp=xfig2, tr=s4, sim=s4
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:58:00 2025]
+Finished job 7.
+3 of 21 steps (14%) done
+Select jobs to execute...
+
+[Fri Jul 18 15:58:00 2025]
+rule process_clone:
+    input: simulation_data/xfig2/s4/s4/.cloned
+    output: simulation_data/xfig2/s4/s4/sign_ajd_res_log.csv
+    jobid: 17
+    reason: Missing output files: simulation_data/xfig2/s4/s4/sign_ajd_res_log.csv; Input files updated by another job: simulation_data/xfig2/s4/s4/.cloned
+    wildcards: exp=xfig2, tr=s4, sim=s4
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:58:05 2025]
+Finished job 17.
+4 of 21 steps (19%) done
+[Fri Jul 18 15:58:35 2025]
+Finished job 4.
+5 of 21 steps (24%) done
+Select jobs to execute...
+
+[Fri Jul 18 15:58:35 2025]
+rule process_sim:
+    input: simulation_data/xfig5/nw_s1/nw_s1/.simulated
+    output: simulation_data/xfig5/nw_s1/nw_s1/sign_ajd_res_log.csv
+    jobid: 14
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/sign_ajd_res_log.csv; Input files updated by another job: simulation_data/xfig5/nw_s1/nw_s1/.simulated
+    wildcards: exp=xfig5, tr=nw_s1, sim=nw_s1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:58:35 2025]
+Finished job 5.
+6 of 21 steps (29%) done
+Select jobs to execute...
+
+[Fri Jul 18 15:58:35 2025]
+rule process_sim:
+    input: simulation_data/xfig5/nw_c1/nw_c1/.simulated
+    output: simulation_data/xfig5/nw_c1/nw_c1/sign_ajd_res_log.csv
+    jobid: 15
+    reason: Missing output files: simulation_data/xfig5/nw_c1/nw_c1/sign_ajd_res_log.csv; Input files updated by another job: simulation_data/xfig5/nw_c1/nw_c1/.simulated
+    wildcards: exp=xfig5, tr=nw_c1, sim=nw_c1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 15:58:36 2025]
+Error in rule process_sim:
+    jobid: 15
+    input: simulation_data/xfig5/nw_c1/nw_c1/.simulated
+    output: simulation_data/xfig5/nw_c1/nw_c1/sign_ajd_res_log.csv
+    shell:
+        Rscript analysis_scripts/process_habitat.R xfig5 nw_c1 nw_c1 '--noise=0'
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Jul 18 15:58:37 2025]
+Error in rule process_sim:
+    jobid: 14
+    input: simulation_data/xfig5/nw_s1/nw_s1/.simulated
+    output: simulation_data/xfig5/nw_s1/nw_s1/sign_ajd_res_log.csv
+    shell:
+        Rscript analysis_scripts/process_habitat.R xfig5 nw_s1 nw_s1 '--noise=0'
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Jul 18 15:58:39 2025]
+Finished job 6.
+7 of 21 steps (33%) done
+[Fri Jul 18 15:58:46 2025]
+Finished job 2.
+8 of 21 steps (38%) done
+[Fri Jul 18 15:58:46 2025]
+Finished job 3.
+9 of 21 steps (43%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-18T155726.857490.snakemake.log

@@ -1,0 +1,101 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job         count
+--------  -------
+all             1
+clone           4
+process        10
+simulate        6
+total          21
+
+Select jobs to execute...
+
+[Fri Jul 18 14:11:41 2025]
+rule simulate:
+    input: simulation_scripts/main_simulation.py
+    output: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    jobid: 3
+    reason: Missing output files: simulation_data/xfig4/rc1/rc1/n_pop_log_log.csv
+    wildcards: exp=xfig4, tr=rc1, sim=rc1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:11:41 2025]
+rule simulate:
+    input: simulation_scripts/main_simulation.py
+    output: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    jobid: 2
+    reason: Missing output files: simulation_data/xfig3/rc1/radius_0.05/n_pop_log_log.csv
+    wildcards: exp=xfig3, tr=rc1, sim=radius_0.05
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:11:41 2025]
+rule simulate:
+    input: simulation_scripts/main_simulation.py
+    output: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    jobid: 1
+    reason: Missing output files: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    wildcards: exp=xfig2, tr=s1, sim=s1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:11:41 2025]
+rule simulate:
+    input: simulation_scripts/multi_simulation.py
+    output: simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv
+    jobid: 5
+    reason: Missing output files: simulation_data/xfig5/nw_c1/nw_c1/n_pop_log_log.csv
+    wildcards: exp=xfig5, tr=nw_c1, sim=nw_c1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:11:41 2025]
+rule simulate:
+    input: simulation_scripts/multi_simulation.py
+    output: simulation_data/xfig5/nw_c2/nw_c2/n_pop_log_log.csv
+    jobid: 6
+    reason: Missing output files: simulation_data/xfig5/nw_c2/nw_c2/n_pop_log_log.csv
+    wildcards: exp=xfig5, tr=nw_c2, sim=nw_c2
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:11:41 2025]
+rule simulate:
+    input: simulation_scripts/multi_simulation.py
+    output: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig5/nw_s1/nw_s1/n_pop_log_log.csv
+    wildcards: exp=xfig5, tr=nw_s1, sim=nw_s1
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:12:02 2025]
+Finished job 1.
+1 of 21 steps (5%) done
+Select jobs to execute...
+
+[Fri Jul 18 14:12:02 2025]
+rule clone:
+    input: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    output: simulation_data/xfig2/s4/s4/n_pop_log_log.csv, simulation_data/xfig2/s4/s4/.cloned
+    jobid: 7
+    reason: Missing output files: simulation_data/xfig2/s4/s4/.cloned, simulation_data/xfig2/s4/s4/n_pop_log_log.csv; Input files updated by another job: simulation_data/xfig2/s1/s1/n_pop_log_log.csv
+    wildcards: exp=xfig2, tr=s4, sim=s4
+    resources: tmpdir=/tmp
+
+[Fri Jul 18 14:12:45 2025]
+Finished job 4.
+2 of 21 steps (10%) done
+[Fri Jul 18 14:12:45 2025]
+Finished job 5.
+3 of 21 steps (14%) done
+[Fri Jul 18 14:12:46 2025]
+Finished job 6.
+4 of 21 steps (19%) done
+[Fri Jul 18 14:12:57 2025]
+Finished job 3.
+5 of 21 steps (24%) done
+[Fri Jul 18 14:13:00 2025]
+Finished job 2.
+6 of 21 steps (29%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-18T141140.560604.snakemake.log

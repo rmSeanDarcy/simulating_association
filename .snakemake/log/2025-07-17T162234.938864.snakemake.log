@@ -1,0 +1,3 @@
+NameError in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 132:
+name 'clone_src_npop' is not defined
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 132, in <module>

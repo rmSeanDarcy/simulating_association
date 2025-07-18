@@ -1,0 +1,64 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+_clone_data      317
+all                1
+total            318
+
+Select jobs to execute...
+
+[Thu Jul 17 12:11:26 2025]
+rule _clone_data:
+    output: simulation_data/xfig5/rc1/rc1_unequal/n_pop_log_log.csv
+    jobid: 260
+    reason: Missing output files: simulation_data/xfig5/rc1/rc1_unequal/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=rc1, simulation=rc1_unequal
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 12:11:26 2025]
+rule _clone_data:
+    output: simulation_data/xfig5/rc1_noise/nw_s1/n_pop_log_log.csv
+    jobid: 302
+    reason: Missing output files: simulation_data/xfig5/rc1_noise/nw_s1/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=rc1_noise, simulation=nw_s1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 12:11:26 2025]
+rule _clone_data:
+    output: simulation_data/xfig5/s1/nw_c2/n_pop_log_log.csv
+    jobid: 246
+    reason: Missing output files: simulation_data/xfig5/s1/nw_c2/n_pop_log_log.csv
+    wildcards: experiment=xfig5, treatment=s1, simulation=nw_c2
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 12:11:26 2025]
+rule _clone_data:
+    output: simulation_data/xfig3/s1/nw_c2/n_pop_log_log.csv
+    jobid: 86
+    reason: Missing output files: simulation_data/xfig3/s1/nw_c2/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=s1, simulation=nw_c2
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 12:11:26 2025]
+rule _clone_data:
+    output: simulation_data/xfig3/s4/nw_s1/n_pop_log_log.csv
+    jobid: 134
+    reason: Missing output files: simulation_data/xfig3/s4/nw_s1/n_pop_log_log.csv
+    wildcards: experiment=xfig3, treatment=s4, simulation=nw_s1
+    resources: tmpdir=/tmp
+
+[Thu Jul 17 12:11:26 2025]
+rule _clone_data:
+    output: simulation_data/xfig2/s1/nw_s1/n_pop_log_log.csv
+    jobid: 4
+    reason: Missing output files: simulation_data/xfig2/s1/nw_s1/n_pop_log_log.csv
+    wildcards: experiment=xfig2, treatment=s1, simulation=nw_s1
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-17T121125.017384.snakemake.log

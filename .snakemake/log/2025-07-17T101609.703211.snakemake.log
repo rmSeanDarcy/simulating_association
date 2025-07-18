@@ -1,0 +1,8 @@
+Building DAG of jobs...
+InputFunctionException in rule compile_data in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 222:
+Error:
+  NameError: name 'get_simulation_results_per_experiment' is not defined
+Wildcards:
+  experiment=xfig2
+Traceback:
+  File "/mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk", line 224, in <lambda>

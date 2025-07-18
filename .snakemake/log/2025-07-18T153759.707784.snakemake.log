@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule clone in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 90:
+Missing input files for rule clone:
+    output: simulation_data/xfig2/s4/s4/.cloned
+    wildcards: exp=xfig2, tr=s4, sim=s4
+    affected files:
+        simulation_data/xfig2/s1/s1/n_pop_log_log.csv

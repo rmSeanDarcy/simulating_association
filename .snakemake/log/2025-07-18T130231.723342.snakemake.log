@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule generate_simulation_data in file /mnt/share/PROJECTS/SomSOM/Step_III/SAMSARA/Snakefile.smk, line 76:
+Missing input files for rule generate_simulation_data:
+    output: simulation_data/xfig4/rc1_noise/noise_0.25/n_pop_log_log.csv
+    wildcards: experiment=xfig4, treatment=rc1_noise, simulation=noise_0.25
+    affected files:
+        __THIS_RULE_DOES_NOT_APPLY__
