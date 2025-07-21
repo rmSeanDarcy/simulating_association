@@ -1,46 +1,185 @@
-############################################################################
-##### Readme: SAMSARA workflow                                         #####
-############################################################################
+# Simulating spatially explicit community data and analyising species co-occurrince
 
-############################################################################
-##### Simulating spatially explicit community data and analyising with multiple drivers of community assembly
+**A Snakemake workflow to simulate community data with a spatially and environmentally explicit generalized Lotka–Volterra model, to analyse the inference potential of species co‑occurrences, to reconstruct simulated interactions and environmental preference similarity**
+
+---
+
+## Table of Contents
+
+1. [Background](#background)
+2. [Features](#features)
+3. [Requirements](#requirements)
+4. [Installation](#installation)
+5. [Configuration](#configuration)
+6. [Usage](#usage)
+7. [Workflow overview](#workflow-overview)
+8. [Repository structure](#repository-structure)
+9. [Outputs & Interpretation](#outputs--interpretation)
+10. [Citation](#citation)
+11. [License & Contact](#license--contact)
+
+---
+
+## Background
+
+This workflow allows:
+
+- The simulation of community data:
+  - With any pairwise interaction coefficients
+  - With a novel fundamental niche dynamic in which species respond to multiple environmental factors and can have varying degrees of specialisation
+  - In a spatially explicit 3D network of habitats:
+    - With dispersal dynamics constrained by habitat connectivity
+    - With variable spatial distributions of environmental factors determining the extent of spatial autocorrelation of environmental drivers
+    - With the ability to sample either individual habitats or aggregate community data in composite measurements at different spatial scales
+
+- The analysis of simulated community data:
+  - To determine richness and communities Bray-Curtis dissimilarities
+  - To observe positive and negative co-occurrence via significant correlations and coefficient thresholds
+  - To match co-occurrences with initial interaction and environmental preference inputs and determine the inference potential of co-occurrence data under given settings
+  - To trace how the inference of either driver is influenced by the spatial scale of a sampling unit
+
+## Code featured
+
+- **Python** scripts for simulating community data
+- **R** scripts for data processing, analysis, compiling data and plotting
+- **Snakemake** workflow for reproducible, dependency‑aware execution with dynamic computational resource utilisation
+
+## Requirements
+
+- **Conda** (run with conda 25.5.1)
+  - For python-, R-, module- and package-versions see conda.yaml 
+- **Snakemake** (run with 7.32.4)
+
+## Installation
+
+1. **Clone .git repository**
+Open terminal from your working directory:
+   ```bash
+   git clone https://github.com/rmSeanDarcy/SAMSARA.git
+   cd SAMSARA
+   ```
+2. **Create and activate Conda environment**
+   ```bash
+   conda env create -f SAMSARA_env.yaml
+   conda activate SAMSARA_env
+   ```
+
+## Configuration
+
+We provide three config files:
+- `config_test.yaml` -> Demo simulates scenarios covering all snakemake rules (few replicates; short execution <5min) 
+- `config_fig2.yaml` -> Simulates all data required for producing Fig.2 (intermediate run time)
+- `config_full.yaml` -> Simulates all data utilised in publication (very long runtime, execution on computing cluster recommended)
+
+**Instructions:**
+A. Copy, rename or symlink your chosen config as `config.yaml`:
+   ```bash
+   cp config-full.yaml config.yaml  # or config-test.yaml
+   ```
+B. Create your own `config.yaml`(see other files for reference) and adjust parameters:
+   - `sp_num`: Number of species in simulation
+   - `ratio_cf`: Ratio of negative to positive interactions
+   - `radius`: Physical distance between nodes within which edges are established
+   - **For list and all explanations of all parameters open simulation_scripts/simulation_functions/set_standard_initial_conditions.py. This also allows you to create a fixed set of parameters yourself.**
+(Find specific meaning of inputs for config files below) 
+
+## A brief introduction for those unfamiliar: What is Snakemake?
+Snakemake is a workflow management system that helps you define and execute a series of data processing steps in a reproducible and efficient way. You write a Snakefile describing rules, each of which specifies input files, the code or shell commands to run, and output files. Snakemake then automatically builds a directed acyclic graph (DAG) of all steps, determines which ones need to run based on file timestamps, and schedules paralell execution leveraging the number of cores as specified. It can run either locally or on a computing cluster. It ensures that:
+- Dependencies are handled automatically: Steps are only rerun when inputs change
+- Parallelization is automatically applied: use the --cores flag to run independent rules simultaneously
+- Reproducibility is enforced: the entire workflow is version-controlled and self-documenting (see hidden .snakemake folder for automatic documentation)
+This makes it ideal for complex pipelines like our simulation and analysis where many intermediate files and language environments are orchestrated.
 
 
+## Workflow
+Execute the snakemake workflow (within your active conda environment):
+  ```bash
+  snakemake --snakefile Snakefile --configfile config.yaml --cores 6
+  ```
 
-Motivation:
-This project is a project I have been working on for the last two years. We are currently finishing up the manuscript and I will not be revisiting the analysis. I think this is a great project to integrate into a snakemake workflow, because of the many interdependent steps in data simulation and analysis. The main issue is that if I were to implement my entire (so far manual) workflow, this would take way too much time. Choosing another project might be easier. But I would actually like to, one day make this simulation and analysis pipeline available and easy to use. To make your and my life easier I will therefore only integrate the data simulation and a single example for the analysis. I will write the code so the simulation can be run on the cluster. I am not a bioinformatician so I do not work with massive datasets where many files require the same downstream manipulation.
+Snakemake sequentially executes the following steps:
+1. **Simulation**
+Generation of community data in our spatially explicit generalised Lotka-Volterra system 
+- `simulation_scripts/main_simulation.py` Main simulation script
+- `simulation_scripts/multi_simulation.py` Simulates community data for Fig.5 in which interactions and species resource preferences are identical in the base (s1) and two control scenarios (c1, c2)
+2. **Processing** 
+Subsamples habitats/samples (N = 25) and calculates significant species co-occurrences and species-resource associations
+- `analysis_scripts/process_habitat.R` N habitat samples ->  Single output
+- `analysis_scripts/process_composite_fixed.R` Samples N composite samples containing fixed number of habitats -> Multiple outputs (for every composite sample side lengths l) 
+- `analysis_scripts/process_composite_unequal.R` Samples N composite samples allowing variation in number of habitats -> Multiple outputs (for every composite sample side lengths l)
+3. **Analysis**
+Matches co-occurrence matrices with interaction matrices and species environmental preference similarity. Analyses species richness and Bray-Curtis dissimilarity
+-`analysis_scripts/analysis.R`
+4. **Collection**
+Compiles data for every Figure into two dataframes (one for matching data, one for community metrics)
+-`analysis_scripts/compile_data.R` Output data is now found in analysis_data/"figure ID"
 
-
-Project description:
-The goal of this project was to evaluate the inference potential species 'co-occurrences' (essentially strong correlations) hold. We simulate population dynamics using generalised Lotka-Volterra differential equations (gLVs) in spatially explicit habitats. Species have pairwise interaction coefficients (suppressing or enhancing each others growth) and specific resource preferences. Depending on how well their preferences match the provided resources in a habitat, which are informed by there position in 'resource landscapes' they can reach higher or lower abundances. So both the resulting carrying capacitiy from matching preferences for and abundance of resources as well as their interactions dictate a species final abundance. The analysis simply foucsses on reconstructing our known inputs/drivers. So do Sp.1 and Sp.2 co-occurr because they have a mutualistic interaction coefficient, or is it because they share a similar resource preference? We also have additional confounding dynamics such as dispersal, implemented as simple diffusion dynamic between connected nodes in our habitat network. In this workflow I will only be simulating our baseline scenario recreating Fig.2b, c).
-
-
-My previous workflow:
-I have been working without git. I have simulated data and done preliminary analysis on the cluster. For this I generated slurm scripts in a python script and had to execute them by hand. One issue here is that due to stringing a bunch of different scripts behind one another some required heavy resources and some could be parallelised, while others required few resources but needed to be in series. In retrospect, these should be separate scripts, which could be perfectly run with individually specified resources in a workflow manager. For everything post simulation and preliminary analysis (null model testing etc) I did a lot of explorative data analysis for which the workflow manager is less optimal. This means that I had to adapt my final plotting function to work with any run experiments. This part I would not normally add to my snakemake workflow as users of this model would have their own intentions for analysing the data. At least for this automated snakemake workflow makes less sense.
-One thing, which I messed up here also is that I often refer to working directories by paths. So for simulating and processing the data my first input is always the working directory, which seems quite unnecessary as I could always refer to the relative paths from my main working directory. This is why it is important to change the working directory in the 'config.yaml' file for the workflow to work...
-
-
-My workflow in snakemake:
-It will be a little rough for you to understand my code and the huge amount of parameters that are implemented in this analysis. 
-Just a short run through of how it works:
-
-The config file:
-The basic logic of my simulations and analysis follows a separation into 'experiments' and 'treatments'. An experiment will often have a similar set of parameters, while a treatment alters a single one or few. In the config.yaml both are specified and treatement folders are generated within an experiment folder. Post simulation all treatment results are then combined in a single output file in the results folder. See the snakemake file for more info but in short: Every runs gets many inputs, which are informed by the config file: The working directory, the name of the experiment folder, the name of the treatment folder, the name of a predefined set of parameters (see ./simulation_code/Load_simulation_functions/set_standard_initial_conditions.py) and additional parameters that can be overwritten (often specified within treatments).
-
-Rule 1.  simulates the community dynamics producing a large amount of .csv's contianing original settings, randomly generated parameters (such as interaction matrices) and the final simulated population data.
-
-Rule 2. takes this data and calculates significant co-occurrences through null model testing, including a correlation coefficient threshold. This function also analyses the how well out inputs predicted these co-occurrences and some diversity metrics.
-
-Rule 3. collects all of these data generated in 'treatments' into a single file that can be found in the 'experiment' folder.
-
-Rule 4. then plots all treatments in an experiment in a barplot. The bars show the mean number of co-occurrences with additional colouring for the number of co-occurrences that could be either matched with interactions or/and similarity in environmental preference.
-
-Rule 5. I added this last minute to fill up my 5 mandatory rules... Generates a very basic markdown file which can be seen as a report for the analysed experiments. The output is stored in the experiment folder.
-
-Rule all for the final output.
-
-(I only have five rules in this project right now because this is the way I set up my project. I know 5 was the required minimum... It would make most sense to split Rule 2. into two steps, one where I calculate the significant co-occurrences and another one in which I can do the analysis of matching inputs and co-occurrences. Sadly I lacked the time to do this because the code is very large and the way it is now it would have taken too long to separate it. But I will definately do this once I have more time!)
+Documentation on what individual steps do can be found in the scripts listed above. Each script referenced above calls functions from corresponding folders within either `simulation_scripts/' or 'analysis_scripts/'. Open the snakefile (in a text editor) to find the documented code. For every simulation defined in our config data, snakemake runs the simluation (python), processing and analysis (R) of community data sequentially. But each simulation is fully independent, meaning all simulations can be run in parallel. Only in the final step, where data is compiled does snakemake have to wait until all data (within a Figure set) is finished before it can create the final dataset. 
 
 
-My opinion on this homework:
-I really think my work has greatly benefitted from this exercise. Especially the fact that I can create a config file with all of my experiments and treatments and simply run a single script to generate all of the data in parallel is a game changer. I aim to publish my model at some time down the road and will most likely do so using snakemake. If the only thing a user has to do is create a config file, this really benefits user friendliness. Such a config file could also easily be generated by having users specify their parameters on an interactive website or so. There are many exciting possibilities I hadn't even thought of. Sadly due to time constraints I have also yet to run log/benchmark tests and optimise resource use. I have also not yet run my scripts on the cluster, which is of course the long term goal. For now, when running locally it makes sense to only simulate few replicates for simulation times not to be too long. I spread my documentation to here, which contains long winded explanations and a concise INSTALL.md file to recreate the workflow.
+## Plotting
+All compiled result data for all simulations within a figure ID is stored under 'analysis_data/'. Plotting result data is not integrated into our workflow. If the full dataset (config_full.yaml) has been generated users can execute the following bash command to generate all .svg's used in the result figures. Depending on your setup, the working directory might need to be set to the working directory in the script.
+```bash
+Rscript analysis_scripts/plot_figures.R
+```
+Otherwise, or if only a part of the data was generated (f.ex. when running config_fig2.yaml), we recommend a line by line execution in an IDE like Rstudio. All functions called in `analysis_scripts/plot_figures.R` can be found in the corresponding scripts in 'analysis_scripts/plot_functions'.
+
+
+## config.yaml settings
+Every simulation is located in a hierarchy of folders with a unique path within 'simulation_data/'. Each is characterised by an 'experiment', a 'treatement' and a 'simulation' ID, which is also give folder names. 'simulation_data/fig2/s1/s1' f.ex. contains all simulated and result data from out base scenario. Each simulation listed under experiments receives four inputs:
+- simulation_parameter_string: must take as a first element a set of standard initial conditions (see `simulation_scripts/simulation_functions/set_standard_initial_conditions.py` for more information). Additional parameters can be passed after this that override the standard initial conditions (separate by spaces)
+- simulation_script: Mostly `simulation_scripts/main_simulation.py`. `simulation_scripts/multi_simulation.py` only called once for fig5
+- analysis_parameter_string: Currently only argument for setting extent of noise (xi) implemented
+- analysis_script: Specifies script for sampling either habitat level or composites (and here fixed or unequal number of habitats) 
+
+Besides the first section under the header 'experiments:', there is a second section containing 'clones:'. As multiple downstream analyses can use the same simulated data (think analysis of sampling noise), we add a step in which this data is copied (or cloned) into new 'simulation' folders. For these simulations, the three level hierarchy is identical, and all cloned and analysed data will appear in folders within the 'experiments/' folders also defined in the first config section. To specify which data is copied into these new paths 'simulations' under clones receive two additional inputs:
+- source_treatment: Specifies the ID of the treatment of the data to be copied
+- source_simulation: Specifies the ID of the simulation of the data to be copied
+As with the simulations in the first config section, the path of a cloned file will follow the IDs given in the config file
+
+
+## Repository structure
+```text
+├── README.md
+├── environment.yaml            # Conda environment spec
+├── config-test.yaml           # Demo settings
+├── config-full.yaml           # Full-scale settings
+├── Snakefile                  # Workflow definition
+├── simulation_scripts/        # Python simulation code
+│   ├── simulate.py
+│   └── utils.py
+├── analysis_scripts/          # R analysis and plotting code
+│   ├── processing_functions/
+│   ├── analysis_functions/
+│   ├── plot_functions/
+│   └── plot_final_figures.R
+├── results/                   # Generated data (ignored by Git)
+└── .gitignore                 # excludes .Rproj, .snakemake/, results/, etc.
+```
+
+> **Tip:** Files like `.Rproj`, `.snakemake/`, and `*.Rproj.user` are excluded via `.gitignore`.
+
+## Outputs & Interpretation
+
+List key result files and their meaning:
+
+- `results/summary/cooccurrence_matrix.csv` — pairwise Spearman ρ between species.
+- `results/summary/interaction_vs_inference.csv` — comparison of true vs. inferred networks.
+- **[MISSING INFO: any additional summary tables]**
+
+Describe how to interpret:
+
+- What a positive ρ indicates versus negative.
+- How to read the interaction discrepancy metrics.
+
+## Citation
+
+If you use this workflow, please cite:
+
+> **[MISSING INFO: Your Name et al. (2025). Title. Journal. DOI]**
+
+## License & Contact
+
+This project is licensed under the MIT License.\
+Questions or issues? Please open an issue or contact **[MISSING INFO: **[**your.email@institution.edu**](mailto\:your.email@institution.edu)**]**.
+
