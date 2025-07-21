@@ -6,9 +6,10 @@
 *.png
 *.jpg
 
-*.Proj
-*.Rproj.user
-*.Rhistory
+SAMSARA.Rproj
+.Rhist
+.Rproj.user/
+.snakemake/
 
 ### Ignore files in data folders
 /analysis_data/**
