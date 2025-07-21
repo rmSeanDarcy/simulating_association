@@ -113,9 +113,9 @@ rule simulate:
 ##### Rule runs the script 'multi_simulation.py' (no inputs, 'hard coded' for fig5) 
 rule simulate_fig5_multi:
     output:
-        "simulation_data/fig5/nw_s1/nw_s1/.simulated",
-        "simulation_data/fig5/nw_c1/nw_c1/.simulated",
-        "simulation_data/fig5/nw_c2/nw_c2/.simulated"
+        "simulation_data/fig5_fig2/nw_s1/nw_s1/.simulated",
+        "simulation_data/fig5_fig2/nw_c1/nw_c1/.simulated",
+        "simulation_data/fig5_fig2/nw_c2/nw_c2/.simulated"
     run:
         # run your multi‐simulation
         shell('''
