@@ -15,7 +15,7 @@ experiments = config["experiments"]
 clones      = config["clones"]
 
 ############################################################################
-##### Enforce rule order (important)
+##### Enforce rule order
 ruleorder: simulate > clone > process_sim > process_clone > analyse_simulations > compile_data
 
 
