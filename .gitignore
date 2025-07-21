@@ -1,12 +1,21 @@
-### Ignore data files
+### Ignore by file types
 *.csv
 *.tsv
 *.pdf
 *.svg
 *.png
 *.jpg
-analysis_data/
-simulation_data/
-figures/
 
-.Rproj.user
+*.Proj
+*.Rproj.user
+*.Rhistory
+
+### Ignore files in data folders
+/analysis_data/**
+/simulation_data/**
+/figures/**
+# Keep hidden placeholder .gitkeep file in each folder
+!/analysis_data/.gitkeep
+!/simulation_data/.gitkeep
+!/figures/.gitkeep
+

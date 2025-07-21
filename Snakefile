@@ -4,7 +4,7 @@
 
 ############################################################################
 ### Load config files and modules 
-configfile: "config_test.yaml"
+configfile: "config.yaml"
 import os, shutil
 
 ### Define labels for data that needs to be:
@@ -111,12 +111,11 @@ rule simulate:
 
 ############################################################################
 ##### Rule runs the script 'multi_simulation.py' (no inputs, 'hard coded' for fig5) 
-###!!!!!!!!!!!!!!!!!!!!!!!!!!!!change the xfig5 to fig5!
 rule simulate_fig5_multi:
     output:
-        "simulation_data/xfig5/nw_s1/nw_s1/.simulated",
-        "simulation_data/xfig5/nw_c1/nw_c1/.simulated",
-        "simulation_data/xfig5/nw_c2/nw_c2/.simulated"
+        "simulation_data/fig5/nw_s1/nw_s1/.simulated",
+        "simulation_data/fig5/nw_c1/nw_c1/.simulated",
+        "simulation_data/fig5/nw_c2/nw_c2/.simulated"
     run:
         # run your multi‐simulation
         shell('''

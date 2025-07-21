@@ -1,0 +1,60 @@
+experiments:
+
+  fig2_fig2:
+    s1:
+      simulations:
+        s1:
+          simulation_parameter_string: "basic"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+    c1:
+      simulations:
+        c1:
+          simulation_parameter_string: "null_int"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+    c2:
+      simulations:
+        c2:
+          simulation_parameter_string: "null_rsc"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+    s2:
+      simulations:
+        s2:
+          simulation_parameter_string: "basic --ratio_cf=0.5"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+    s3:
+      simulations:
+        s3:
+          simulation_parameter_string: "basic --rsc_cube_gen_rule='specific_dist' --rsc_cube_gen_vals='gradXsqrXtd,gradXsqrXdt,pwl_spcXsqrX0'"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+    s5:
+      simulations:
+        s5:
+          simulation_parameter_string: "basic --sp_ini_perc=0.8"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0"
+          analysis_script: "process_habitat.R"
+
+
+clones:
+
+  fig2_fig2:
+    s4:
+      simulations:
+        s4:
+          source_treatment: s1
+          source_simulation: s1
+          simulation_parameter_string: "basic"
+          simulation_script: "main_simulation.py"
+          analysis_parameter_string: "--noise=0.25"
+          analysis_script: "process_habitat.R"
+
