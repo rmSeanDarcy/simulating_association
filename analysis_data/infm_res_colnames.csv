@@ -1,0 +1,101 @@
+full_res_colnames.csv,Meaning
+totp,Number of positive co-occurrences
+eucp,Precision for detecting positive co-occurrences with similar environmental preference
+intp,Precision for detecting positive co-occurrences with interactions
+shrp,Precision for detecting positive co-occurrences with two species sharing the same associations with resources (not included in paper)
+eucshrp,Precision for intersection
+eucintp,Precision for intersection
+shrintp,Precision for intersection
+eucshrintp,Precision for intersection
+unxp,"Precision for detecting positive co-occurrences with no discernible driver (meaning those that don’t match eucp, intp or shrp)"
+eucp_cor,Precision for detecting positive co-occurrences with ONLY similar environmental preference (excludes intersections with intp and shrp)
+shrp_cor,Analogous to above (excludes eucp and intp)
+intp_cor,Analogous to above (excludes eucp and shrp)
+eucshrp_cor,Analogous to above for the intersection of eucp and shrp (here excludes any intersection with intp)
+eucintp_cor,Analogous to above (excludes any intersection with shrp)
+shrintp_cor,Analogous to above (excludes any intersection with eucp)
+eucp_corA,Precision for detecting positive co-occurrences with ONLY similar environmental preference (here excludes intersections with ONLY intp; shrp is ignored here). This is the green bar area in the data shown in Fig.2 B!
+intp_corA,Analogous to above (excludes any intersection with eucp). This is the orange bar area in Fig.2 B!
+eucintp_corA,Intersection of eucp and intp. This is the hatched area in Fig.2 B!
+unxpA,Precision for detecting positive co-occurrences with no discernible driver (ignores the intersection with shrp)
+eucp_corB,"Here in stead of removing shrp we remove intp, comparing how eucp and shrp overlap. Not seen in paper!"
+shrp_corB,Analogous to above
+eucshrp_corB,Analogous to above
+unxpB,Analogous to above
+totn,Number of negative co-occurrences. From here all labels are analogous to those above just for negative associations
+eucn,
+intn,
+shrn,
+eucshrn,
+eucintn,
+shrintn,
+eucshrintn,
+unxn,
+eucn_cor,
+shrn_cor,
+intn_cor,
+eucshrn_cor,
+eucintn_cor,
+shrintn_cor,
+eucn_corA,
+intn_corA,
+eucintn_corA,
+unxnA,
+eucn_corB,
+shrn_corB,
+eucshrn_corB,
+unxnB,
+totp_sd,Here we extract the standard deviation for all of the metrics listed above
+eucp_sd,
+intp_sd,
+shrp_sd,
+eucshrp_sd,
+eucintp_sd,
+shrintp_sd,
+eucshrintp_sd,
+unxp_sd,
+eucp_cor_sd,
+shrp_cor_sd,
+intp_cor_sd,
+eucshrp_cor_sd,
+eucintp_cor_sd,
+shrintp_cor_sd,
+eucp_corA_sd,
+intp_corA_sd,
+eucintp_corA_sd,
+unxpA_sd,
+eucp_corB_sd,
+shrp_corB_sd,
+eucshrp_corB_sd,
+unxpB_sd,
+totn_sd,
+eucn_sd,
+intn_sd,
+shrn_sd,
+eucshrn_sd,
+eucintn_sd,
+shrintn_sd,
+eucshrintn_sd,
+unxn_sd,
+eucn_cor_sd,
+shrn_cor_sd,
+intn_cor_sd,
+eucshrn_cor_sd,
+eucintn_cor_sd,
+shrintn_cor_sd,
+eucn_corA_sd,
+intn_corA_sd,
+eucintn_corA_sd,
+unxnA_sd,
+eucn_corB_sd,
+shrn_corB_sd,
+eucshrn_corB_sd,
+unxnB_sd,
+nzerop,This gives the number of simulations (so relies on n_repl!) in which no positive co-occurrences were observed
+nzeron,This gives the number of simulations (so relies on n_repl!) in which no negative co-occurrences were observed
+cor_totp,This gives the mean number of positive co-occurrences observed if we disregard those runs with zero positive co-occurrences
+cor_totn,This gives the mean number of positive co-occurrences observed if we disregard those runs with zero positive co-occurrences
+d,Run identifier (contains information on habitat or composite sampling and for the latter the composite sample side length
+treatment,A runs treatment ID
+simulation,A runs simulation ID
+experiment,A runs experiment ID

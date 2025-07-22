@@ -1,0 +1,19 @@
+full_res_compiled.csv,Meaning
+mn_rch,Mean species richness
+sd_rch,+ standard deviation
+mn_simp,Mean Simpsons diversity index (species)
+sd_simp,+ standard deviation
+mn_shan,Mean Shannon diversity index
+sd_shan,+ standard deviation
+mn_bc,Mean Bray-Curtis dissimilarity
+sd_bc,+ standard deviation
+mn_rscprf,Mean resource preference
+mn_rch_rsc,Mean resource richness
+sd_rch_rsc,+ standard deviation
+mn_simp_rsc,Mean Simpsons diversity index (resources)
+sd_simp_rsc,+ standard deviation
+mn_shan_rsc,Mean Shannon diversity index (resources)
+sd_shan_rsc,+ standard deviation
+mn_bc_rsc,Mean Bray-Curtis dissimilarity (resources)
+sd_bc_rsc,+ standard deviation
+d,Run identifier (contains information on habitat or composite sampling and for the latter the composite sample side length

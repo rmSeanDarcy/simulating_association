@@ -169,7 +169,7 @@ As with the simulations in the first config section, the path of a cloned file w
 └── .gitignore                        # excludes .Rproj, .snakemake/, analysis_data/, simulation_data/ 
 ```
 
-# Additional folders/files added in workflow (examples)
+# Folders/files added through workflow (examples)
 ```text
 ├── simulation_data                   # Location where all simulated data is stored 
 │   ├── fig2/                         # 'experiment ID'
@@ -201,5 +201,5 @@ If you use this workflow, please cite:
 ## License & Contact
 
 This project is licensed under the MIT License.\
-Questions or issues? Please open an issue or contact **[MISSING INFO: **[**your.email@institution.edu**](mailto\:your.email@institution.edu)**]**.
+Questions or issues? Please open an issue or contact **[MISSING INFO: **[**sean.darcy@univie.ac.at**](mailto\:sean.darcy@univie.ac.at)**]**
 

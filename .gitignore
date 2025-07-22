@@ -11,7 +11,7 @@ SAMSARA.Rproj
 .Rproj.user/
 .snakemake/
 
-### Ignore files in data folders
+### Ignore folders
 /analysis_data/**
 /simulation_data/**
 /figures/**
@@ -19,4 +19,8 @@ SAMSARA.Rproj
 !/analysis_data/.gitkeep
 !/simulation_data/.gitkeep
 !/figures/.gitkeep
+
+### Ignore specific files
+!/analysis_data/full_res_colnames.csv
+!/analysis_data/infm_res_colnames.csv
 

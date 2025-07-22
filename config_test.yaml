@@ -1,6 +1,6 @@
 experiments:
 
-  fig2_test:
+  fig2:
     s1:
       simulations:
         s1:
@@ -9,7 +9,7 @@ experiments:
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_habitat.R"
 
-  fig3_test:
+  fig3:
     rc1:
       simulations:
         radius_0.05:
@@ -18,7 +18,7 @@ experiments:
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_habitat.R"
 
-  fig4_test:
+  fig4:
     rc1:
       simulations:
         rc1:
@@ -27,7 +27,7 @@ experiments:
           analysis_parameter_string: "--noise=0"
           analysis_script: "process_composite_fixed.R"
 
-  fig5_test:
+  fig5:
     nw_s1:
       simulations:
         nw_s1:
@@ -53,7 +53,7 @@ experiments:
 
 clones:
 
-  fig2_test:
+  fig2:
     s4:
       simulations:
         s4:
@@ -64,7 +64,7 @@ clones:
           analysis_parameter_string: "--noise=0.25"
           analysis_script: "process_habitat.R"
 
-  fig3_test:
+  fig3:
     rc1_noise:
       simulations:
         radius_0.05__noise0.1:
@@ -75,7 +75,7 @@ clones:
           analysis_parameter_string: "--noise=0.1"
           analysis_script: "process_habitat.R"
 
-  fig4_test:
+  fig4:
     rc1_noise:
       simulations:
         noise_0.25:

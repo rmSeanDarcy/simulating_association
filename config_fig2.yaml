@@ -1,6 +1,6 @@
 experiments:
 
-  fig2_fig2:
+  fig2:
     s1:
       simulations:
         s1:
@@ -47,7 +47,7 @@ experiments:
 
 clones:
 
-  fig2_fig2:
+  fig2:
     s4:
       simulations:
         s4:
